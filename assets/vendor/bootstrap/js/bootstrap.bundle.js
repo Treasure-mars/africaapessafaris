@@ -2133,7 +2133,7 @@
 
     if (uaData != null && uaData.brands) {
       return uaData.brands.map(function (item) {
-        return item.brand + "/" + item.version;
+        return item.brand + "index.html" + item.version;
       }).join(' ');
     }
 

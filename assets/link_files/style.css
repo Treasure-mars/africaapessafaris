@@ -3,14 +3,6 @@
 /*font-family: 'Poppins', sans-serif;
 font-family: 'Roboto', sans-serif;*/
 
-@import url('font-awesome.css');
-@import url('flaticon.css');
-@import url('animate.css');
-@import url('owl.css');
-@import url('jquery-ui.css');
-@import url('jquery.fancybox.min.css');
-@import url('jquery.bootstrap-touchspin.css');
-@import url('jquery.mCustomScrollbar.min.css');
 
 * {
 	margin:0px;
@@ -274,10 +266,6 @@ h6{
 	-webkit-transition:all 0.3s ease;
 	-ms-transition:all 0.3s ease;
 	-o-transition:all 0.3s ease;
-}
-
-.social-icon-one li a:hover{
-	
 }
 
 /*Social Icon Two*/
@@ -772,9 +760,6 @@ img{
 	padding: 0px;
 }
 
-.main-header .outer-box .option-list li strong{
-	
-}
 
 .main-header .outer-box .option-box{
 	position: relative;

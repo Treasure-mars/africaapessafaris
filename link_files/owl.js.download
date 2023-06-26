@@ -464,8 +464,8 @@
 		this.$element.addClass(this.options.loadingClass);
 
 		// create stage
-		this.$stage = $('<' + this.settings.stageElement + ' class="/africaapessafaris/' + this.settings.stageClass + '"/africaapessafaris/>')
-			.wrap('<div class="/africaapessafaris/' + this.settings.stageOuterClass + '"/africaapessafaris/>');
+		this.$stage = $('<' + this.settings.stageElement + ' class="' + this.settings.stageClass + '"/>')
+			.wrap('<div class="' + this.settings.stageOuterClass + '"/>');
 
 		// append stage
 		this.$element.append(this.$stage.parent());
@@ -2212,25 +2212,25 @@
 		var tnLink,
 			icon,
 			path,
-			dimensions = video.width && video.height ? 'style="/africaapessafaris/width:' + video.width + 'px;height:' + video.height + 'px;"/africaapessafaris/' : '',
+			dimensions = video.width && video.height ? 'style="width:' + video.width + 'px;height:' + video.height + 'px;"' : '',
 			customTn = target.find('img'),
 			srcType = 'src',
 			lazyClass = '',
 			settings = this._core.settings,
 			create = function(path) {
-				icon = '<div class="/africaapessafaris/owl-video-play-icon"/africaapessafaris/></div>';
+				icon = '<div class="owl-video-play-icon"></div>';
 
 				if (settings.lazyLoad) {
-					tnLink = '<div class="/africaapessafaris/owl-video-tn ' + lazyClass + '"/africaapessafaris/ ' + srcType + '="/africaapessafaris/' + path + '"/africaapessafaris/></div>';
+					tnLink = '<div class="owl-video-tn ' + lazyClass + '" ' + srcType + '="' + path + '"></div>';
 				} else {
-					tnLink = '<div class="/africaapessafaris/owl-video-tn"/africaapessafaris/ style="/africaapessafaris/opacity:1;background-image:url(' + path + ')"/africaapessafaris/></div>';
+					tnLink = '<div class="owl-video-tn" style="opacity:1;background-image:url(' + path + ')"></div>';
 				}
 				target.after(tnLink);
 				target.after(icon);
 			};
 
 		// wrap video content into owl-video-wrapper div
-		target.wrap('<div class="/africaapessafaris/owl-video-wrapper"/africaapessafaris/' + dimensions + '></div>');
+		target.wrap('<div class="owl-video-wrapper"' + dimensions + '></div>');
 
 		if (this._core.settings.lazyLoad) {
 			srcType = 'data-src';
@@ -2245,7 +2245,7 @@
 		}
 
 		if (video.type === 'youtube') {
-			path = "/africaapessafaris//img.youtube.com/vi/"/africaapessafaris/ + video.id + "/africaapessafaris/hqdefault.jpg"/africaapessafaris/;
+			path = "//img.youtube.com/vi/" + video.id + "/hqdefault.jpg";
 			create(path);
 		} else if (video.type === 'vimeo') {
 			$.ajax({
@@ -2310,19 +2310,19 @@
 		this._core.reset(item.index());
 
 		if (video.type === 'youtube') {
-			html = '<iframe width="/africaapessafaris/' + width + '"/africaapessafaris/ height="/africaapessafaris/' + height + '"/africaapessafaris/ src="/africaapessafaris//www.youtube.com/embed/' +
-				video.id + '?autoplay=1&v=' + video.id + '"/africaapessafaris/ frameborder="/africaapessafaris/0"/africaapessafaris/ allowfullscreen></iframe>';
+			html = '<iframe width="' + width + '" height="' + height + '" src="//www.youtube.com/embed/' +
+				video.id + '?autoplay=1&v=' + video.id + '" frameborder="0" allowfullscreen></iframe>';
 		} else if (video.type === 'vimeo') {
-			html = '<iframe src="/africaapessafaris//player.vimeo.com/video/' + video.id +
-				'?autoplay=1"/africaapessafaris/ width="/africaapessafaris/' + width + '"/africaapessafaris/ height="/africaapessafaris/' + height +
-				'"/africaapessafaris/ frameborder="/africaapessafaris/0"/africaapessafaris/ webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+			html = '<iframe src="//player.vimeo.com/video/' + video.id +
+				'?autoplay=1" width="' + width + '" height="' + height +
+				'" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
 		} else if (video.type === 'vzaar') {
-			html = '<iframe frameborder="/africaapessafaris/0"/africaapessafaris/' + 'height="/africaapessafaris/' + height + '"/africaapessafaris/' + 'width="/africaapessafaris/' + width +
-				'"/africaapessafaris/ allowfullscreen mozallowfullscreen webkitAllowFullScreen ' +
-				'src="/africaapessafaris//view.vzaar.com/' + video.id + '/player?autoplay=true"/africaapessafaris/></iframe>';
+			html = '<iframe frameborder="0"' + 'height="' + height + '"' + 'width="' + width +
+				'" allowfullscreen mozallowfullscreen webkitAllowFullScreen ' +
+				'src="//view.vzaar.com/' + video.id + '/player?autoplay=true"></iframe>';
 		}
 
-		$('<div class="/africaapessafaris/owl-video-frame"/africaapessafaris/>' + html + '</div>').insertAfter(item.find('.owl-video'));
+		$('<div class="owl-video-frame">' + html + '</div>').insertAfter(item.find('.owl-video'));
 
 		this._playing = item.addClass('owl-video-playing');
 	};
@@ -2758,7 +2758,7 @@
 		this._handlers = {
 			'prepared.owl.carousel': $.proxy(function(e) {
 				if (e.namespace && this._core.settings.dotsData) {
-					this._templates.push('<div class="/africaapessafaris/' + this._core.settings.dotClass + '"/africaapessafaris/>' +
+					this._templates.push('<div class="' + this._core.settings.dotClass + '">' +
 						$(e.content).find('[data-dot]').addBack('[data-dot]').attr('data-dot') + '</div>');
 				}
 			}, this),

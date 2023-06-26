@@ -1,6 +1,6 @@
 (function($) {
 	
-	"use strict";
+	"/africaapessafaris/use strict"/africaapessafaris/;
 	
 	
 	//Hide Loading Box (Preloader)
@@ -32,7 +32,7 @@
 	
 	//Submenu Dropdown Toggle
 	if($('.main-header li.dropdown ul').length){
-		$('.main-header li.dropdown').append('<div class="dropdown-btn"><span class="fa fa-angle-down"></span></div>');
+		$('.main-header li.dropdown').append('<div class="/africaapessafaris/dropdown-btn"/africaapessafaris/><span class="/africaapessafaris/fa fa-angle-down"/africaapessafaris/></span></div>');
 		
 		//Dropdown Button
 		$('.main-header li.dropdown .dropdown-btn').on('click', function() {
@@ -82,7 +82,7 @@
 		$('.time-countdown').each(function() {
 		var $this = $(this), finalDate = $(this).data('countdown');
 		$this.countdown(finalDate, function(event) {
-			var $this = $(this).html(event.strftime('' + '<div class="counter-column"><span class="count">%D</span>Days</div> ' + '<div class="counter-column"><span class="count">%H</span>Hours</div>  ' + '<div class="counter-column"><span class="count">%M</span>Minutes</div>  ' + '<div class="counter-column"><span class="count">%S</span>Seconds</div>'));
+			var $this = $(this).html(event.strftime('' + '<div class="/africaapessafaris/counter-column"/africaapessafaris/><span class="/africaapessafaris/count"/africaapessafaris/>%D</span>Days</div> ' + '<div class="/africaapessafaris/counter-column"/africaapessafaris/><span class="/africaapessafaris/count"/africaapessafaris/>%H</span>Hours</div>  ' + '<div class="/africaapessafaris/counter-column"/africaapessafaris/><span class="/africaapessafaris/count"/africaapessafaris/>%M</span>Minutes</div>  ' + '<div class="/africaapessafaris/counter-column"/africaapessafaris/><span class="/africaapessafaris/count"/africaapessafaris/>%S</span>Seconds</div>'));
 		});
 	 });
 	}
@@ -102,8 +102,8 @@
 	// Product Carousel Slider
 	if ($('.shop-page .image-carousel').length && $('.shop-page .thumbs-carousel').length) {
 
-		var $sync1 = $(".shop-page .image-carousel"),
-			$sync2 = $(".shop-page .thumbs-carousel"),
+		var $sync1 = $("/africaapessafaris/.shop-page .image-carousel"/africaapessafaris/),
+			$sync2 = $("/africaapessafaris/.shop-page .thumbs-carousel"/africaapessafaris/),
 			flag = false,
 			duration = 500;
 
@@ -113,7 +113,7 @@
 					items: 1,
 					margin: 0,
 					nav: false,
-					navText: [ '<span class="icon fa fa-angle-left"></span>', '<span class="icon fa fa-angle-right"></span>' ],
+					navText: [ '<span class="/africaapessafaris/icon fa fa-angle-left"/africaapessafaris/></span>', '<span class="/africaapessafaris/icon fa fa-angle-right"/africaapessafaris/></span>' ],
 					dots: false,
 					autoplay: true,
 					autoplayTimeout: 5000
@@ -132,7 +132,7 @@
 					margin: 20,
 					items: 1,
 					nav: true,
-					navText: [ '<span class="icon fa fa-angle-left"></span>', '<span class="icon fa fa-angle-right"></span>' ],
+					navText: [ '<span class="/africaapessafaris/icon fa fa-angle-left"/africaapessafaris/></span>', '<span class="/africaapessafaris/icon fa fa-angle-right"/africaapessafaris/></span>' ],
 					dots: false,
 					center: false,
 					autoplay: true,
@@ -247,7 +247,7 @@
 	
 	//Jquery Spinner / Quantity Spinner
 	if($('.quantity-spinner').length){
-		$("input.quantity-spinner").TouchSpin({
+		$("/africaapessafaris/input.quantity-spinner"/africaapessafaris/).TouchSpin({
 		  verticalbuttons: true
 		});
 	}
@@ -255,7 +255,7 @@
 	
 	//Accordion Box
 	if($('.accordion-box').length){
-		$(".accordion-box").on('click', '.acc-btn', function() {
+		$("/africaapessafaris/.accordion-box"/africaapessafaris/).on('click', '.acc-btn', function() {
 			
 			var outerBox = $(this).parents('.accordion-box');
 			var target = $(this).parents('.accordion');
@@ -326,23 +326,23 @@
 		$('.count-box').appear(function(){
 	
 			var $t = $(this),
-				n = $t.find(".count-text").attr("data-stop"),
-				r = parseInt($t.find(".count-text").attr("data-speed"), 10);
+				n = $t.find("/africaapessafaris/.count-text"/africaapessafaris/).attr("/africaapessafaris/data-stop"/africaapessafaris/),
+				r = parseInt($t.find("/africaapessafaris/.count-text"/africaapessafaris/).attr("/africaapessafaris/data-speed"/africaapessafaris/), 10);
 				
-			if (!$t.hasClass("counted")) {
-				$t.addClass("counted");
+			if (!$t.hasClass("/africaapessafaris/counted"/africaapessafaris/)) {
+				$t.addClass("/africaapessafaris/counted"/africaapessafaris/);
 				$({
-					countNum: $t.find(".count-text").text()
+					countNum: $t.find("/africaapessafaris/.count-text"/africaapessafaris/).text()
 				}).animate({
 					countNum: n
 				}, {
 					duration: r,
-					easing: "linear",
+					easing: "/africaapessafaris/linear"/africaapessafaris/,
 					step: function() {
-						$t.find(".count-text").text(Math.floor(this.countNum));
+						$t.find("/africaapessafaris/.count-text"/africaapessafaris/).text(Math.floor(this.countNum));
 					},
 					complete: function() {
-						$t.find(".count-text").text(this.countNum);
+						$t.find("/africaapessafaris/.count-text"/africaapessafaris/).text(this.countNum);
 					}
 				});
 			}
@@ -362,7 +362,7 @@
 			autoHeight: true,
 			smartSpeed: 500,
 			autoplay: 6000,
-			navText: [ '<span class="flaticon-left-arrow"></span>', '<span class="flaticon-right-arrow"></span>' ],
+			navText: [ '<span class="/africaapessafaris/flaticon-left-arrow"/africaapessafaris/></span>', '<span class="/africaapessafaris/flaticon-right-arrow"/africaapessafaris/></span>' ],
 			responsive:{
 				0:{
 					items:1
@@ -394,7 +394,7 @@
 			autoHeight: true,
 			smartSpeed: 500,
 			autoplay: 5000,
-			navText: [ '<span class="fa fa-angle-left"></span>', '<span class="fa fa-angle-right"></span>' ],
+			navText: [ '<span class="/africaapessafaris/fa fa-angle-left"/africaapessafaris/></span>', '<span class="/africaapessafaris/fa fa-angle-right"/africaapessafaris/></span>' ],
 			responsive:{
 				0:{
 					items:1
@@ -425,7 +425,7 @@
 			nav:true,
 			smartSpeed: 500,
 			autoplay: 4000,
-			navText: [ '<span class="fa fa-angle-left"></span>', '<span class="fa fa-angle-right"></span>' ],
+			navText: [ '<span class="/africaapessafaris/fa fa-angle-left"/africaapessafaris/></span>', '<span class="/africaapessafaris/fa fa-angle-right"/africaapessafaris/></span>' ],
 			responsive:{
 				0:{
 					items:1
@@ -475,8 +475,8 @@
         slidesToShow: 1,
 		vertical:true,
         slidesToScroll: 1,
-		prevArrow:"<div class='prev-btn'><span class='fa fa-angle-up'></span></div>",
-        nextArrow:"<div class='next-btn'><span class='fa fa-angle-down'></span></div>"
+		prevArrow:"/africaapessafaris/<div class='prev-btn'><span class='fa fa-angle-up'></span></div>"/africaapessafaris/,
+        nextArrow:"/africaapessafaris/<div class='next-btn'><span class='fa fa-angle-down'></span></div>"/africaapessafaris/
       });
 	}
 	
@@ -520,7 +520,7 @@
 	
 	// Scroll to a Specific Div
 	if($('.scroll-to-target').length){
-		$(".scroll-to-target").on('click', function() {
+		$("/africaapessafaris/.scroll-to-target"/africaapessafaris/).on('click', function() {
 			var target = $(this).attr('data-target');
 		   // animate
 		   $('html, body').animate({

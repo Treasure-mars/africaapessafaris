@@ -58,7 +58,7 @@
 
         // What buttons should appear in the top right corner.
         // Buttons will be created using templates from `btnTpl` option
-        // and they will be placed into toolbar (class="fancybox-toolbar"` element)
+        // and they will be placed into toolbar (class="/africaapessafaris/fancybox-toolbar"/africaapessafaris/` element)
         buttons : [
             'slideShow',
             'fullScreen',
@@ -69,7 +69,7 @@
             'close'
         ],
 
-        // Detect "idle" time in seconds
+        // Detect "/africaapessafaris/idle"/africaapessafaris/ time in seconds
         idleTime : 3,
 
         // Should display buttons at top right corner of the content
@@ -80,7 +80,7 @@
         // Disable right-click and use simple image protection for images
         protect : false,
 
-        // Shortcut to make content "modal" - disable keyboard navigtion, hide buttons, etc
+        // Shortcut to make content "/africaapessafaris/modal"/africaapessafaris/ - disable keyboard navigtion, hide buttons, etc
         modal : false,
 
         image : {
@@ -88,7 +88,7 @@
             // Wait for images to load before displaying
             // Requires predefined image dimensions
             // If 'auto' - will zoom in thumbnail if 'width' and 'height' attributes are found
-            preload : "auto"
+            preload : "/africaapessafaris/auto"/africaapessafaris/
 
         },
 
@@ -109,11 +109,11 @@
         iframe : {
 
             // Iframe template
-            tpl : '<iframe id="fancybox-frame{rnd}" name="fancybox-frame{rnd}" class="fancybox-iframe" frameborder="0" vspace="0" hspace="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen allowtransparency="true" src=""></iframe>',
+            tpl : '<iframe id="/africaapessafaris/fancybox-frame{rnd}"/africaapessafaris/ name="/africaapessafaris/fancybox-frame{rnd}"/africaapessafaris/ class="/africaapessafaris/fancybox-iframe"/africaapessafaris/ frameborder="/africaapessafaris/0"/africaapessafaris/ vspace="/africaapessafaris/0"/africaapessafaris/ hspace="/africaapessafaris/0"/africaapessafaris/ webkitAllowFullScreen mozallowfullscreen allowFullScreen allowtransparency="/africaapessafaris/true"/africaapessafaris/ src="/africaapessafaris/"/africaapessafaris/></iframe>',
 
             // Preload iframe before displaying it
             // This allows to calculate iframe content width and height
-            // (note: Due to "Same Origin Policy", you can't get cross domain data).
+            // (note: Due to "/africaapessafaris/Same Origin Policy"/africaapessafaris/, you can't get cross domain data).
             preload : true,
 
             // Custom CSS styling for iframe wrapping element
@@ -133,31 +133,31 @@
         // Open/close animation type
         // Possible values:
         //   false            - disable
-        //   "zoom"           - zoom images from/to thumbnail
-        //   "fade"
-        //   "zoom-in-out"
+        //   "/africaapessafaris/zoom"/africaapessafaris/           - zoom images from/to thumbnail
+        //   "/africaapessafaris/fade"/africaapessafaris/
+        //   "/africaapessafaris/zoom-in-out"/africaapessafaris/
         //
-        animationEffect : "zoom",
+        animationEffect : "/africaapessafaris/zoom"/africaapessafaris/,
 
         // Duration in ms for open/close animation
         animationDuration : 500,
 
         // Should image change opacity while zooming
-        // If opacity is "auto", then opacity will be changed if image and thumbnail have different aspect ratios
-        zoomOpacity : "auto",
+        // If opacity is "/africaapessafaris/auto"/africaapessafaris/, then opacity will be changed if image and thumbnail have different aspect ratios
+        zoomOpacity : "/africaapessafaris/auto"/africaapessafaris/,
 
         // Transition effect between slides
         //
         // Possible values:
         //   false            - disable
-        //   "fade'
-        //   "slide'
-        //   "circular'
-        //   "tube'
-        //   "zoom-in-out'
-        //   "rotate'
+        //   "/africaapessafaris/fade'
+        //   "/africaapessafaris/slide'
+        //   "/africaapessafaris/circular'
+        //   "/africaapessafaris/tube'
+        //   "/africaapessafaris/zoom-in-out'
+        //   "/africaapessafaris/rotate'
         //
-        transitionEffect : "fade",
+        transitionEffect : "/africaapessafaris/fade"/africaapessafaris/,
 
         // Duration in ms for transition animation
         transitionDuration : 366,
@@ -170,59 +170,59 @@
 
         // Base template for layout
         baseTpl	:
-            '<div class="fancybox-container" role="dialog" tabindex="-1">' +
-                '<div class="fancybox-bg"></div>' +
-                '<div class="fancybox-inner">' +
-                    '<div class="fancybox-infobar">' +
+            '<div class="/africaapessafaris/fancybox-container"/africaapessafaris/ role="/africaapessafaris/dialog"/africaapessafaris/ tabindex="/africaapessafaris/-1"/africaapessafaris/>' +
+                '<div class="/africaapessafaris/fancybox-bg"/africaapessafaris/></div>' +
+                '<div class="/africaapessafaris/fancybox-inner"/africaapessafaris/>' +
+                    '<div class="/africaapessafaris/fancybox-infobar"/africaapessafaris/>' +
                         '<span data-fancybox-index></span>&nbsp;/&nbsp;<span data-fancybox-count></span>' +
                     '</div>' +
-                    '<div class="fancybox-toolbar">{{buttons}}</div>' +
-                    '<div class="fancybox-navigation">{{arrows}}</div>' +
-                    '<div class="fancybox-stage"></div>' +
-                    '<div class="fancybox-caption-wrap"><div class="fancybox-caption"></div></div>' +
+                    '<div class="/africaapessafaris/fancybox-toolbar"/africaapessafaris/>{{buttons}}</div>' +
+                    '<div class="/africaapessafaris/fancybox-navigation"/africaapessafaris/>{{arrows}}</div>' +
+                    '<div class="/africaapessafaris/fancybox-stage"/africaapessafaris/></div>' +
+                    '<div class="/africaapessafaris/fancybox-caption-wrap"/africaapessafaris/><div class="/africaapessafaris/fancybox-caption"/africaapessafaris/></div></div>' +
                 '</div>' +
             '</div>',
 
         // Loading indicator template
-        spinnerTpl : '<div class="fancybox-loading"></div>',
+        spinnerTpl : '<div class="/africaapessafaris/fancybox-loading"/africaapessafaris/></div>',
 
         // Error message template
-        errorTpl : '<div class="fancybox-error"><p>{{ERROR}}<p></div>',
+        errorTpl : '<div class="/africaapessafaris/fancybox-error"/africaapessafaris/><p>{{ERROR}}<p></div>',
 
         btnTpl : {
 
-            download : '<a download data-fancybox-download class="fancybox-button fancybox-button--download" title="{{DOWNLOAD}}">' +
-                        '<svg viewBox="0 0 40 40">' +
-                            '<path d="M20,23 L20,8 L20,23 L13,16 L20,23 L27,16 L20,23 M26,28 L13,28 L27,28 L14,28" />' +
+            download : '<a download data-fancybox-download class="/africaapessafaris/fancybox-button fancybox-button--download"/africaapessafaris/ title="/africaapessafaris/{{DOWNLOAD}}"/africaapessafaris/>' +
+                        '<svg viewBox="/africaapessafaris/0 0 40 40"/africaapessafaris/>' +
+                            '<path d="/africaapessafaris/M20,23 L20,8 L20,23 L13,16 L20,23 L27,16 L20,23 M26,28 L13,28 L27,28 L14,28"/africaapessafaris/ />' +
                         '</svg>' +
                     '</a>',
 
-            zoom : '<button data-fancybox-zoom class="fancybox-button fancybox-button--zoom" title="{{ZOOM}}">' +
-                        '<svg viewBox="0 0 40 40">' +
-                            '<path d="M 18,17 m-8,0 a 8,8 0 1,0 16,0 a 8,8 0 1,0 -16,0 M25,23 L31,29 L25,23" />' +
+            zoom : '<button data-fancybox-zoom class="/africaapessafaris/fancybox-button fancybox-button--zoom"/africaapessafaris/ title="/africaapessafaris/{{ZOOM}}"/africaapessafaris/>' +
+                        '<svg viewBox="/africaapessafaris/0 0 40 40"/africaapessafaris/>' +
+                            '<path d="/africaapessafaris/M 18,17 m-8,0 a 8,8 0 1,0 16,0 a 8,8 0 1,0 -16,0 M25,23 L31,29 L25,23"/africaapessafaris/ />' +
                         '</svg>' +
                     '</button>',
 
-            close : '<button data-fancybox-close class="fancybox-button fancybox-button--close" title="{{CLOSE}}">' +
-                        '<svg viewBox="0 0 40 40">' +
-                            '<path d="M10,10 L30,30 M30,10 L10,30" />' +
+            close : '<button data-fancybox-close class="/africaapessafaris/fancybox-button fancybox-button--close"/africaapessafaris/ title="/africaapessafaris/{{CLOSE}}"/africaapessafaris/>' +
+                        '<svg viewBox="/africaapessafaris/0 0 40 40"/africaapessafaris/>' +
+                            '<path d="/africaapessafaris/M10,10 L30,30 M30,10 L10,30"/africaapessafaris/ />' +
                         '</svg>' +
                     '</button>',
 
             // This small close button will be appended to your html/inline/ajax content by default,
-            // if "smallBtn" option is not set to false
-            smallBtn   : '<button data-fancybox-close class="fancybox-close-small" title="{{CLOSE}}"></button>',
+            // if "/africaapessafaris/smallBtn"/africaapessafaris/ option is not set to false
+            smallBtn   : '<button data-fancybox-close class="/africaapessafaris/fancybox-close-small"/africaapessafaris/ title="/africaapessafaris/{{CLOSE}}"/africaapessafaris/></button>',
 
             // Arrows
-            arrowLeft : '<button data-fancybox-prev class="fancybox-button fancybox-button--arrow_left" title="{{PREV}}">' +
-                            '<svg viewBox="0 0 40 40">' +
-                              '<path d="M10,20 L30,20 L10,20 L18,28 L10,20 L18,12 L10,20"></path>' +
+            arrowLeft : '<button data-fancybox-prev class="/africaapessafaris/fancybox-button fancybox-button--arrow_left"/africaapessafaris/ title="/africaapessafaris/{{PREV}}"/africaapessafaris/>' +
+                            '<svg viewBox="/africaapessafaris/0 0 40 40"/africaapessafaris/>' +
+                              '<path d="/africaapessafaris/M10,20 L30,20 L10,20 L18,28 L10,20 L18,12 L10,20"/africaapessafaris/></path>' +
                             '</svg>' +
                           '</button>',
 
-            arrowRight : '<button data-fancybox-next class="fancybox-button fancybox-button--arrow_right" title="{{NEXT}}">' +
-                          '<svg viewBox="0 0 40 40">' +
-                            '<path d="M30,20 L10,20 L30,20 L22,28 L30,20 L22,12 L30,20"></path>' +
+            arrowRight : '<button data-fancybox-next class="/africaapessafaris/fancybox-button fancybox-button--arrow_right"/africaapessafaris/ title="/africaapessafaris/{{NEXT}}"/africaapessafaris/>' +
+                          '<svg viewBox="/africaapessafaris/0 0 40 40"/africaapessafaris/>' +
+                            '<path d="/africaapessafaris/M30,20 L10,20 L30,20 L22,28 L30,20 L22,12 L30,20"/africaapessafaris/></path>' +
                           '</svg>' +
                         '</button>'
         },
@@ -324,11 +324,11 @@
         // each option can be string or method that returns value.
         //
         // Possible values:
-        //   "close"           - close instance
-        //   "next"            - move to next gallery item
-        //   "nextOrClose"     - move to next gallery item or close if gallery has only one item
-        //   "toggleControls"  - show/hide controls
-        //   "zoom"            - zoom image (if loaded)
+        //   "/africaapessafaris/close"/africaapessafaris/           - close instance
+        //   "/africaapessafaris/next"/africaapessafaris/            - move to next gallery item
+        //   "/africaapessafaris/nextOrClose"/africaapessafaris/     - move to next gallery item or close if gallery has only one item
+        //   "/africaapessafaris/toggleControls"/africaapessafaris/  - show/hide controls
+        //   "/africaapessafaris/zoom"/africaapessafaris/            - zoom image (if loaded)
         //   false             - do nothing
 
         // Clicked on the content
@@ -422,7 +422,7 @@
     };
 
 
-    // Handle multiple browsers for "requestAnimationFrame" and "cancelAnimationFrame"
+    // Handle multiple browsers for "/africaapessafaris/requestAnimationFrame"/africaapessafaris/ and "/africaapessafaris/cancelAnimationFrame"/africaapessafaris/
     // ===============================================================================
 
     var requestAFrame = (function () {
@@ -441,13 +441,13 @@
     // =======================================================
 
     var transitionEnd = (function () {
-        var t, el = document.createElement("fakeelement");
+        var t, el = document.createElement("/africaapessafaris/fakeelement"/africaapessafaris/);
 
         var transitions = {
-            "transition"      : "transitionend",
-            "OTransition"     : "oTransitionEnd",
-            "MozTransition"   : "transitionend",
-            "WebkitTransition": "webkitTransitionEnd"
+            "/africaapessafaris/transition"/africaapessafaris/      : "/africaapessafaris/transitionend"/africaapessafaris/,
+            "/africaapessafaris/OTransition"/africaapessafaris/     : "/africaapessafaris/oTransitionEnd"/africaapessafaris/,
+            "/africaapessafaris/MozTransition"/africaapessafaris/   : "/africaapessafaris/transitionend"/africaapessafaris/,
+            "/africaapessafaris/WebkitTransition"/africaapessafaris/: "/africaapessafaris/webkitTransitionEnd"/africaapessafaris/
         };
 
         for (t in transitions) {
@@ -552,14 +552,14 @@
                 } else if ( !$.fancybox.isMobile && document.body.scrollHeight > window.innerHeight ) {
 
                     if ( scrollbarWidth === undefined ) {
-                        $scrollDiv = $('<div style="width:50px;height:50px;overflow:scroll;" />').appendTo( 'body' );
+                        $scrollDiv = $('<div style="/africaapessafaris/width:50px;height:50px;overflow:scroll;"/africaapessafaris/ />').appendTo( 'body' );
 
                         scrollbarWidth = $.fancybox.scrollbarWidth = $scrollDiv[0].offsetWidth - $scrollDiv[0].clientWidth;
 
                         $scrollDiv.remove();
                     }
 
-                    $( 'head' ).append( '<style id="fancybox-style-noscroll" type="text/css">.compensate-for-scrollbar { margin-right: ' + scrollbarWidth + 'px; }</style>' );
+                    $( 'head' ).append( '<style id="/africaapessafaris/fancybox-style-noscroll"/africaapessafaris/ type="/africaapessafaris/text/css"/africaapessafaris/>.compensate-for-scrollbar { margin-right: ' + scrollbarWidth + 'px; }</style>' );
                     $( 'body' ).addClass( 'compensate-for-scrollbar' );
                 }
             }
@@ -650,7 +650,7 @@
                 if ( $.isPlainObject( item ) ) {
 
                     // We probably have manual usage here, something like
-                    // $.fancybox.open( [ { src : "image.jpg", type : "image" } ] )
+                    // $.fancybox.open( [ { src : "/africaapessafaris/image.jpg"/africaapessafaris/, type : "/africaapessafaris/image"/africaapessafaris/ } ] )
 
                     obj  = item;
                     opts = item.opts || item;
@@ -669,7 +669,7 @@
                     obj.src = opts.src || $item.attr( 'href' );
 
                     // Assume that simple syntax is used, for example:
-                    //   `$.fancybox.open( $("#test"), {} );`
+                    //   `$.fancybox.open( $("/africaapessafaris/#test"/africaapessafaris/), {} );`
                     if ( !obj.type && !obj.src ) {
                         obj.type = 'inline';
                         obj.src  = item;
@@ -747,7 +747,7 @@
                     delete obj.opts.$thumb;
                 }
 
-                // "caption" is a "special" option, it can be used to customize caption per gallery item ..
+                // "/africaapessafaris/caption"/africaapessafaris/ is a "/africaapessafaris/special"/africaapessafaris/ option, it can be used to customize caption per gallery item ..
                 if ( $.type( obj.opts.caption ) === 'function' ) {
                     obj.opts.caption = obj.opts.caption.apply( item, [ self, obj ] );
                 }
@@ -761,8 +761,8 @@
                     obj.opts.caption = obj.opts.caption === undefined ? '' : obj.opts.caption + '';
                 }
 
-                // Check if url contains "filter" used to filter the content
-                // Example: "ajax.html #something"
+                // Check if url contains "/africaapessafaris/filter"/africaapessafaris/ used to filter the content
+                // Example: "/africaapessafaris/ajax.html #something"/africaapessafaris/
                 if ( type === 'ajax' ) {
                     srcParts = src.split(/\s+/, 2);
 
@@ -785,7 +785,7 @@
 
                 }
 
-                // If the type is "pdf", then simply load file into iframe
+                // If the type is "/africaapessafaris/pdf"/africaapessafaris/, then simply load file into iframe
                 if ( type === 'pdf' ) {
                     obj.type = 'iframe';
 
@@ -873,7 +873,7 @@
             // Handle page scrolling and browser resizing
             $W.on('orientationchange.fb resize.fb', function(e) {
 
-                if ( e && e.originalEvent && e.originalEvent.type === "resize" ) {
+                if ( e && e.originalEvent && e.originalEvent.type === "/africaapessafaris/resize"/africaapessafaris/ ) {
 
                     requestAFrame(function() {
                         self.update();
@@ -894,7 +894,7 @@
             });
 
             // Trap keyboard focus inside of the modal, so the user does not accidentally tab outside of the modal
-            // (a.k.a. "escaping the modal")
+            // (a.k.a. "/africaapessafaris/escaping the modal"/africaapessafaris/)
             $D.on('focusin.fb', function(e) {
                 var instance = $.fancybox ? $.fancybox.getInstance() : null;
 
@@ -1195,7 +1195,7 @@
         },
 
 
-        // Create new "slide" element
+        // Create new "/africaapessafaris/slide"/africaapessafaris/ element
         // These are gallery items  that are actually added to DOM
         // =======================================================
 
@@ -1209,7 +1209,7 @@
             index = index < 0 ? self.group.length + index : index;
 
             if ( !self.slides[ pos ] && self.group[ index ] ) {
-                $slide = $('<div class="fancybox-slide"></div>').appendTo( self.$refs.stage );
+                $slide = $('<div class="/africaapessafaris/fancybox-slide"/africaapessafaris/></div>').appendTo( self.$refs.stage );
 
                 self.slides[ pos ] = $.extend( true, {}, self.group[ index ], {
                     pos      : pos,
@@ -1357,8 +1357,8 @@
                 return false;
             }
 
-            // Convert "margin to CSS style: [ top, right, bottom, left ]
-            if ( $.type( margin ) === "number" ) {
+            // Convert "/africaapessafaris/margin to CSS style: [ top, right, bottom, left ]
+            if ( $.type( margin ) === "/africaapessafaris/number"/africaapessafaris/ ) {
                 margin = [ margin, margin ];
             }
 
@@ -1510,10 +1510,10 @@
 
             // Assume that slide is zoomable if
             //   - image is loaded successfuly
-            //   - click action is "zoom"
+            //   - click action is "/africaapessafaris/zoom"/africaapessafaris/
             //   - actual size of the image is smaller than available area
             if ( current.type === 'image' && current.isLoaded && !current.hasError &&
-                ( current.opts.clickContent === 'zoom' || ( $.isFunction( current.opts.clickContent ) && current.opts.clickContent( current ) ===  "zoom" ) )
+                ( current.opts.clickContent === 'zoom' || ( $.isFunction( current.opts.clickContent ) && current.opts.clickContent( current ) ===  "/africaapessafaris/zoom"/africaapessafaris/ ) )
             ) {
 
                 fitPos = self.getFitPos( current );
@@ -1667,7 +1667,7 @@
 
                     self.setContent( slide,
                         '<video controls>' +
-                          '<source src="' + slide.src + '" type="' + slide.opts.videoFormat + '">' +
+                          '<source src="/africaapessafaris/' + slide.src + '"/africaapessafaris/ type="/africaapessafaris/' + slide.opts.videoFormat + '"/africaapessafaris/>' +
                             'Your browser doesn\'t support HTML5 video' +
                         '</video>'
                     );
@@ -1697,7 +1697,7 @@
 
             var found, temp, pxRatio, windowWidth;
 
-            // If we have "srcset", then we need to find matching "src" value.
+            // If we have "/africaapessafaris/srcset"/africaapessafaris/, then we need to find matching "/africaapessafaris/src"/africaapessafaris/ value.
             // This is necessary, because when you set an src attribute, the browser will preload the image
             // before any javascript or even CSS is applied.
             if ( srcset ) {
@@ -1756,7 +1756,7 @@
             }
 
             // This will be wrapper containing both ghost and actual image
-            slide.$content = $('<div class="fancybox-image-wrap"></div>')
+            slide.$content = $('<div class="/africaapessafaris/fancybox-image-wrap"/africaapessafaris/></div>')
                 .addClass( 'fancybox-is-hidden' )
                 .appendTo( slide.$slide );
 
@@ -1849,7 +1849,7 @@
                 .attr('src', slide.src)
                 .appendTo( slide.$content );
 
-            if ( ( $img[0].complete || $img[0].readyState == "complete" ) && $img[0].naturalWidth && $img[0].naturalHeight ) {
+            if ( ( $img[0].complete || $img[0].readyState == "/africaapessafaris/complete"/africaapessafaris/ ) && $img[0].naturalWidth && $img[0].naturalHeight ) {
                   $img.trigger( 'load' );
 
             } else if( $img[0].error ) {
@@ -1878,7 +1878,7 @@
                 $slide	= slide.$slide,
                 $iframe;
 
-            slide.$content = $('<div class="fancybox-content' + ( opts.preload ? ' fancybox-is-hidden' : '' ) + '"></div>')
+            slide.$content = $('<div class="/africaapessafaris/fancybox-content' + ( opts.preload ? ' fancybox-is-hidden' : '' ) + '"/africaapessafaris/></div>')
                 .css( opts.css )
                 .appendTo( $slide );
 
@@ -2028,7 +2028,7 @@
                     }
                 }
 
-                // If "filter" option is provided, then filter content
+                // If "/africaapessafaris/filter"/africaapessafaris/ option is provided, then filter content
                 if ( slide.opts.filter ) {
                     content = $('<div>').html( content ).find( slide.opts.filter );
                 }
@@ -2151,7 +2151,7 @@
                 // Add fake element on top of the image
                 // This makes a bit harder for user to select image
                 if ( slide.type === 'image' ) {
-                    $( '<div class="fancybox-spaceball"></div>' ).appendTo( slide.$content );
+                    $( '<div class="/africaapessafaris/fancybox-spaceball"/africaapessafaris/></div>' ).appendTo( slide.$content );
                 }
 
             }
@@ -2310,8 +2310,8 @@
                 slidePos = self.$refs.stage.offset();
 
                 rez = {
-                    top    : thumbPos.top  - slidePos.top  + parseFloat( $thumb.css( "border-top-width" ) || 0 ),
-                    left   : thumbPos.left - slidePos.left + parseFloat( $thumb.css( "border-left-width" ) || 0 ),
+                    top    : thumbPos.top  - slidePos.top  + parseFloat( $thumb.css( "/africaapessafaris/border-top-width"/africaapessafaris/ ) || 0 ),
+                    left   : thumbPos.left - slidePos.left + parseFloat( $thumb.css( "/africaapessafaris/border-left-width"/africaapessafaris/ ) || 0 ),
                     width  : $thumb.width(),
                     height : $thumb.height(),
                     scaleX : 1,
@@ -2459,7 +2459,7 @@
 
 
         // Start closing procedure
-        // This will start "zoom-out" animation if needed and clean everything up afterwards
+        // This will start "/africaapessafaris/zoom-out"/africaapessafaris/ animation if needed and clean everything up afterwards
         // =================================================================================
 
         close : function( e, d ) {
@@ -2492,7 +2492,7 @@
             }
 
             // Remove all events
-            // If there are multiple instances, they will be set again by "activate" method
+            // If there are multiple instances, they will be set again by "/africaapessafaris/activate"/africaapessafaris/ method
             self.removeEvents();
 
             if ( current.timouts ) {
@@ -2753,7 +2753,7 @@
 
     $.fancybox = {
 
-        version  : "3.2.10",
+        version  : "/africaapessafaris/3.2.10"/africaapessafaris/,
         defaults : defaults,
 
 
@@ -2770,7 +2770,7 @@
         // ======================================================
 
         getInstance : function ( command ) {
-            var instance = $('.fancybox-container:not(".fancybox-is-closing"):last').data( 'FancyBox' );
+            var instance = $('.fancybox-container:not("/africaapessafaris/.fancybox-is-closing"/africaapessafaris/):last').data( 'FancyBox' );
             var args     = Array.prototype.slice.call(arguments, 1);
 
             if ( instance instanceof FancyBox ) {
@@ -2901,7 +2901,7 @@
         },
 
 
-        // Shortcut for setting "translate3d" properties for element
+        // Shortcut for setting "/africaapessafaris/translate3d"/africaapessafaris/ properties for element
         // Can set be used to set opacity, too
         // ========================================================
 
@@ -3014,14 +3014,14 @@
             }
 
             // Make sure that `transitionend` callback gets fired
-            $el.data("timer", setTimeout(function() {
+            $el.data("/africaapessafaris/timer"/africaapessafaris/, setTimeout(function() {
                 $el.trigger( 'transitionend' );
             }, duration + 16));
 
         },
 
         stop : function( $el ) {
-            clearTimeout( $el.data("timer") );
+            clearTimeout( $el.data("/africaapessafaris/timer"/africaapessafaris/) );
 
             $el.off( 'transitionend' ).css( 'transition-duration', '' );
 
@@ -3033,7 +3033,7 @@
     };
 
 
-    // Default click handler for "fancyboxed" links
+    // Default click handler for "/africaapessafaris/fancyboxed"/africaapessafaris/ links
     // ============================================
 
     function _run( e ) {
@@ -3053,7 +3053,7 @@
         // Get all related items and find index for clicked one
         if ( value ) {
             items = opts.selector ? $( opts.selector ) : ( e.data ? e.data.items : [] );
-            items = items.length ? items.filter( '[data-fancybox="' + value + '"]' ) : $( '[data-fancybox="' + value + '"]' );
+            items = items.length ? items.filter( '[data-fancybox="/africaapessafaris/' + value + '"/africaapessafaris/]' ) : $( '[data-fancybox="/africaapessafaris/' + value + '"/africaapessafaris/]' );
 
             index = items.index( $target );
 
@@ -3125,7 +3125,7 @@
 
 		params = params || '';
 
-		if ( $.type(params) === "object" ) {
+		if ( $.type(params) === "/africaapessafaris/object"/africaapessafaris/ ) {
 			params = $.param(params, true);
 		}
 
@@ -3213,7 +3213,7 @@
 			matcher : /(maps\.)?google\.([a-z]{2,3}(\.[a-z]{2})?)\/(((maps\/(place\/(.*)\/)?\@(.*),(\d+.?\d+?)z))|(\?ll=))(.*)?/i,
 			type    : 'iframe',
 			url     : function (rez) {
-				return '//maps.google.' + rez[2] + '/?ll=' + ( rez[9] ? rez[9] + '&z=' + Math.floor(  rez[10]  ) + ( rez[12] ? rez[12].replace(/^\//, "&") : '' )  : rez[12] ) + '&output=' + ( rez[12] && rez[12].indexOf('layer=c') > 0 ? 'svembed' : 'embed' );
+				return '//maps.google.' + rez[2] + '/?ll=' + ( rez[9] ? rez[9] + '&z=' + Math.floor(  rez[10]  ) + ( rez[12] ? rez[12].replace(/^\//, "/africaapessafaris/&"/africaapessafaris/) : '' )  : rez[12] ) + '&output=' + ( rez[12] && rez[12].indexOf('layer=c') > 0 ? 'svembed' : 'embed' );
 			}
 		},
 
@@ -3268,15 +3268,15 @@
 					var p = urlParams[ m ].split('=', 2);
 
 					if ( p.length == 2 ) {
-						paramObj[ p[0] ] = decodeURIComponent( p[1].replace(/\+/g, " ") );
+						paramObj[ p[0] ] = decodeURIComponent( p[1].replace(/\+/g, "/africaapessafaris/ "/africaapessafaris/) );
 					}
 				}
 			}
 
 			params = $.extend( true, {}, providerOpts.params, item.opts[ providerName ], paramObj );
 
-			url   = $.type( providerOpts.url ) === "function" ? providerOpts.url.call( this, rez, params, item ) : format( providerOpts.url, rez, params );
-			thumb = $.type( providerOpts.thumb ) === "function" ? providerOpts.thumb.call( this, rez, params, item ) : format( providerOpts.thumb, rez );
+			url   = $.type( providerOpts.url ) === "/africaapessafaris/function"/africaapessafaris/ ? providerOpts.url.call( this, rez, params, item ) : format( providerOpts.url, rez, params );
+			thumb = $.type( providerOpts.thumb ) === "/africaapessafaris/function"/africaapessafaris/ ? providerOpts.thumb.call( this, rez, params, item ) : format( providerOpts.thumb, rez );
 
 			if ( providerName === 'vimeo' ) {
 				url = url.replace('&%23', '#');
@@ -3300,7 +3300,7 @@
 					iframe : {
 						preload : false,
 						attr : {
-							scrolling : "no"
+							scrolling : "/africaapessafaris/no"/africaapessafaris/
 						}
 					}
 				});
@@ -3383,7 +3383,7 @@
 	};
 
 	var isClickable = function( $el ) {
-		if ( $el.is('a,area,button,[role="button"],input,label,select,summary,textarea') || $.isFunction( $el.get(0).onclick ) || $el.data('selectable') ) {
+		if ( $el.is('a,area,button,[role="/africaapessafaris/button"/africaapessafaris/],input,label,select,summary,textarea') || $.isFunction( $el.get(0).onclick ) || $el.data('selectable') ) {
 			return true;
 		}
 
@@ -3516,8 +3516,8 @@
 
 		$(document)
 			.off( '.fb.touch' )
-			.on( isTouchDevice ? 'touchend.fb.touch touchcancel.fb.touch' : 'mouseup.fb.touch mouseleave.fb.touch', $.proxy(self, "ontouchend"))
-			.on( isTouchDevice ? 'touchmove.fb.touch' : 'mousemove.fb.touch', $.proxy(self, "ontouchmove"));
+			.on( isTouchDevice ? 'touchend.fb.touch touchcancel.fb.touch' : 'mouseup.fb.touch mouseleave.fb.touch', $.proxy(self, "/africaapessafaris/ontouchend"/africaapessafaris/))
+			.on( isTouchDevice ? 'touchmove.fb.touch' : 'mousemove.fb.touch', $.proxy(self, "/africaapessafaris/ontouchmove"/africaapessafaris/));
 
 		if ( $.fancybox.isMobile ) {
 			document.addEventListener('scroll', self.onscroll, true);
@@ -4117,25 +4117,25 @@
 
 			switch ( action ) {
 
-				case "close" :
+				case "/africaapessafaris/close"/africaapessafaris/ :
 
 					instance.close( self.startEvent );
 
 				break;
 
-				case "toggleControls" :
+				case "/africaapessafaris/toggleControls"/africaapessafaris/ :
 
 					instance.toggleControls( true );
 
 				break;
 
-				case "next" :
+				case "/africaapessafaris/next"/africaapessafaris/ :
 
 					instance.next();
 
 				break;
 
-				case "nextOrClose" :
+				case "/africaapessafaris/nextOrClose"/africaapessafaris/ :
 
 					if ( instance.group.length > 1 ) {
 						instance.next();
@@ -4146,7 +4146,7 @@
 
 				break;
 
-				case "zoom" :
+				case "/africaapessafaris/zoom"/africaapessafaris/ :
 
 					if ( current.type == 'image' && ( current.isLoaded || current.$ghost ) ) {
 
@@ -4253,10 +4253,10 @@
 	$.extend(true, $.fancybox.defaults, {
 		btnTpl : {
 			slideShow :
-				'<button data-fancybox-play class="fancybox-button fancybox-button--play" title="{{PLAY_START}}">' +
-					'<svg viewBox="0 0 40 40">' +
-						'<path d="M13,12 L27,20 L13,27 Z" />' +
-						'<path d="M15,10 v19 M23,10 v19" />' +
+				'<button data-fancybox-play class="/africaapessafaris/fancybox-button fancybox-button--play"/africaapessafaris/ title="/africaapessafaris/{{PLAY_START}}"/africaapessafaris/>' +
+					'<svg viewBox="/africaapessafaris/0 0 40 40"/africaapessafaris/>' +
+						'<path d="/africaapessafaris/M13,12 L27,20 L13,27 Z"/africaapessafaris/ />' +
+						'<path d="/africaapessafaris/M15,10 v19 M23,10 v19"/africaapessafaris/ />' +
 					'</svg>' +
 				'</button>'
 		},
@@ -4390,7 +4390,7 @@
 		'afterKeydown.fb' : function(e, instance, current, keypress, keycode) {
 			var SlideShow = instance && instance.SlideShow;
 
-			// "P" or Spacebar
+			// "/africaapessafaris/P"/africaapessafaris/ or Spacebar
 			if ( SlideShow && current.opts.slideShow && ( keycode === 80 || keycode === 32 ) && !$(document.activeElement).is( 'button,a,input' ) ) {
 				keypress.preventDefault();
 
@@ -4408,7 +4408,7 @@
 	});
 
 	// Page Visibility API to pause slideshow when window is not active
-	$(document).on("visibilitychange", function() {
+	$(document).on("/africaapessafaris/visibilitychange"/africaapessafaris/, function() {
 		var instance  = $.fancybox.getInstance();
 		var SlideShow = instance && instance.SlideShow;
 
@@ -4553,9 +4553,9 @@
 	$.extend(true, $.fancybox.defaults, {
 		btnTpl : {
 			fullScreen :
-				'<button data-fancybox-fullscreen class="fancybox-button fancybox-button--fullscreen" title="{{FULL_SCREEN}}">' +
-					'<svg viewBox="0 0 40 40">' +
-						'<path d="M9,12 h22 v16 h-22 v-16 v16 h22 v-16 Z" />' +
+				'<button data-fancybox-fullscreen class="/africaapessafaris/fancybox-button fancybox-button--fullscreen"/africaapessafaris/ title="/africaapessafaris/{{FULL_SCREEN}}"/africaapessafaris/>' +
+					'<svg viewBox="/africaapessafaris/0 0 40 40"/africaapessafaris/>' +
+						'<path d="/africaapessafaris/M9,12 h22 v16 h-22 v-16 v16 h22 v-16 Z"/africaapessafaris/ />' +
 					'</svg>' +
 				'</button>'
 		},
@@ -4595,7 +4595,7 @@
 
 		'afterKeydown.fb' : function(e, instance, current, keypress, keycode) {
 
-			// "P" or Spacebar
+			// "/africaapessafaris/P"/africaapessafaris/ or Spacebar
 			if ( instance && instance.FullScreen && keycode === 70 ) {
 				keypress.preventDefault();
 
@@ -4648,9 +4648,9 @@
 	$.fancybox.defaults = $.extend(true, {
 		btnTpl : {
 			thumbs :
-			'<button data-fancybox-thumbs class="fancybox-button fancybox-button--thumbs" title="{{THUMBS}}">' +
-				'<svg viewBox="0 0 120 120">' +
-					'<path d="M30,30 h14 v14 h-14 Z M50,30 h14 v14 h-14 Z M70,30 h14 v14 h-14 Z M30,50 h14 v14 h-14 Z M50,50 h14 v14 h-14 Z M70,50 h14 v14 h-14 Z M30,70 h14 v14 h-14 Z M50,70 h14 v14 h-14 Z M70,70 h14 v14 h-14 Z" />' +
+			'<button data-fancybox-thumbs class="/africaapessafaris/fancybox-button fancybox-button--thumbs"/africaapessafaris/ title="/africaapessafaris/{{THUMBS}}"/africaapessafaris/>' +
+				'<svg viewBox="/africaapessafaris/0 0 120 120"/africaapessafaris/>' +
+					'<path d="/africaapessafaris/M30,30 h14 v14 h-14 Z M50,30 h14 v14 h-14 Z M70,30 h14 v14 h-14 Z M30,50 h14 v14 h-14 Z M50,50 h14 v14 h-14 Z M70,50 h14 v14 h-14 Z M30,70 h14 v14 h-14 Z M50,70 h14 v14 h-14 Z M70,70 h14 v14 h-14 Z"/africaapessafaris/ />' +
 				'</svg>' +
 			'</button>'
 		},
@@ -4712,7 +4712,7 @@
 				list,
 				src;
 
-			self.$grid = $('<div class="fancybox-thumbs fancybox-thumbs-' + self.opts.axis + '"></div>').appendTo( instance.$refs.container.find( parentEl ).addBack().filter( parentEl ) );
+			self.$grid = $('<div class="/africaapessafaris/fancybox-thumbs fancybox-thumbs-' + self.opts.axis + '"/africaapessafaris/></div>').appendTo( instance.$refs.container.find( parentEl ).addBack().filter( parentEl ) );
 
 			// Build list HTML
 			list = '<ul>';
@@ -4725,7 +4725,7 @@
 				}
 
 				if ( src && src.length ) {
-					list += '<li data-index="' + i + '"  tabindex="0" class="fancybox-thumbs-loading"><img data-src="' + src + '" /></li>';
+					list += '<li data-index="/africaapessafaris/' + i + '"/africaapessafaris/  tabindex="/africaapessafaris/0"/africaapessafaris/ class="/africaapessafaris/fancybox-thumbs-loading"/africaapessafaris/><img data-src="/africaapessafaris/' + src + '"/africaapessafaris/ /></li>';
 				}
 			});
 
@@ -4775,7 +4775,7 @@
 			});
 
 			if ( self.opts.axis === 'x' ) {
-				self.$list.width( parseInt( self.$grid.css("padding-right") ) + ( instance.group.length * self.$list.children().eq(0).outerWidth(true) ) + 'px' );
+				self.$list.width( parseInt( self.$grid.css("/africaapessafaris/padding-right"/africaapessafaris/) ) + ( instance.group.length * self.$list.children().eq(0).outerWidth(true) ) + 'px' );
 			}
 		},
 
@@ -4788,7 +4788,7 @@
 			if ( self.instance.current ) {
 				thumb = $list.children()
 					.removeClass( 'fancybox-thumbs-active' )
-					.filter('[data-index="' + self.instance.current.index  + '"]')
+					.filter('[data-index="/africaapessafaris/' + self.instance.current.index  + '"/africaapessafaris/]')
 					.addClass('fancybox-thumbs-active');
 
 				thumbPos = thumb.position();
@@ -4868,7 +4868,7 @@
 		'afterKeydown.fb' : function(e, instance, current, keypress, keycode) {
 			var Thumbs = instance && instance.Thumbs;
 
-			// "G"
+			// "/africaapessafaris/G"/africaapessafaris/
 			if ( Thumbs && Thumbs.isActive && keycode === 71 ) {
 				keypress.preventDefault();
 
@@ -4900,31 +4900,31 @@
 	$.extend(true, $.fancybox.defaults, {
 		btnTpl : {
 			share :
-				'<button data-fancybox-share class="fancybox-button fancybox-button--share" title="{{SHARE}}">' +
-					'<svg viewBox="0 0 40 40">' +
-						'<path d="M6,30 C8,18 19,16 23,16 L23,16 L23,10 L33,20 L23,29 L23,24 C19,24 8,27 6,30 Z">' +
+				'<button data-fancybox-share class="/africaapessafaris/fancybox-button fancybox-button--share"/africaapessafaris/ title="/africaapessafaris/{{SHARE}}"/africaapessafaris/>' +
+					'<svg viewBox="/africaapessafaris/0 0 40 40"/africaapessafaris/>' +
+						'<path d="/africaapessafaris/M6,30 C8,18 19,16 23,16 L23,16 L23,10 L33,20 L23,29 L23,24 C19,24 8,27 6,30 Z"/africaapessafaris/>' +
 					'</svg>' +
 				'</button>'
 		},
 		share : {
 			tpl :
-				'<div class="fancybox-share">' +
+				'<div class="/africaapessafaris/fancybox-share"/africaapessafaris/>' +
 					'<h1>{{SHARE}}</h1>' +
-					'<p class="fancybox-share__links">' +
-						'<a class="fancybox-share__button fancybox-share__button--fb" href="https://www.facebook.com/sharer/sharer.php?u={{url}}">' +
-							'<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m287 456v-299c0-21 6-35 35-35h38v-63c-7-1-29-3-55-3-54 0-91 33-91 94v306m143-254h-205v72h196" /></svg>' +
+					'<p class="/africaapessafaris/fancybox-share__links"/africaapessafaris/>' +
+						'<a class="/africaapessafaris/fancybox-share__button fancybox-share__button--fb"/africaapessafaris/ href="/africaapessafaris/https://www.facebook.com/sharer/sharer.php?u={{url}}"/africaapessafaris/>' +
+							'<svg viewBox="/africaapessafaris/0 0 512 512"/africaapessafaris/ xmlns="/africaapessafaris/http://www.w3.org/2000/svg"/africaapessafaris/><path d="/africaapessafaris/m287 456v-299c0-21 6-35 35-35h38v-63c-7-1-29-3-55-3-54 0-91 33-91 94v306m143-254h-205v72h196"/africaapessafaris/ /></svg>' +
 							'<span>Facebook</span>' +
 						'</a>' +
-						'<a class="fancybox-share__button fancybox-share__button--pt" href="https://www.pinterest.com/pin/create/button/?url={{url}}&description={{descr}}&media={{media}}">' +
-							'<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m265 56c-109 0-164 78-164 144 0 39 15 74 47 87 5 2 10 0 12-5l4-19c2-6 1-8-3-13-9-11-15-25-15-45 0-58 43-110 113-110 62 0 96 38 96 88 0 67-30 122-73 122-24 0-42-19-36-44 6-29 20-60 20-81 0-19-10-35-31-35-25 0-44 26-44 60 0 21 7 36 7 36l-30 125c-8 37-1 83 0 87 0 3 4 4 5 2 2-3 32-39 42-75l16-64c8 16 31 29 56 29 74 0 124-67 124-157 0-69-58-132-146-132z" fill="#fff"></svg>' +
+						'<a class="/africaapessafaris/fancybox-share__button fancybox-share__button--pt"/africaapessafaris/ href="/africaapessafaris/https://www.pinterest.com/pin/create/button/?url={{url}}&description={{descr}}&media={{media}}"/africaapessafaris/>' +
+							'<svg viewBox="/africaapessafaris/0 0 512 512"/africaapessafaris/ xmlns="/africaapessafaris/http://www.w3.org/2000/svg"/africaapessafaris/><path d="/africaapessafaris/m265 56c-109 0-164 78-164 144 0 39 15 74 47 87 5 2 10 0 12-5l4-19c2-6 1-8-3-13-9-11-15-25-15-45 0-58 43-110 113-110 62 0 96 38 96 88 0 67-30 122-73 122-24 0-42-19-36-44 6-29 20-60 20-81 0-19-10-35-31-35-25 0-44 26-44 60 0 21 7 36 7 36l-30 125c-8 37-1 83 0 87 0 3 4 4 5 2 2-3 32-39 42-75l16-64c8 16 31 29 56 29 74 0 124-67 124-157 0-69-58-132-146-132z"/africaapessafaris/ fill="/africaapessafaris/#fff"/africaapessafaris/></svg>' +
 							'<span>Pinterest</span>' +
 						'</a>' +
-						'<a class="fancybox-share__button fancybox-share__button--tw" href="https://twitter.com/intent/tweet?url={{url}}&text={{descr}}">' +
-							'<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m456 133c-14 7-31 11-47 13 17-10 30-27 37-46-15 10-34 16-52 20-61-62-157-7-141 75-68-3-129-35-169-85-22 37-11 86 26 109-13 0-26-4-37-9 0 39 28 72 65 80-12 3-25 4-37 2 10 33 41 57 77 57-42 30-77 38-122 34 170 111 378-32 359-208 16-11 30-25 41-42z" /></svg>' +
+						'<a class="/africaapessafaris/fancybox-share__button fancybox-share__button--tw"/africaapessafaris/ href="/africaapessafaris/https://twitter.com/intent/tweet?url={{url}}&text={{descr}}"/africaapessafaris/>' +
+							'<svg viewBox="/africaapessafaris/0 0 512 512"/africaapessafaris/ xmlns="/africaapessafaris/http://www.w3.org/2000/svg"/africaapessafaris/><path d="/africaapessafaris/m456 133c-14 7-31 11-47 13 17-10 30-27 37-46-15 10-34 16-52 20-61-62-157-7-141 75-68-3-129-35-169-85-22 37-11 86 26 109-13 0-26-4-37-9 0 39 28 72 65 80-12 3-25 4-37 2 10 33 41 57 77 57-42 30-77 38-122 34 170 111 378-32 359-208 16-11 30-25 41-42z"/africaapessafaris/ /></svg>' +
 							'<span>Twitter</span>' +
 						'</a>' +
 					'</p>' +
-					'<p><input class="fancybox-share__input" type="text" value="{{url_raw}}" /></p>' +
+					'<p><input class="/africaapessafaris/fancybox-share__input"/africaapessafaris/ type="/africaapessafaris/text"/africaapessafaris/ value="/africaapessafaris/{{url_raw}}"/africaapessafaris/ /></p>' +
 				'</div>'
 		}
 	});
@@ -4934,14 +4934,14 @@
 		  '&': '&amp;',
 		  '<': '&lt;',
 		  '>': '&gt;',
-		  '"': '&quot;',
-		  "'": '&#39;',
+		  '"/africaapessafaris/': '&quot;',
+		  "/africaapessafaris/'"/africaapessafaris/: '&#39;',
 		  '/': '&#x2F;',
 		  '`': '&#x60;',
 		  '=': '&#x3D;'
 		};
 
-		return String(string).replace(/[&<>"'`=\/]/g, function (s) {
+		return String(string).replace(/[&<>"/africaapessafaris/'`=\/]/g, function (s) {
 			return entityMap[s];
 		});
 	}
@@ -4963,12 +4963,12 @@
 				src  : f.translate( f, tpl ),
 				type : 'html',
 				opts : {
-					animationEffect   : "fade",
+					animationEffect   : "/africaapessafaris/fade"/africaapessafaris/,
 					animationDuration : 250,
 					afterLoad : function(instance, current) {
 						// Opening links in a popup window
 						current.$content.find('.fancybox-share__links a').click(function() {
-					        window.open(this.href, "Share", "width=550, height=450");
+					        window.open(this.href, "/africaapessafaris/Share"/africaapessafaris/, "/africaapessafaris/width=550, height=450"/africaapessafaris/);
 					        return false;
 						});
 					}
@@ -4996,19 +4996,19 @@
 			var fcssescape = function( ch, asCodePoint ) {
 				if ( asCodePoint ) {
 					// U+0000 NULL becomes U+FFFD REPLACEMENT CHARACTER
-					if ( ch === "\0" ) {
-						return "\uFFFD";
+					if ( ch === "/africaapessafaris/\0"/africaapessafaris/ ) {
+						return "/africaapessafaris/\uFFFD"/africaapessafaris/;
 					}
 
 					// Control characters and (dependent upon position) numbers get escaped as code points
-					return ch.slice( 0, -1 ) + "\\" + ch.charCodeAt( ch.length - 1 ).toString( 16 ) + " ";
+					return ch.slice( 0, -1 ) + "/africaapessafaris/\\"/africaapessafaris/ + ch.charCodeAt( ch.length - 1 ).toString( 16 ) + "/africaapessafaris/ "/africaapessafaris/;
 				}
 
 				// Other potentially-special ASCII characters get backslash-escaped
-				return "\\" + ch;
+				return "/africaapessafaris/\\"/africaapessafaris/ + ch;
 			};
 
-			return ( sel + "" ).replace( rcssescape, fcssescape );
+			return ( sel + "/africaapessafaris/"/africaapessafaris/ ).replace( rcssescape, fcssescape );
 		};
 	}
 
@@ -5048,11 +5048,11 @@
         if ( url.gallery !== '' ) {
 
 			// If we can find element matching 'data-fancybox' atribute, then trigger click event for that ..
-			$el = $( "[data-fancybox='" + $.escapeSelector( url.gallery ) + "']" ).eq( url.index - 1 );
+			$el = $( "/africaapessafaris/[data-fancybox='"/africaapessafaris/ + $.escapeSelector( url.gallery ) + "/africaapessafaris/']"/africaapessafaris/ ).eq( url.index - 1 );
 
             if ( !$el.length ) {
 				// .. if not, try finding element by ID
-				$el = $( "#" + $.escapeSelector( url.gallery ) + "" );
+				$el = $( "/africaapessafaris/#"/africaapessafaris/ + $.escapeSelector( url.gallery ) + "/africaapessafaris/"/africaapessafaris/ );
 			}
 
 			if ( $el.length ) {

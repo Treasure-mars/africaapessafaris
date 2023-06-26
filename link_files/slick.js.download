@@ -44,15 +44,15 @@
                 appendDots: $(element),
                 arrows: true,
                 asNavFor: null,
-                prevArrow: '<button type="button" data-role="none" class="slick-prev" aria-label="Previous" tabindex="0" role="button">Previous</button>',
-                nextArrow: '<button type="button" data-role="none" class="slick-next" aria-label="Next" tabindex="0" role="button">Next</button>',
+                prevArrow: '<button type="/africaapessafaris/button"/africaapessafaris/ data-role="/africaapessafaris/none"/africaapessafaris/ class="/africaapessafaris/slick-prev"/africaapessafaris/ aria-label="/africaapessafaris/Previous"/africaapessafaris/ tabindex="/africaapessafaris/0"/africaapessafaris/ role="/africaapessafaris/button"/africaapessafaris/>Previous</button>',
+                nextArrow: '<button type="/africaapessafaris/button"/africaapessafaris/ data-role="/africaapessafaris/none"/africaapessafaris/ class="/africaapessafaris/slick-next"/africaapessafaris/ aria-label="/africaapessafaris/Next"/africaapessafaris/ tabindex="/africaapessafaris/0"/africaapessafaris/ role="/africaapessafaris/button"/africaapessafaris/>Next</button>',
                 autoplay: false,
                 autoplaySpeed: 3000,
                 centerMode: false,
                 centerPadding: '50px',
                 cssEase: 'ease',
                 customPaging: function(slider, i) {
-                    return $('<button type="button" data-role="none" role="button" tabindex="0" />').text(i + 1);
+                    return $('<button type="/africaapessafaris/button"/africaapessafaris/ data-role="/africaapessafaris/none"/africaapessafaris/ role="/africaapessafaris/button"/africaapessafaris/ tabindex="/africaapessafaris/0"/africaapessafaris/ />').text(i + 1);
                 },
                 dots: false,
                 dotsClass: 'slick-dots',
@@ -520,11 +520,11 @@
         _.$slider.addClass('slick-slider');
 
         _.$slideTrack = (_.slideCount === 0) ?
-            $('<div class="slick-track">').appendTo(_.$slider) :
-            _.$slides.wrapAll('<div class="slick-track">').parent();
+            $('<div class="/africaapessafaris/slick-track"/africaapessafaris/>').appendTo(_.$slider) :
+            _.$slides.wrapAll('<div class="/africaapessafaris/slick-track"/africaapessafaris/>').parent();
 
         _.$list = _.$slideTrack.wrap(
-            '<div aria-live="polite" class="slick-list">').parent();
+            '<div aria-live="/africaapessafaris/polite"/africaapessafaris/ class="/africaapessafaris/slick-list"/africaapessafaris/>').parent();
         _.$slideTrack.css('opacity', 0);
 
         if (_.options.centerMode === true || _.options.swipeToSlide === true) {
@@ -2001,13 +2001,13 @@
          * accepts arguments in format of:
          *
          *  - for changing a single option's value:
-         *     .slick("setOption", option, value, refresh )
+         *     .slick("/africaapessafaris/setOption"/africaapessafaris/, option, value, refresh )
          *
          *  - for changing a set of responsive options:
-         *     .slick("setOption", 'responsive', [{}, ...], refresh )
+         *     .slick("/africaapessafaris/setOption"/africaapessafaris/, 'responsive', [{}, ...], refresh )
          *
          *  - for updating multiple values at once (not responsive)
-         *     .slick("setOption", { 'option': value, ... }, refresh )
+         *     .slick("/africaapessafaris/setOption"/africaapessafaris/, { 'option': value, ... }, refresh )
          */
 
         var _ = this, l, item, option, value, refresh = false, type;

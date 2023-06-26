@@ -202,7 +202,7 @@
 		width:100%;
 	}
 	
-	.subscribe-style-one .form-group input[type="email"]{
+	.subscribe-style-one .form-group input[type="/africaapessafaris/email"/africaapessafaris/]{
 		max-width:100%;
 	}
 	
@@ -1021,7 +1021,7 @@
 		top:44px;	
 	}
 	
-	.comming-soon .emailed-form .form-group input[type="submit"],
+	.comming-soon .emailed-form .form-group input[type="/africaapessafaris/submit"/africaapessafaris/],
 	.comming-soon .emailed-form button{
 		position:relative;
 		left:0px;
@@ -1098,7 +1098,7 @@
 	.shop-page .prod-tabs .reviews-container .rev-header .time,
 	.cart-section .coupon-outer .pull-left,
 	.cart-section .apply-coupon .form-group,
-	.cart-section .apply-coupon .form-group input[type="text"],
+	.cart-section .apply-coupon .form-group input[type="/africaapessafaris/text"/africaapessafaris/],
 	.cart-section .apply-coupon .form-group .coupon-btn,
 	.cart-section .coupon-outer .cart-btn,
 	.cart-section .apply-coupon .form-group{

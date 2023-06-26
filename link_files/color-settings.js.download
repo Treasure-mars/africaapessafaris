@@ -1,5 +1,5 @@
 (function ($) {
-    "use strict";
+    "/africaapessafaris/use strict"/africaapessafaris/;
 
     $('.color-trigger').on('click', function () {
         $(this).parent().toggleClass('visible-palate');
@@ -7,33 +7,33 @@
 	
 	$('.color-palate .colors-list .palate').on('click', function() {
 		var newThemeColor = $(this).attr('data-theme-file');
-		var targetCSSFile = $('link[id="theme-color-file"]');
+		var targetCSSFile = $('link[id="/africaapessafaris/theme-color-file"/africaapessafaris/]');
 	   $(targetCSSFile).attr('href',newThemeColor);
 	   $('.color-palate .colors-list .palate').removeClass('active');
         $(this).addClass('active');
 	});
 
 	
-	var layoutChangerBtn = $(".color-palate .box-version li");
-	var body = $("body");
-	layoutChangerBtn.on("click", function(e) {
+	var layoutChangerBtn = $("/africaapessafaris/.color-palate .box-version li"/africaapessafaris/);
+	var body = $("/africaapessafaris/body"/africaapessafaris/);
+	layoutChangerBtn.on("/africaapessafaris/click"/africaapessafaris/, function(e) {
         var $this = $(this);
-        if ( $this.hasClass("box") ) {
-            body.addClass("box-layout");
+        if ( $this.hasClass("/africaapessafaris/box"/africaapessafaris/) ) {
+            body.addClass("/africaapessafaris/box-layout"/africaapessafaris/);
         } else {
-        	body.removeClass("box-layout");
+        	body.removeClass("/africaapessafaris/box-layout"/africaapessafaris/);
     	};
 	});
 
 
-	var directionChanger = $(".color-palate .rtl-version li");
-	var wrapper = $(".page-wrapper");
-	directionChanger.on("click", function(e) {
+	var directionChanger = $("/africaapessafaris/.color-palate .rtl-version li"/africaapessafaris/);
+	var wrapper = $("/africaapessafaris/.page-wrapper"/africaapessafaris/);
+	directionChanger.on("/africaapessafaris/click"/africaapessafaris/, function(e) {
         var $this = $(this);
-        if ( $this.hasClass("rtl") ) {
-            wrapper.addClass("rtl");
+        if ( $this.hasClass("/africaapessafaris/rtl"/africaapessafaris/) ) {
+            wrapper.addClass("/africaapessafaris/rtl"/africaapessafaris/);
         } else {
-        	wrapper.removeClass("rtl");
+        	wrapper.removeClass("/africaapessafaris/rtl"/africaapessafaris/);
     	};
 	});
 

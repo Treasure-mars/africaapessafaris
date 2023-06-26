@@ -171,13 +171,13 @@ h6{
 
 .list-style-one li:before{
 	position:absolute;
-	content: "\f1b1";
+	content: "/africaapessafaris/\f1b1"/africaapessafaris/;
 	left:0px;
 	top:0px;
 	color:#467758;
 	font-size:14px;
 	font-weight:600;
-	font-family: "Flaticon";
+	font-family: "/africaapessafaris/Flaticon"/africaapessafaris/;
 }
 
 /*Btn Style One*/
@@ -1047,9 +1047,9 @@ img{
 	margin:0px;	
 }
 
-.main-header .header-lower .search-panel input[type="text"],
-.main-header .header-lower .search-panel input[type="search"],
-.main-header .header-lower .search-panel input[type="password"],
+.main-header .header-lower .search-panel input[type="/africaapessafaris/text"/africaapessafaris/],
+.main-header .header-lower .search-panel input[type="/africaapessafaris/search"/africaapessafaris/],
+.main-header .header-lower .search-panel input[type="/africaapessafaris/password"/africaapessafaris/],
 .main-header .header-lower .search-panel select{
 	display:block;
 	width:100%;
@@ -1276,7 +1276,7 @@ img{
 
 .main-menu .navigation > li.dropdown > a:before{
 	font-family: 'FontAwesome';
-    content: "\f107";
+    content: "/africaapessafaris/\f107"/africaapessafaris/;
     position: absolute;
     right: 0px;
     font-size: 13px;
@@ -1403,7 +1403,7 @@ img{
 
 .main-menu .navigation > li > ul > li.dropdown > a:after{
 	font-family: 'FontAwesome';
-	content: "\f105";
+	content: "/africaapessafaris/\f105"/africaapessafaris/;
 	position:absolute;
 	right:15px;
 	top:10px;
@@ -1478,7 +1478,7 @@ img{
 
 .main-menu .navigation > li > ul > li > ul > li.dropdown > a:after{
 	font-family: 'FontAwesome';
-	content: "\f105";
+	content: "/africaapessafaris/\f105"/africaapessafaris/;
 	position:absolute;
 	right:10px;
 	top:11px;
@@ -2951,9 +2951,9 @@ img{
 	padding-right:180px;
 }
 
-.subscribe-style-one .form-group input[type="text"],
-.subscribe-style-one .form-group input[type="tel"],
-.subscribe-style-one .form-group input[type="email"],
+.subscribe-style-one .form-group input[type="/africaapessafaris/text"/africaapessafaris/],
+.subscribe-style-one .form-group input[type="/africaapessafaris/tel"/africaapessafaris/],
+.subscribe-style-one .form-group input[type="/africaapessafaris/email"/africaapessafaris/],
 .subscribe-style-one .form-group textarea {
     position: relative;
     width: 100%;
@@ -2972,11 +2972,11 @@ img{
     transition: all 300ms ease;
 }
 
-.subscribe-style-one .form-group input[type="email"]:focus{
+.subscribe-style-one .form-group input[type="/africaapessafaris/email"/africaapessafaris/]:focus{
 	border-color:#467758;
 }
 
-.subscribe-style-one .form-group input[type="submit"],
+.subscribe-style-one .form-group input[type="/africaapessafaris/submit"/africaapessafaris/],
 .subscribe-style-one .form-group button {
 	position: absolute;
 	top: 0px;
@@ -4283,9 +4283,9 @@ img{
 	margin-bottom:20px;
 }
 
-.comming-soon .emailed-form .form-group input[type="text"],
-.comming-soon .emailed-form .form-group input[type="tel"],
-.comming-soon .emailed-form .form-group input[type="email"],
+.comming-soon .emailed-form .form-group input[type="/africaapessafaris/text"/africaapessafaris/],
+.comming-soon .emailed-form .form-group input[type="/africaapessafaris/tel"/africaapessafaris/],
+.comming-soon .emailed-form .form-group input[type="/africaapessafaris/email"/africaapessafaris/],
 .comming-soon .emailed-form .form-group textarea{
 	position:relative;
 	display:block;
@@ -4304,7 +4304,7 @@ img{
 	transition:all 300ms ease;
 }
 
-.comming-soon .emailed-form .form-group input[type="submit"],
+.comming-soon .emailed-form .form-group input[type="/africaapessafaris/submit"/africaapessafaris/],
 .comming-soon .emailed-form button{
 	position:absolute;
 	right:5px;
@@ -4780,8 +4780,8 @@ img{
 	margin:0px;	
 }
 
-.faq-search-box .form-group input[type="text"],
-.faq-search-box .form-group input[type="search"]{
+.faq-search-box .form-group input[type="/africaapessafaris/text"/africaapessafaris/],
+.faq-search-box .form-group input[type="/africaapessafaris/search"/africaapessafaris/]{
 	position:relative;
 	line-height:28px;
 	color:#222222;
@@ -4850,9 +4850,9 @@ img{
     margin-bottom: 20px;
 }
 
-.faq-form input[type="text"],
-.faq-form input[type="email"],
-.faq-form input[type="password"],
+.faq-form input[type="/africaapessafaris/text"/africaapessafaris/],
+.faq-form input[type="/africaapessafaris/email"/africaapessafaris/],
+.faq-form input[type="/africaapessafaris/password"/africaapessafaris/],
 .faq-form select,
 .faq-form textarea{
 	display:block;
@@ -5026,9 +5026,9 @@ img{
 	margin-bottom:25px;
 }
 
-.contact-form input[type="text"],
-.contact-form input[type="email"],
-.contact-form input[type="password"],
+.contact-form input[type="/africaapessafaris/text"/africaapessafaris/],
+.contact-form input[type="/africaapessafaris/email"/africaapessafaris/],
+.contact-form input[type="/africaapessafaris/password"/africaapessafaris/],
 .contact-form select,
 .contact-form textarea{
 	display:block;
@@ -5054,9 +5054,9 @@ img{
 	background:none;
 }
 
-.contact-form input[type="text"]:focus,
-.contact-form input[type="email"]:focus,
-.contact-form input[type="password"]:focus,
+.contact-form input[type="/africaapessafaris/text"/africaapessafaris/]:focus,
+.contact-form input[type="/africaapessafaris/email"/africaapessafaris/]:focus,
+.contact-form input[type="/africaapessafaris/password"/africaapessafaris/]:focus,
 .contact-form select:focus,
 .contact-form textarea:focus{
 	border-color:#467758;
@@ -5691,8 +5691,8 @@ img{
 	margin:0px;	
 }
 
-.sidebar .search-box .form-group input[type="text"],
-.sidebar .search-box .form-group input[type="search"]{
+.sidebar .search-box .form-group input[type="/africaapessafaris/text"/africaapessafaris/],
+.sidebar .search-box .form-group input[type="/africaapessafaris/search"/africaapessafaris/]{
 	position:relative;
 	line-height:24px;
 	padding:10px 10px 10px 20px;
@@ -6202,14 +6202,14 @@ img{
 }
 
 .bootstrap-touchspin .glyphicon-chevron-up:before {
-    content: "\f106";
+    content: "/africaapessafaris/\f106"/africaapessafaris/;
 	font-size: 18px;
 	font-style:normal;
 	font-family: 'FontAwesome';
 }
 
 .bootstrap-touchspin .glyphicon-chevron-down:before {
-    content: "\f107";
+    content: "/africaapessafaris/\f107"/africaapessafaris/;
 	font-size: 18px;
 	font-style:normal;
 	font-family: 'FontAwesome';
@@ -6339,10 +6339,10 @@ img{
 	margin-bottom:20px;	
 }
 
-.shop-page .prod-tabs .add-review .form-group input[type="text"],
-.shop-page .prod-tabs .add-review .form-group input[type="password"],
-.shop-page .prod-tabs .add-review .form-group input[type="tel"],
-.shop-page .prod-tabs .add-review .form-group input[type="email"],
+.shop-page .prod-tabs .add-review .form-group input[type="/africaapessafaris/text"/africaapessafaris/],
+.shop-page .prod-tabs .add-review .form-group input[type="/africaapessafaris/password"/africaapessafaris/],
+.shop-page .prod-tabs .add-review .form-group input[type="/africaapessafaris/tel"/africaapessafaris/],
+.shop-page .prod-tabs .add-review .form-group input[type="/africaapessafaris/email"/africaapessafaris/],
 .shop-page .prod-tabs .add-review .form-group select{
 	position:relative;
 	display:block;
@@ -6612,7 +6612,7 @@ img{
 }
 
 
-.cart-section .apply-coupon .form-group input[type="text"]{
+.cart-section .apply-coupon .form-group input[type="/africaapessafaris/text"/africaapessafaris/]{
 	display:block;
 	line-height:26px;
 	padding:12px 0px;
@@ -6656,8 +6656,8 @@ img{
 	line-height:1.7em;
 }
 
-.product-details .basic-details .item-quantity input[type="text"],
-.cart-table tbody tr .qty input[type="text"]{
+.product-details .basic-details .item-quantity input[type="/africaapessafaris/text"/africaapessafaris/],
+.cart-table tbody tr .qty input[type="/africaapessafaris/text"/africaapessafaris/]{
 	position:relative;
 	line-height:46px;
 	height:46px;
@@ -6798,12 +6798,12 @@ img{
 	font-size:16px;
 }
 
-.shop-form input[type="text"],
-.shop-form input[type="email"],
-.shop-form input[type="password"],
-.shop-form input[type="tel"],
-.shop-form input[type="number"],
-.shop-form input[type="url"],
+.shop-form input[type="/africaapessafaris/text"/africaapessafaris/],
+.shop-form input[type="/africaapessafaris/email"/africaapessafaris/],
+.shop-form input[type="/africaapessafaris/password"/africaapessafaris/],
+.shop-form input[type="/africaapessafaris/tel"/africaapessafaris/],
+.shop-form input[type="/africaapessafaris/number"/africaapessafaris/],
+.shop-form input[type="/africaapessafaris/url"/africaapessafaris/],
 .shop-form select,
 .shop-form textarea{
 	position:relative;
@@ -6930,7 +6930,7 @@ img{
 	font-size:15px;
 }
 
-.checkout-page .payment-options li .radio-option input[type="radio"]{
+.checkout-page .payment-options li .radio-option input[type="/africaapessafaris/radio"/africaapessafaris/]{
 	position:absolute;
 	left:0px;
 	top:3px;	
@@ -6974,7 +6974,7 @@ img{
 	border-bottom: 15px solid #ececec;
 }
 
-.checkout-page .payment-options li .radio-option input[type="radio"]:checked + label .small-text{
+.checkout-page .payment-options li .radio-option input[type="/africaapessafaris/radio"/africaapessafaris/]:checked + label .small-text{
 	display: block;
 }
 
@@ -7710,10 +7710,10 @@ img{
 	margin-bottom:0px;
 }
 
-.comment-form .form-group input[type="text"],
-.comment-form .form-group input[type="password"],
-.comment-form .form-group input[type="tel"],
-.comment-form .form-group input[type="email"],
+.comment-form .form-group input[type="/africaapessafaris/text"/africaapessafaris/],
+.comment-form .form-group input[type="/africaapessafaris/password"/africaapessafaris/],
+.comment-form .form-group input[type="/africaapessafaris/tel"/africaapessafaris/],
+.comment-form .form-group input[type="/africaapessafaris/email"/africaapessafaris/],
 .comment-form .form-group select{
 	position:relative;
 	display:block;
@@ -7732,10 +7732,10 @@ img{
 	transition:all 300ms ease;
 }
 
-.comment-form .form-group input[type="text"]:focus,
-.comment-form .form-group input[type="password"]:focus,
-.comment-form .form-group input[type="tel"]:focus,
-.comment-form .form-group input[type="email"]:focus,
+.comment-form .form-group input[type="/africaapessafaris/text"/africaapessafaris/]:focus,
+.comment-form .form-group input[type="/africaapessafaris/password"/africaapessafaris/]:focus,
+.comment-form .form-group input[type="/africaapessafaris/tel"/africaapessafaris/]:focus,
+.comment-form .form-group input[type="/africaapessafaris/email"/africaapessafaris/]:focus,
 .comment-form .form-group select:focus,
 .comment-form .form-group textarea:focus{
 	border-color:#467758;
@@ -7864,9 +7864,9 @@ img{
 	margin-bottom:0px;
 }
 
-.contact-form input[type="text"],
-.contact-form input[type="email"],
-.contact-form input[type="password"],
+.contact-form input[type="/africaapessafaris/text"/africaapessafaris/],
+.contact-form input[type="/africaapessafaris/email"/africaapessafaris/],
+.contact-form input[type="/africaapessafaris/password"/africaapessafaris/],
 .contact-form select,
 .contact-form textarea{
 	display:block;
@@ -7956,8 +7956,8 @@ img{
 	width:100%;
 }
 
-.error-search-form .form-group input[type="text"],
-.error-search-form .form-group input[type="search"]{
+.error-search-form .form-group input[type="/africaapessafaris/text"/africaapessafaris/],
+.error-search-form .form-group input[type="/africaapessafaris/search"/africaapessafaris/]{
 	position:relative;
 	line-height:22px;
 	background:none;
@@ -8091,12 +8091,12 @@ img{
 	font-weight:400;
 }
 
-.styled-form input[type="text"],
-.styled-form input[type="email"],
-.styled-form input[type="password"],
-.styled-form input[type="tel"],
-.styled-form input[type="number"],
-.styled-form input[type="url"],
+.styled-form input[type="/africaapessafaris/text"/africaapessafaris/],
+.styled-form input[type="/africaapessafaris/email"/africaapessafaris/],
+.styled-form input[type="/africaapessafaris/password"/africaapessafaris/],
+.styled-form input[type="/africaapessafaris/tel"/africaapessafaris/],
+.styled-form input[type="/africaapessafaris/number"/africaapessafaris/],
+.styled-form input[type="/africaapessafaris/url"/africaapessafaris/],
 .styled-form select,
 .styled-form textarea{
 	position:relative;
@@ -8114,9 +8114,9 @@ img{
 	-moz-transition:all 300ms ease;
 }
 
-.checkout-section .styled-form input[type="text"],
-.checkout-section .styled-form input[type="email"],
-.checkout-section .styled-form input[type="password"],
+.checkout-section .styled-form input[type="/africaapessafaris/text"/africaapessafaris/],
+.checkout-section .styled-form input[type="/africaapessafaris/email"/africaapessafaris/],
+.checkout-section .styled-form input[type="/africaapessafaris/password"/africaapessafaris/],
 .checkout-section .styled-form select{
 	line-height:26px;
 	height:44px;	
@@ -9124,7 +9124,7 @@ img{
 	padding-left:180px;
 }
 
-.rtl .subscribe-style-one .form-group input[type="submit"],
+.rtl .subscribe-style-one .form-group input[type="/africaapessafaris/submit"/africaapessafaris/],
 .rtl .subscribe-style-one .form-group button{
 	left:0px;
 	right:auto;
@@ -9169,12 +9169,12 @@ img{
 .rtl .accordion-box .block .content p,
 .rtl .career-section .title-column .inner-column,
 .rtl .about-section .content-column .inner-column,
-.rtl .faq-search-box .form-group input[type="text"],
-.rtl .faq-search-box .form-group input[type="search"],
-.rtl .faq-form input[type="text"],
+.rtl .faq-search-box .form-group input[type="/africaapessafaris/text"/africaapessafaris/],
+.rtl .faq-search-box .form-group input[type="/africaapessafaris/search"/africaapessafaris/],
+.rtl .faq-form input[type="/africaapessafaris/text"/africaapessafaris/],
 .rtl .donate-help-widget .inner-box,
-.rtl .faq-form input[type="email"],
-.rtl .faq-form input[type="password"],
+.rtl .faq-form input[type="/africaapessafaris/email"/africaapessafaris/],
+.rtl .faq-form input[type="/africaapessafaris/password"/africaapessafaris/],
 .rtl .faq-form select,
 .rtl .faq-form textarea,
 .rtl .partners-page-section .sec-title,
@@ -9272,15 +9272,15 @@ img{
 	padding-right:400px;
 }
 
-.rtl .comming-soon .emailed-form .form-group input[type="submit"],
+.rtl .comming-soon .emailed-form .form-group input[type="/africaapessafaris/submit"/africaapessafaris/],
 .rtl .comming-soon .emailed-form button{
 	right:auto;
 	left:5px;
 }
 
-.rtl .comming-soon .emailed-form .form-group input[type="text"],
-.rtl .comming-soon .emailed-form .form-group input[type="tel"],
-.rtl .comming-soon .emailed-form .form-group input[type="email"],
+.rtl .comming-soon .emailed-form .form-group input[type="/africaapessafaris/text"/africaapessafaris/],
+.rtl .comming-soon .emailed-form .form-group input[type="/africaapessafaris/tel"/africaapessafaris/],
+.rtl .comming-soon .emailed-form .form-group input[type="/africaapessafaris/email"/africaapessafaris/],
 .rtl .comming-soon .emailed-form .form-group textarea{
 	padding-right:15px;
 	padding-left:180px;
@@ -9322,8 +9322,8 @@ img{
 	right:auto;
 }
 
-.rtl .sidebar .search-box .form-group input[type="text"],
-.rtl .sidebar .search-box .form-group input[type="search"]{
+.rtl .sidebar .search-box .form-group input[type="/africaapessafaris/text"/africaapessafaris/],
+.rtl .sidebar .search-box .form-group input[type="/africaapessafaris/search"/africaapessafaris/]{
 	padding-left:40px;
 	text-align:right;
 }
@@ -9350,18 +9350,18 @@ img{
 
 .rtl .shop-form .billing-inner,
 .rtl .billing-details .shop-form .sec-title,
-.rtl .shop-page .prod-tabs .add-review .form-group input[type="text"],
-.rtl .shop-page .prod-tabs .add-review .form-group input[type="password"],
-.rtl .shop-page .prod-tabs .add-review .form-group input[type="tel"],
-.rtl .shop-page .prod-tabs .add-review .form-group input[type="email"],
+.rtl .shop-page .prod-tabs .add-review .form-group input[type="/africaapessafaris/text"/africaapessafaris/],
+.rtl .shop-page .prod-tabs .add-review .form-group input[type="/africaapessafaris/password"/africaapessafaris/],
+.rtl .shop-page .prod-tabs .add-review .form-group input[type="/africaapessafaris/tel"/africaapessafaris/],
+.rtl .shop-page .prod-tabs .add-review .form-group input[type="/africaapessafaris/email"/africaapessafaris/],
 .rtl .shop-page .prod-tabs .add-review .form-group select,
 .rtl .shop-page .prod-tabs .add-review .form-group textarea,
-.rtl .shop-form input[type="text"],
-.rtl .shop-form input[type="email"],
-.rtl .shop-form input[type="password"],
-.rtl .shop-form input[type="tel"],
-.rtl .shop-form input[type="number"],
-.rtl .shop-form input[type="url"],
+.rtl .shop-form input[type="/africaapessafaris/text"/africaapessafaris/],
+.rtl .shop-form input[type="/africaapessafaris/email"/africaapessafaris/],
+.rtl .shop-form input[type="/africaapessafaris/password"/africaapessafaris/],
+.rtl .shop-form input[type="/africaapessafaris/tel"/africaapessafaris/],
+.rtl .shop-form input[type="/africaapessafaris/number"/africaapessafaris/],
+.rtl .shop-form input[type="/africaapessafaris/url"/africaapessafaris/],
 .rtl .shop-order-box .order-list li,
 .rtl .shop-form select,
 .rtl .shop-form textarea,
@@ -9378,31 +9378,31 @@ img{
 	text-align:right;
 }
 
-.rtl .checkout-page .payment-options li .radio-option input[type="radio"]{
+.rtl .checkout-page .payment-options li .radio-option input[type="/africaapessafaris/radio"/africaapessafaris/]{
 	right:0px;
 	left:auto;
 }
 
-.rtl .checkout-page .payment-options li .radio-option input[type="radio"]:checked + label .small-text{
+.rtl .checkout-page .payment-options li .radio-option input[type="/africaapessafaris/radio"/africaapessafaris/]:checked + label .small-text{
 	margin-left:0px;
 }
 
-.rtl .styled-form input[type="text"],
-.rtl .styled-form input[type="email"],
-.rtl .styled-form input[type="password"],
-.rtl .styled-form input[type="tel"],
-.rtl .styled-form input[type="number"],
-.rtl .styled-form input[type="url"],
+.rtl .styled-form input[type="/africaapessafaris/text"/africaapessafaris/],
+.rtl .styled-form input[type="/africaapessafaris/email"/africaapessafaris/],
+.rtl .styled-form input[type="/africaapessafaris/password"/africaapessafaris/],
+.rtl .styled-form input[type="/africaapessafaris/tel"/africaapessafaris/],
+.rtl .styled-form input[type="/africaapessafaris/number"/africaapessafaris/],
+.rtl .styled-form input[type="/africaapessafaris/url"/africaapessafaris/],
 .rtl .author-box h2,
 .rtl .comment-form .rating-box,
 .rtl .blog-single .inner-box .lower-content,
 .rtl .styled-form select, .styled-form textarea,
 .rtl .sidebar-page-container .group-title h2,
 .rtl .news-block-two .inner-box .content-column .inner-column,
-.rtl .comment-form .form-group input[type="text"],
-.rtl .comment-form .form-group input[type="password"],
-.rtl .comment-form .form-group input[type="tel"],
-.rtl .comment-form .form-group input[type="email"],
+.rtl .comment-form .form-group input[type="/africaapessafaris/text"/africaapessafaris/],
+.rtl .comment-form .form-group input[type="/africaapessafaris/password"/africaapessafaris/],
+.rtl .comment-form .form-group input[type="/africaapessafaris/tel"/africaapessafaris/],
+.rtl .comment-form .form-group input[type="/africaapessafaris/email"/africaapessafaris/],
 .rtl .comment-form .form-group select,
 .rtl .comment-form .form-group textarea,
 .rtl .comment-form .form-group:last-child,
@@ -9474,8 +9474,8 @@ img{
 	padding-right:120px;
 }
 
-.rtl .error-search-form .form-group input[type="text"],
-.rtl .error-search-form .form-group input[type="search"]{
+.rtl .error-search-form .form-group input[type="/africaapessafaris/text"/africaapessafaris/],
+.rtl .error-search-form .form-group input[type="/africaapessafaris/search"/africaapessafaris/]{
 	padding:10px 10px 10px 70px;
 }
 
@@ -9484,9 +9484,9 @@ img{
 	right:auto;
 }
 
-.rtl .contact-form input[type="text"],
-.rtl .contact-form input[type="email"],
-.rtl .contact-form input[type="password"],
+.rtl .contact-form input[type="/africaapessafaris/text"/africaapessafaris/],
+.rtl .contact-form input[type="/africaapessafaris/email"/africaapessafaris/],
+.rtl .contact-form input[type="/africaapessafaris/password"/africaapessafaris/],
 .rtl .contact-form select, .rtl .contact-form textarea,
 .rtl .contact-form .form-group:last-child,
 .rtl .contact-page-section .form-column .inner-column{
@@ -9824,9 +9824,9 @@ body.visible-menu-bar .fullscreen-menu{
 	padding:0px 4px;
 }
 
-.quote-form .form-group input[type="text"],
-.quote-form .form-group input[type="tel"],
-.quote-form .form-group input[type="email"],
+.quote-form .form-group input[type="/africaapessafaris/text"/africaapessafaris/],
+.quote-form .form-group input[type="/africaapessafaris/tel"/africaapessafaris/],
+.quote-form .form-group input[type="/africaapessafaris/email"/africaapessafaris/],
 .quote-form .form-group select{
 	position:relative;
 	display:block;
@@ -9845,9 +9845,9 @@ body.visible-menu-bar .fullscreen-menu{
 	transition:all 300ms ease;
 }
 
-.quote-form .form-group input[type="text"]:focus,
-.quote-form .form-group input[type="tel"]:focus,
-.quote-form .form-group input[type="email"]:focus,
+.quote-form .form-group input[type="/africaapessafaris/text"/africaapessafaris/]:focus,
+.quote-form .form-group input[type="/africaapessafaris/tel"/africaapessafaris/]:focus,
+.quote-form .form-group input[type="/africaapessafaris/email"/africaapessafaris/]:focus,
 .quote-form .form-group textarea:focus{
 	border-color:#ee2d50;
 }

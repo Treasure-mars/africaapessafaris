@@ -424,7 +424,7 @@ img{
 	margin-left:-20px;
 	text-shadow: 0px 3px #ecee00;
 	font-family: 'Cabin', sans-serif;
-	color:
+	color: red;
 }
 
 .sec-title .text{
@@ -789,7 +789,7 @@ img{
 }*/
 .main-header .outer-box .option-box .cart-box{
 	position:relative;
-	float:left;
+	float: left;
 	color:#ffffff;
 	font-size:16px;
 	background:none;
@@ -1881,7 +1881,7 @@ img{
 .services-block .inner-box:hover .content .image-layer{
 	opacity:1;
 	visibility: visible;
-	transform:rotateX(0deg)
+	transform:rotateX(0deg);
 	-moz-transform:rotateX(0deg);
 	-webkit-transform:rotateX(0deg);
 	-ms-transform:rotateX(0deg);
@@ -5681,6 +5681,23 @@ img{
 	position:relative;
 	line-height:24px;
 	padding:10px 10px 10px 20px;
+	border:1px solid #cccccc;
+	color:#222222;
+	display:block;
+	font-size:14px;
+	width:100%;
+	height:35px;
+	transition:all 500ms ease;
+	-moz-transition:all 500ms ease;
+	-webkit-transition:all 500ms ease;
+	-ms-transition:all 500ms ease;
+	-o-transition:all 500ms ease;
+}
+
+.sidebar .search-box .form-group select{
+	position:relative;
+	line-height:24px;
+	padding: 5px 10px 10px 20px;
 	border:1px solid #cccccc;
 	color:#222222;
 	display:block;

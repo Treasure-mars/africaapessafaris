@@ -4525,7 +4525,11 @@ textarea.form-control-lg {
   float: right;
   padding-left: var(--bs-breadcrumb-item-padding-x);
   color: var(--bs-breadcrumb-divider-color);
+<<<<<<< HEAD
   content:  var(--bs-breadcrumb-divider, "/africaapessafaris/") ;
+=======
+  content:  var(--bs-breadcrumb-divider, "/") ;
+>>>>>>> parent of b293e4d (Update rpm 0.3)
 }
 .breadcrumb-item.active {
   color: var(--bs-breadcrumb-item-active-color);

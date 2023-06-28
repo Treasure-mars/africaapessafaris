@@ -1633,7 +1633,11 @@ section {
   display: inline-block;
   padding-right: 10px;
   color: #655356;
+<<<<<<< HEAD
   content: "/africaapessafaris/";
+=======
+  content: "/";
+>>>>>>> parent of b293e4d (Update rpm 0.3)
 }
 
 /*--------------------------------------------------------------

@@ -2133,11 +2133,7 @@
 
     if (uaData != null && uaData.brands) {
       return uaData.brands.map(function (item) {
-<<<<<<< HEAD
         return item.brand + "/africaapessafaris/" + item.version;
-=======
-        return item.brand + "/" + item.version;
->>>>>>> parent of b293e4d (Update rpm 0.3)
       }).join(' ');
     }
 

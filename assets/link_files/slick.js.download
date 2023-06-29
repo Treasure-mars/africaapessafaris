@@ -520,19 +520,11 @@
         _.$slider.addClass('slick-slider');
 
         _.$slideTrack = (_.slideCount === 0) ?
-<<<<<<< HEAD
-            $('<div class="slick-track"/africaapessafaris/>').appendTo(_.$slider) :
-            _.$slides.wrapAll('<div class="slick-track"/africaapessafaris/>').parent();
-
-        _.$list = _.$slideTrack.wrap(
-            '<div aria-live="polite" class="slick-list"/africaapessafaris/>').parent();
-=======
             $('<div class="slick-track"/>').appendTo(_.$slider) :
             _.$slides.wrapAll('<div class="slick-track"/>').parent();
 
         _.$list = _.$slideTrack.wrap(
             '<div aria-live="polite" class="slick-list"/>').parent();
->>>>>>> parent of b293e4d (Update rpm 0.3)
         _.$slideTrack.css('opacity', 0);
 
         if (_.options.centerMode === true || _.options.swipeToSlide === true) {

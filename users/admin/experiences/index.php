@@ -251,7 +251,7 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
                           $details = $row['details'];
                           $photo = $row['photo'];
                           // Do something with the data, e.g., print or process
-                          echo "<tr><td><a href='#' class='text-primary'>$id</a></td><td>$category</td><td>$title</td><td>$duration</td><td>$elevation</td><td>$package_includes</td><td>$summary</td><td>$details</td><td>$photo</td></tr>";
+                          echo "<tr><td><a href='#' data-bs-toggle='modal' data-bs-target='#verticalycentered2' data-id='$id' class='text-primary'>$id</a></td><td>$category</td><td>$title</td><td>$duration</td><td>$elevation</td><td>$package_includes</td><td>$summary</td><td>$details</td><td><img src='$photo' width='50px'/></td></tr>";
                       }
                       // Close the database connection
                       mysqli_close($conn);
@@ -262,6 +262,25 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
                   </table><!-- End Experiences -->
 
                   <!-- Vertically centered Modal-->
+                  <div class="modal fade" id="verticalycentered2" tabindex="-1">
+                    <div class="modal-dialog modal-fullscreen">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">Land UPI</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body" id="modalBody2">
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <button type="button" name="addExperience" id="submitBtn2" class="btn btn-primary">Save changes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div><!-- End Vertically centered Modal-->
+
+
+                  <!-- Vertically centered Modal-->
                   <div class="modal fade" id="verticalycentered" tabindex="-1">
                     <div class="modal-dialog modal-fullscreen">
                       <div class="modal-content">
@@ -270,32 +289,27 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body" id="modalBody">
-                          <form action="">
+                          <form action="../../post.php" method="POST" id="addExperience">
                           <div class="row mb-3">
                             <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Image</label>
-                            <!-- <div class="col-md-8 col-lg-9">
-                              <img src="../../assets/img/profile-img.jpg" alt="Profile">
-                              <div class="pt-2">
-                                <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
-                                <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
-                              </div>
-                            </div> -->
                             <div class="col-md-8 col-lg-9">
                               <img id="profileImage" src="../../assets/img/profile/No-profile.jpg" alt="Profile" width="70px">
                                 <label for="imageFile" class="btn btn-primary btn-sm" title="Upload new profile image" style="color: white; font-weight: 100">
                                     <i class="bi bi-upload"></i>
-                                    <input type="file" id="imageFile" name="imageFile" accept="image/*" style="display: none;">
+                                    <input type="file" id="imageFile" accept="image/*" style="display: none;">
                                 </label>
                           </div>
                           <input type="hidden" id="profilechanged" value='0'>
+                          <input type="hidden" name="newprofilephoto" id="newprofilephoto" value="">
+                          <input type="hidden" name="location" id="location" value="AddExperience">
                           </div>
                           <div class="row mb-3">
                             <label for="category" class="col-sm-2 col-form-label">Choose Category</label>
                             <div class="col-sm-10">
-                              <select name="category" id="category" required>
-                                <option value="Experience">Experience</option>
-                                <option value="Packages">Packages</option>
-                                <option value="Itenaries">Itenaries</option>
+                              <select name="category" class="form-select" id="category" required>
+                                <option value="Culture">Culture</option>
+                                <option value="Safari">Safari</option>
+                                <option value="Wellness">Wellness</option>
                               </select>
                             </div>
                             <div class="invalid-feedback">Please, choose category!</div>
@@ -303,42 +317,42 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
                           <div class="row mb-3">
                             <label for="title" class="col-sm-2 col-form-label">Title</label>
                             <div class="col-sm-10">
-                              <input type="text" name="title" id="title" required>
+                              <input type="text" class="form-control" name="title" id="title" required>
                             </div>
                             <div class="invalid-feedback">Please, enter Title!</div>
                           </div> 
                           <div class="row mb-3">
                             <label for="duration" class="col-sm-2 col-form-label">Duration</label>
                             <div class="col-sm-10">
-                              <input type="text" name="duration" id="duration" required>
+                              <input type="text" class="form-control" name="duration" id="duration" required>
                             </div>
                             <div class="invalid-feedback">Please, enter duration!</div>
                           </div>
                           <div class="row mb-3">
                             <label for="elevation" class="col-sm-2 col-form-label">Elevation</label>
                             <div class="col-sm-10">
-                              <input type="text" name="elevation" id="elevation" required>
+                              <input type="text" class="form-control" name="elevation" id="elevation" required>
                             </div>
                             <div class="invalid-feedback">Please, enter elevation!</div>
                           </div>
                           <div class="row mb-3">
                             <label for="package_includes" class="col-sm-2 col-form-label">Package Includes</label>
                             <div class="col-sm-10">
-                              <textarea name="package_includes" id="package_includes" required></textarea>
+                              <textarea name="package_includes" rows="4" class="form-control" id="package_includes" required></textarea>
                             </div>
                             <div class="invalid-feedback">Please, enter package_includes!</div>
                           </div>
                           <div class="row mb-3">
                             <label for="summary" class="col-sm-2 col-form-label">Summary</label>
                             <div class="col-sm-10">
-                              <textarea name="summary" id="summary" required></textarea>
+                              <textarea name="summary" class="form-control" id="summary" required></textarea>
                             </div>
                             <div class="invalid-feedback">Please, enter summary!</div>
                           </div>
                           <div class="row mb-3">
                             <label for="details" class="col-sm-2 col-form-label">Details</label>
                             <div class="col-sm-10">
-                              <textarea name="details" id="details" required></textarea>
+                              <textarea name="details" class="form-control" rows="8" id="details" required></textarea>
                             </div>
                             <div class="invalid-feedback">Please, enter details!</div>
                           </div>
@@ -346,7 +360,7 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary">Save changes</button>
+                          <button type="button" name="addExperience" id="submitBtn" class="btn btn-primary">Save changes</button>
                         </div>
                       </div>
                     </div>
@@ -382,6 +396,273 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
 
   <!-- Template Main JS File -->
   <script src="../../assets/js/main.js"></script>
+
+  <script>
+      document.addEventListener("DOMContentLoaded", function () {
+      const imageFileInput = document.getElementById("imageFile");
+      const profileImage = document.getElementById("profileImage");
+      const newprofilephoto = document.getElementById("newprofilephoto");
+      const updateself = document.getElementById("addExperience");
+      const profilechanged = document.getElementById("profilechanged");
+      const modalTitleElement = document.querySelector('#verticalycentered2 .modal-title');
+      const modalBodyElement = document.getElementById('modalBody2');
+      
+      imageFileInput.addEventListener("change", function () {
+          const file = imageFileInput.files[0];
+          if (file) {
+              const formData = new FormData();
+              formData.append("imageFile", file);
+              // You can use AJAX to submit the form data to the server
+              // Replace 'upload_profile_image.php' with your server-side script
+              fetch("../../upload_profile_image.php", {
+                  method: "POST",
+                  body: formData
+              })
+              .then(response => response.json())
+              .then(data => {
+                  if (data.success) {
+                    const currentDate = new Date(); const timestamp = currentDate. getTime();
+                    var src = "../../" + data.imageUrl + "?t=" + timestamp;
+                    profileImage.src = src; // Update the profile image source
+                    profilechanged.value = '1';
+                  }
+              })
+              .catch(error => {
+                  console.error("Error uploading image:", error);
+              });
+          }
+      });
+
+      document.getElementById("submitBtn").addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent the form from submitting immediately
+
+        if (profilechanged.value === '1') {
+            const file = imageFileInput.files[0];
+            if (file) {
+                const formData = new FormData();
+                formData.append("imageFile", file);
+                formData.append("location", "experiences");
+                formData.append("action", "add");
+                console.log(formData);
+                // You can use AJAX to submit the form data to the server
+                // Replace 'really_upload_profile_image.php' with your server-side script
+                fetch("../../really_upload_profile_image.php", {
+                    method: "POST",
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                      const currentDate = new Date(); const timestamp = currentDate. getTime();
+                      var src = "../../" + data.imageUrl + "?t=" + timestamp;
+                      if(profilechanged.value === '1') {
+                        newprofilephoto.value = "../../" + data.imageUrl;
+                        profileImage.src = src; // Update the profile image source
+                        updateself.submit(); // Submit the form after image upload and update
+                      } 
+                      
+                    } else {
+                      alert("Error uploading image: " + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error("Error uploading image 1:", error);
+                });
+            }
+        } else {
+            updateself.submit();
+        }
+    });
+    
+    document.querySelectorAll('[data-id]').forEach(anchor => {
+        anchor.addEventListener('click', function () {
+          const titleId = this.getAttribute('data-id');
+            const row = this.closest('tr');
+            const id = row.cells[0].textContent;
+            const category = row.cells[1].textContent;
+            const title = row.cells[2].textContent;
+            const duration = row.cells[3].textContent;
+            const elevation = row.cells[4].textContent;
+            const package_includes = row.cells[5].textContent;
+            const summary = row.cells[6].textContent;
+            const details = row.cells[7].textContent;
+            // Create a temporary div element to parse the HTML
+            var tempDiv = document.createElement('div');
+            tempDiv.innerHTML = row.cells[8].innerHTML;
+            // Find the <img> element within the parsed HTML
+            var imgElement = tempDiv.querySelector('img');
+
+            // Check if the <img> element and its src attribute exist
+            if (imgElement && imgElement.hasAttribute('src')) {
+              var imageSource = imgElement.getAttribute('src');
+              console.log('Image source:', imageSource);
+            } else {
+              console.log('Image or src attribute not found.');
+            }
+
+            const catProfile = imageSource;
+
+            modalTitleElement.textContent = title;
+            modalBodyElement.innerHTML = `
+            <form action="../../post.php" method="POST" id="updateExperience">
+                          <div class="row mb-3">
+                            <label for="profileImage2" class="col-md-4 col-lg-3 col-form-label">Image</label>
+                            <div class="col-md-8 col-lg-9">
+                              <img id="profileImage2" src="${catProfile}" alt="Profile" width="70px">
+                                <label for="uploadImage" class="btn btn-primary btn-sm" title="Upload new profile image" style="color: white; font-weight: 100">
+                                    <i class="bi bi-upload"></i>
+                                    <input type="file" id="uploadImage" accept="image/*" style="display: none;">
+                                </label>
+                          </div>
+                          <input type="hidden" id="profilechanged2" value='0'>
+                          <input type="hidden" name="newprofilephoto" id="newprofilephoto2" value="">
+                          <input type="hidden" name="location" id="location" value="UpdateExperience">
+                          <input type="hidden" name="id" id="id" value="${id}">
+                          </div>
+                          <div class="row mb-3">
+                            <label for="category" class="col-sm-2 col-form-label">Choose Category</label>
+                            <div class="col-sm-10">
+                              <select name="category" class="form-select" id="category" required>
+                                <option value="Culture">Culture</option>
+                                <option value="Safari">Safari</option>
+                                <option value="Wellness">Wellness</option>
+                              </select>
+                            </div>
+                            <div class="invalid-feedback">Please, choose category!</div>
+                          </div> 
+                          <div class="row mb-3">
+                            <label for="title" class="col-sm-2 col-form-label">Title</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" value="${title}" name="title" id="title" required>
+                            </div>
+                            <div class="invalid-feedback">Please, enter Title!</div>
+                          </div> 
+                          <div class="row mb-3">
+                            <label for="duration" class="col-sm-2 col-form-label">Duration</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" value="${duration}" name="duration" id="duration" required>
+                            </div>
+                            <div class="invalid-feedback">Please, enter duration!</div>
+                          </div>
+                          <div class="row mb-3">
+                            <label for="elevation" class="col-sm-2 col-form-label">Elevation</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" value="${elevation}" name="elevation" id="elevation" required>
+                            </div>
+                            <div class="invalid-feedback">Please, enter elevation!</div>
+                          </div>
+                          <div class="row mb-3">
+                            <label for="package_includes" class="col-sm-2 col-form-label">Package Includes</label>
+                            <div class="col-sm-10">
+                              <textarea name="package_includes" rows="4" class="form-control" id="package_includes" required>${package_includes}</textarea>
+                            </div>
+                            <div class="invalid-feedback">Please, enter package_includes!</div>
+                          </div>
+                          <div class="row mb-3">
+                            <label for="summary" class="col-sm-2 col-form-label">Summary</label>
+                            <div class="col-sm-10">
+                              <textarea name="summary" class="form-control" id="summary" required>${summary}</textarea>
+                            </div>
+                            <div class="invalid-feedback">Please, enter summary!</div>
+                          </div>
+                          <div class="row mb-3">
+                            <label for="details" class="col-sm-2 col-form-label">Details</label>
+                            <div class="col-sm-10">
+                              <textarea name="details" class="form-control" rows="8" id="details" required>${details}</textarea>
+                            </div>
+                            <div class="invalid-feedback">Please, enter details!</div>
+                          </div>
+                          </form>
+                `;
+          var catField = document.querySelector('#updateExperience select[name="category"]');
+          var catOption = catField.querySelector('option[value="' + category + '"]');
+          catOption.selected = true;
+
+          const profilechanged2 = document.getElementById("profilechanged2");
+          const profileImage2 = document.getElementById("profileImage2");
+          const newprofilephoto2 = document.getElementById("newprofilephoto2");
+          
+          const uploadImage = document.getElementById("uploadImage");
+      // Rest of your code, including handling the removeImage button
+      uploadImage.addEventListener('change', function() {
+        const uploadImage = document.getElementById("uploadImage");
+          const file = uploadImage.files[0];
+          if (file) {
+              const formData = new FormData();
+              formData.append("imageFile", file);
+              // You can use AJAX to submit the form data to the server
+              // Replace 'upload_profile_image.php' with your server-side script
+              fetch("../../upload_profile_image.php", {
+                  method: "POST",
+                  body: formData
+              })
+              .then(response => response.json())
+              .then(data => {
+                  if (data.success) {
+                    const currentDate = new Date(); const timestamp = currentDate. getTime();
+                    var src = "../../" + data.imageUrl + "?t=" + timestamp;
+                    profileImage2.src = src; // Update the profile image source
+                    profilechanged2.value = '1';
+                  }
+              })
+              .catch(error => {
+                  console.error("Error uploading image:", error);
+              });
+          }
+      });
+
+      document.getElementById("submitBtn2").addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent the form from submitting immediately
+        
+      const updateself2 = document.getElementById("updateExperience");
+
+        if (profilechanged2.value === '1') {
+            const file = uploadImage.files[0];
+            if (file) {
+                const formData = new FormData();
+                formData.append("imageFile", file);
+                formData.append("location", "experiences");
+                formData.append("action", "update");
+                formData.append("id", id);
+                // You can use AJAX to submit the form data to the server
+                // Replace 'really_upload_profile_image.php' with your server-side script
+                fetch("../../really_upload_profile_image.php", {
+                    method: "POST",
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                      const currentDate = new Date(); const timestamp = currentDate. getTime();
+                      var src = "../../" + data.imageUrl + "?t=" + timestamp;
+                      console.log(src);
+                      if(profilechanged2.value === '1') {
+                        newprofilephoto2.value = "../../" + data.imageUrl;
+                        console.log("../../" + data.imageUrl);
+                        profileImage2.src = src; // Update the profile image source
+                        updateself2.submit(); // Submit the form after image upload and update
+                      }
+                      
+                    } else {
+                      alert("Error uploading image: " + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error("Error uploading image 1:", error);
+                });
+            }
+        } else {
+            updateself2.submit();
+        }
+    });
+
+        });
+    });
+    
+  });
+
+
+</script>
 
 </body>
 

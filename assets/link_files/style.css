@@ -7428,7 +7428,7 @@ img{
 	margin-bottom:30px;
 }
 
-.blog-single .inner-box .lower-content .text p{
+.blog-single .inner-box .lower-content .text p, .blog-single .inner-box .lower-content .text ul{
 	position:relative;
 	color:#848484;
 	font-size:15px;

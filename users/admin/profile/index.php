@@ -137,7 +137,7 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
 
         <li class="nav-item dropdown pe-3">
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="../../../<?php echo $profile_photo ?>" alt="Profile" class="rounded-circle">
+            <img src="../../<?php echo $profile_photo ?>" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo $_SESSION['user']; ?></span>
           </a><!-- End Profile Iamge Icon -->
 
@@ -284,7 +284,7 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
           <div class="card">
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-              <img src="../../../<?php echo $profile_photo ?>" alt="Profile" class="rounded-circle">
+              <img src="../../<?php echo $profile_photo ?>" alt="Profile" class="rounded-circle">
               <h2><?php echo $_SESSION['user']; ?></h2>
               <h3><?php echo $_SESSION['user_level']; ?></h3>
             </div>
@@ -338,22 +338,22 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Twitter</div>
-                    <div class="col-lg-9 col-md-8"><a href="<?php echo $twitter_link; ?>"><?php echo $twitter_link; ?></a></div>
+                    <div class="col-lg-9 col-md-8"><a href="<?php echo $twitter_link; ?>" target="_blank"><?php echo $twitter_link; ?></a></div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Instagram</div>
-                    <div class="col-lg-9 col-md-8"><a href="<?php echo $instagram_link; ?>"><?php echo $instagram_link; ?></a></div>
+                    <div class="col-lg-9 col-md-8"><a href="<?php echo $instagram_link; ?>" target="_blank"><?php echo $instagram_link; ?></a></div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Facebook</div>
-                    <div class="col-lg-9 col-md-8"><a href="<?php echo $facebook_link; ?>"><?php echo $facebook_link; ?></a></div>
+                    <div class="col-lg-9 col-md-8"><a href="<?php echo $facebook_link; ?>" target="_blank"><?php echo $facebook_link; ?></a></div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Linkedin</div>
-                    <div class="col-lg-9 col-md-8"><a href="<?php echo $linkedin_link; ?>"><?php echo $linkedin_link; ?></a></div>
+                    <div class="col-lg-9 col-md-8"><a href="<?php echo $linkedin_link; ?>" target="_blank"><?php echo $linkedin_link; ?></a></div>
                   </div>
 
                 </div>
@@ -372,7 +372,7 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
                         </div>
                       </div> -->
                       <div class="col-md-8 col-lg-9">
-                        <img id="profileImage" src="../../../<?php echo $profile_photo; ?>" alt="Profile">
+                        <img id="profileImage" src="../../<?php echo $profile_photo; ?>" alt="Profile">
                           <label for="imageFile" class="btn btn-primary btn-sm" title="Upload new profile image" style="color: white; font-weight: 100">
                               <i class="bi bi-upload"></i>
                               <input type="file" id="imageFile" name="imageFile" accept="image/*" style="display: none;">
@@ -603,10 +603,10 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
 
       updateself.addEventListener("submit", function (event) {
         event.preventDefault(); // Prevent the form from submitting immediately
+        const id = <?php echo $id?>;
         if (profilechanged.value === '1') {
             const file = imageFileInput.files[0];
             if (file) {
-              const id = <?php echo $id?>;
                 const formData = new FormData();
                 formData.append("imageFile", file);
                 formData.append("location", "users");
@@ -641,7 +641,7 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
                 });
             }
         } else {
-            newprofilephoto.value = profileImage.src;
+            newprofilephoto.value = `../assets/img/users/users-${id}.jpg`;
             updateself.submit();
         }
     });

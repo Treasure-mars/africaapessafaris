@@ -13,7 +13,7 @@ session_start();
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $uploadedFile = $_FILES["imageFile"];
     $location = $_POST["location"];
-    $action = $_POST["action"];
+    $action = $_POST["action"] ?? "";
     $uploadDir = "../assets/img/$location/"; // Change this path to match your server directory
 
 

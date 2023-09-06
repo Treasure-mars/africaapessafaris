@@ -247,7 +247,9 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
                           $elevation = $row['elevation'];
                           $package_includes = $row['package_includes'];
                           $package_details = $row['package_details'];
-                          $photo = $row['photo'];
+                          $profile_photo = $row['photo'];
+                          $timestamp = time(); // Get the current timestamp
+                          $photo = $profile_photo . "?t=" . $timestamp;
                           // Do something with the data, e.g., print or process
                           echo "<tr><td><a href='#' data-bs-toggle='modal' data-bs-target='#verticalycentered2' data-id='$id' class='text-primary'>$id</a></td><td>$title</td><td>$duration</td><td>$elevation</td><td>$package_includes</td><td>$package_excludes</td><td>$package_details</td><td><img src='$photo' width='50px'/></td></tr>";
                       }

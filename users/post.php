@@ -163,11 +163,11 @@ if(isset($_POST['updateself']))
         if ($conn->query($sql) === TRUE) {
             $successMessage = 'Profile is updated successfully!!!';
             $_SESSION['username'] = $newusername;
-            header("location: $location/profile/index.php?update=profile-edit&successMessage=$successMessage");
+            header("location: admin/profile/index.php?update=profile-edit&successMessage=$successMessage");
             exit;
         } else {
             $errorMessage = "Error: " . $sql . "<br>" . $conn->error;
-            header("location: $location/profile/index.php?update=profile-edit&successMessage=$errorMessage");
+            header("location: admin/profile/index.php?update=profile-edit&successMessage=$errorMessage");
             exit;
         }
 }
@@ -191,7 +191,7 @@ if(isset($_POST['updatepassword']))
                         $sql = "UPDATE users SET password='".$hashedPassword."' WHERE username='".$username."'";
                         if ($conn->query($sql) === TRUE) {
                             $successMessage = 'Password is successfully updated!!!';
-                            header("location: $location/profile/index.php?update=profile-change-password&successMessage=$successMessage");
+                            header("location: admin/profile/index.php?update=profile-change-password&successMessage=$successMessage");
                             exit;
                         }
                     }else{
@@ -200,7 +200,7 @@ if(isset($_POST['updatepassword']))
                 }else{
                     $errorMessage = "Wrong password!";
                 }
-                header("location: $location/profile/index.php?update=profile-change-password&errorMessage=$errorMessage");
+                header("location: admin/profile/index.php?update=profile-change-password&errorMessage=$errorMessage");
                 exit;
             }
         }

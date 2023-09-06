@@ -34,12 +34,11 @@ $result=mysqli_query($conn,$sql);
 if(mysqli_num_rows($result) > 0){
 $rows = mysqli_fetch_assoc($result);
 $hashedPassword = $rows['password'];
-$passwordverify = $rows['password'];
 
 // Compare the entered password with the stored hashed password
 // if (password_verify($password, $hashedPassword)) {
 
-if ($password == $passwordverify) {
+if (password_verify($password, $hashedPassword)) {
 //Direct if user is disabled
 		if ($rows['enabled'] == 0) {
 			$errorMessage = 'User is disabled, please contact your system admin!!!';
@@ -53,7 +52,7 @@ if ($password == $passwordverify) {
 				header('location: admin'); //User1 
 			}
 			else
-			if ($rows['user_level'] == 'Tour_Guide') {
+			if ($rows['user_level'] == 'Tour_guide') {
 				$_SESSION['user_level'] = $rows['user_level'];
 				$_SESSION['username'] = $rows['username'];
 				header('location: tour_guide'); //User2  
@@ -72,7 +71,7 @@ if ($password == $passwordverify) {
 	}else
 	{ 
 		$errorMessage = 'Wrong username or Password';
-		header("location: index.php?errorMessage=$password&hashedpas=$hashedPassword"); //User is not authorized
+		header("location: index.php?errorMessage=$errorMessage"); //User is not authorized
 	}
 }
 else

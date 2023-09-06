@@ -22,6 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
 
     if ($uploadedFile["error"] === UPLOAD_ERR_OK) {
+
         if($action === "add"){
             $sql = "SELECT max(id) + 1 as id FROM $location";
         }else{
@@ -29,44 +30,48 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $sql = "SELECT id FROM $location where id=$id";
         }
             
-            $result = $conn->query($sql);
-            if ($result->num_rows > 0) {
-                $row = $result->fetch_assoc();
-                $id = $row['id'];
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $id = $row['id'];
 
-                $combinedName = $location . '-' . $id;
+            $combinedName = $location . '-' . $id;
 
-                $originalFileName = basename($uploadedFile["name"]);
-                $originalFileExtension = pathinfo($originalFileName, PATHINFO_EXTENSION);
+            $originalFileName = basename($uploadedFile["name"]);
+            $originalFileExtension = pathinfo($originalFileName, PATHINFO_EXTENSION);
 
-                $fileName = $combinedName . '.' . $originalFileExtension;
-                $uploadPath = $uploadDir . $fileName;
-                file_put_contents($filename, $uploadPath);
+            $fileName = $combinedName . '.' . $originalFileExtension;
+            $uploadPath = $uploadDir . $fileName;
+            file_put_contents($filename, $uploadPath);
 
-                if (move_uploaded_file($uploadedFile["tmp_name"], $uploadPath)) {
-                    $response = [
-                        "success" => true,
-                        "imageUrl" => $uploadPath
-                    ];
-                } else {
-                    $response = [
-                        "success" => false,
-                        "message" => "Error uploading file"
-                    ];
-                }
+            if (move_uploaded_file($uploadedFile["tmp_name"], $uploadPath)) {
+                $response = [
+                    "success" => true,
+                    "imageUrl" => $uploadPath
+                ];
             } else {
                 $response = [
                     "success" => false,
-                    "message" => "File upload error: " . $uploadedFile["error"]
+                    "message" => "Error uploading file"
                 ];
             }
         } else {
             $response = [
                 "success" => false,
-                "message" => "User session not set"
+                "message" => "File upload error: " . $uploadedFile["error"]
             ];
         }
+
+
+    } else {
+        $response = [
+            "success" => false,
+            "message" => "User session not set"
+        ];
+    }
+
     header("Content-Type: application/json");
     echo json_encode($response);
+    exit;
 }
 ?>

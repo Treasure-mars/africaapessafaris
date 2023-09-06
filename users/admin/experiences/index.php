@@ -470,6 +470,7 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
                 });
             }
         } else {
+            newprofilephoto.value = profileImage.src;
             updateself.submit();
         }
     });
@@ -652,6 +653,7 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
                 });
             }
         } else {
+            newprofilephoto2.value = profileImage2.src;
             updateself2.submit();
         }
     });

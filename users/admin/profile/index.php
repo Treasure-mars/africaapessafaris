@@ -52,16 +52,21 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
     $tbl_name="users"; // Table name 
 
     //Query
-    $sql="SELECT full_names,profile_photo,username,user_level FROM $tbl_name where username='{$_SESSION['user']}';";
+    $sql="SELECT id,full_names,profile_photo,username,user_level,twitter_link,instagram_link,linkedin_link,facebook_link FROM $tbl_name where username='{$_SESSION['user']}';";
     $result=mysqli_query($conn,$sql);
     // mysqli_num_rows is counting table row
     if(mysqli_num_rows($result) > 0){
       if ($row = mysqli_fetch_assoc($result)) {
         // Access data from each row
+        $id = $row['id'];
         $full_names = $row['full_names'];
         $username = $row['username'];
         $profilePhotoURLWithOutTimestamp = $row['profile_photo'];
         $user_level = $row['user_level'];
+        $twitter_link = $row['twitter_link'];
+        $instagram_link = $row['instagram_link'];
+        $linkedin_link = $row['linkedin_link'];
+        $facebook_link = $row['facebook_link'];
 
 
         $timestamp = time(); // Get the current timestamp
@@ -80,8 +85,8 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="../../assets/img/logo.jpg" rel="icon">
-  <link href="../../assets/img/logo.jpg" rel="apple-touch-icon">
+  <link href="../../../assets/img/logo.jpg" rel="icon">
+  <link href="../../../assets/img/logo.jpg" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -131,9 +136,8 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
 
 
         <li class="nav-item dropdown pe-3">
-
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="../../assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+            <img src="../../../<?php echo $profile_photo ?>" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo $_SESSION['user']; ?></span>
           </a><!-- End Profile Iamge Icon -->
 
@@ -280,7 +284,7 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
           <div class="card">
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-              <img src="../../<?php echo $profile_photo ?>" alt="Profile" class="rounded-circle">
+              <img src="../../../<?php echo $profile_photo ?>" alt="Profile" class="rounded-circle">
               <h2><?php echo $_SESSION['user']; ?></h2>
               <h3><?php echo $_SESSION['user_level']; ?></h3>
             </div>
@@ -332,6 +336,26 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
                     <div class="col-lg-9 col-md-8"><?php echo $user_level; ?></div>
                   </div>
 
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Twitter</div>
+                    <div class="col-lg-9 col-md-8"><a href="<?php echo $twitter_link; ?>"><?php echo $twitter_link; ?></a></div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Instagram</div>
+                    <div class="col-lg-9 col-md-8"><a href="<?php echo $instagram_link; ?>"><?php echo $instagram_link; ?></a></div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Facebook</div>
+                    <div class="col-lg-9 col-md-8"><a href="<?php echo $facebook_link; ?>"><?php echo $facebook_link; ?></a></div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Linkedin</div>
+                    <div class="col-lg-9 col-md-8"><a href="<?php echo $linkedin_link; ?>"><?php echo $linkedin_link; ?></a></div>
+                  </div>
+
                 </div>
 
                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
@@ -348,7 +372,7 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
                         </div>
                       </div> -->
                       <div class="col-md-8 col-lg-9">
-                        <img id="profileImage" src="../../<?php echo $profile_photo; ?>" alt="Profile">
+                        <img id="profileImage" src="../../../<?php echo $profile_photo; ?>" alt="Profile">
                           <label for="imageFile" class="btn btn-primary btn-sm" title="Upload new profile image" style="color: white; font-weight: 100">
                               <i class="bi bi-upload"></i>
                               <input type="file" id="imageFile" name="imageFile" accept="image/*" style="display: none;">
@@ -357,7 +381,7 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
                     <input type="hidden" id="profilechanged" value='0'>
                     </div>
 
-                    <input name="location" type="hidden" value="farmer_page">
+                    <input name="location" type="hidden" value="admin">
                     <input name="username" type="hidden" class="form-control" value="<?php echo $username; ?>">
                     <div class="row mb-3">
                       <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Full Name</label>
@@ -379,6 +403,34 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
                       <label for="Job" class="col-md-4 col-lg-3 col-form-label">User Level</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="user_level" type="text" class="form-control" id="user_level" value="<?php echo $user_level; ?>" disabled>
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="twitter" class="col-md-4 col-lg-3 col-form-label">Twitter</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="twitter_link" type="text" class="form-control" id="twitter_link" value="<?php echo $twitter_link; ?>">
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="instagram" class="col-md-4 col-lg-3 col-form-label">Instagram</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="instagram_link" type="text" class="form-control" id="instagram_link" value="<?php echo $instagram_link; ?>">
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="facebook" class="col-md-4 col-lg-3 col-form-label">Facebook</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="facebook_link" type="text" class="form-control" id="facebook_link" value="<?php echo $facebook_link; ?>">
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="linkedin" class="col-md-4 col-lg-3 col-form-label">Linkedin</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="linkedin_link" type="text" class="form-control" id="linkedin_link" value="<?php echo $linkedin_link; ?>">
                       </div>
                     </div>
 
@@ -515,7 +567,86 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
   <?php 
     echo $scriptMessage ?? '';
   ?>
+<script>
+      document.addEventListener("DOMContentLoaded", function () {
+      const imageFileInput = document.getElementById("imageFile");
+      const profileImage = document.getElementById("profileImage");
+      const newprofilephoto = document.getElementById("newprofilephoto");
+      const updateself = document.getElementById("updateself");
+      const profilechanged = document.getElementById("profilechanged");
 
+      imageFileInput.addEventListener("change", function () {
+          const file = imageFileInput.files[0];
+          if (file) {
+              const formData = new FormData();
+              formData.append("imageFile", file);
+              // You can use AJAX to submit the form data to the server
+              // Replace 'upload_profile_image.php' with your server-side script
+              fetch("../../upload_profile_image.php", {
+                  method: "POST",
+                  body: formData
+              })
+              .then(response => response.json())
+              .then(data => {
+                  if (data.success) {
+                    const currentDate = new Date(); const timestamp = currentDate. getTime();
+                    var src = "../../" + data.imageUrl + "?t=" + timestamp;
+                    profileImage.src = src; // Update the profile image source
+                    profilechanged.value = '1';
+                  }
+              })
+              .catch(error => {
+                  console.error("Error uploading image:", error);
+              });
+          }
+      });
+
+      updateself.addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent the form from submitting immediately
+        if (profilechanged.value === '1') {
+            const file = imageFileInput.files[0];
+            if (file) {
+              const id = <?php echo $id?>;
+                const formData = new FormData();
+                formData.append("imageFile", file);
+                formData.append("location", "users");
+                formData.append("id", id);
+                console.log(formData);
+                // You can use AJAX to submit the form data to the server
+                // Replace 'really_upload_profile_image.php' with your server-side script
+                fetch("../../really_upload_profile_image.php", {
+                    method: "POST",
+                    body: formData
+                })
+                .then(response => {
+                  console.log(response);
+                  return response.json();})
+                .then(data => {
+                  console.log(data);
+                    if (data.success) {
+                      const currentDate = new Date(); const timestamp = currentDate. getTime();
+                      var src = "../../../" + data.imageUrl + "?t=" + timestamp;
+                      if(profilechanged.value === '1') {
+                        newprofilephoto.value = data.imageUrl;
+                        profileImage.src = src; // Update the profile image source
+                        updateself.submit(); // Submit the form after image upload and update
+                      } 
+                      
+                    } else {
+                      alert("Error uploading image: " + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error("Error uploading image:", error);
+                });
+            }
+        } else {
+            newprofilephoto.value = profileImage.src;
+            updateself.submit();
+        }
+    });
+  });
+    </script>
 </body>
 
 </html>

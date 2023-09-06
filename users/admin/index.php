@@ -232,14 +232,25 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
 
                 <div class="card-body">
                   <h5 class="card-title">Experiences</h5>
+                  <?php
+                      //include the database connection
+                      include("../connect.php");
 
+                      //Query
+                      $sql="SELECT count(*) as count from experiences;";
+                      $result=mysqli_query($conn,$sql);
+                      // mysqli_num_rows is counting table row
+                      if(mysqli_num_rows($result) > 0){
+                        $row = mysqli_fetch_assoc($result);
+                      }
+                    ?>
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                         <img src="" alt="" class="icon_temperature">
                     </div>
                     <div class="ps-3">
-                      <h6 class="temp"></h6>
-                      <span class="text-success small pt-1 fw-bold"><div class="high-low block"></div></span> <span class="text-muted small pt-2 ps-1"><div class="condition block"></div></span>
+                      <h6 class="temp"><?php echo $row['count'];?> Records</h6>
+                      <span class="text-success small pt-1 fw-bold"><div class="block"></div></span>
                     </div>
                   </div>
                 </div>
@@ -266,14 +277,21 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
 
                 <div class="card-body">
                   <h5 class="card-title">Packages</h5>
-
+                  <?php
+                      $sql="SELECT count(*) as count from packages;";
+                      $result=mysqli_query($conn,$sql);
+                      // mysqli_num_rows is counting table row
+                      if(mysqli_num_rows($result) > 0){
+                        $row = mysqli_fetch_assoc($result);
+                      }
+                    ?>
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                     <img src="../images/icons/partly_cloudy.png" alt="">
                     </div>
                     <div class="ps-3">
-                      <h6 id="wind"></h6>
-                      <span class="text-success small pt-1 fw-bold">Cloudiness: <div class="block" id="cloud"></div></span>
+                      <h6><?php echo $row['count'];?> Records</h6>
+                      <span class="text-success small pt-1 fw-bold"><div class="block"></div></span>
 
                     </div>
                   </div>
@@ -302,14 +320,21 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
 
                 <div class="card-body">
                   <h5 class="card-title">Itenaries</h5>
-
+                  <?php
+                      $sql="SELECT count(*) as count from itenaries;";
+                      $result=mysqli_query($conn,$sql);
+                      // mysqli_num_rows is counting table row
+                      if(mysqli_num_rows($result) > 0){
+                        $row = mysqli_fetch_assoc($result);
+                      }
+                    ?>
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                       <img src="" alt="" class="icon_rain">
                     </div>
                     <div class="ps-3">
-                      <h6 id="rain"></h6>
-                      <span class="text-success small pt-1 fw-bold">Humidity: <div class="avghumidity block"></div></span> <span class="text-muted small pt-2 ps-1"><div class="raincondition block"></div> day</span>
+                      <h6><?php echo $row['count'];?> Records</h6>
+                      <span class="text-success small pt-1 fw-bold"><div class="block"></div></span>
 
                     </div>
                   </div>
@@ -339,37 +364,21 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
 
               <div class="card-body">
                 <h5 class="card-title">Team</span></h5>
-                <!-- </?php
-                      //include the database connection
-                      include("../connect.php");
-
-                      //Query
-                      $sql="SELECT crop_name as crop_type, COUNT(*) AS count FROM land_record a join test_request b on a.request_id = b.request_id join farmer_land c on b.land_id = c.farm_id JOIN crop_type d on a.crop_type = d.crop_id GROUP BY crop_type ORDER BY count DESC;";
+                <?php
+                      $sql="SELECT count(*) as count from users;";
                       $result=mysqli_query($conn,$sql);
                       // mysqli_num_rows is counting table row
                       if(mysqli_num_rows($result) > 0){
                         $row = mysqli_fetch_assoc($result);
                       }
-                    ?> -->
+                    ?>
                 <div class="d-flex align-items-center">
                   <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                     <img src="../images/icons/kilogram_icon.png" alt="" width=40>
                   </div>
                   <div class="ps-3">
-                    <!-- <h6><\?php $crop_type = $row["crop_type"] ?? "No records yet";
-                        echo $crop_type;
-                      $tbl_name="land_record"; // Table name 
-
-                      //Query
-                      $sql="SELECT SUM(total_productivity) AS sum FROM $tbl_name a join test_request b on a.request_id = b.request_id join farmer_land c on b.land_id = c.farm_id JOIN crop_type d on a.crop_type = d.crop_id WHERE crop_name='$crop_type';";
-                      $result=mysqli_query($conn,$sql);
-                      // mysqli_num_rows is counting table row
-                      if(mysqli_num_rows($result) > 0){
-                        $row = mysqli_fetch_assoc($result);
-
-                    ?></h6> -->
-                    <span class="text-success small pt-1 fw-bold">Crop Yield: <!--</?php $sum = $row["sum"];
-                        echo $sum;?> --> kg</span>
+                  <h6><?php echo $row['count'];?> Records</h6>
+                      <span class="text-success small pt-1 fw-bold"><div class="block"></div></span>
 
                   </div>
                 </div>
@@ -404,26 +413,22 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
             </div> -->
 
             <div class="card-body">
-              <h5 class="card-title">Success Recommendations</span></h5>
-
+              <h5 class="card-title">Bookings</span></h5>
+              <?php
+                      $sql="SELECT count(*) as count from booking;";
+                      $result=mysqli_query($conn,$sql);
+                      // mysqli_num_rows is counting table row
+                      if(mysqli_num_rows($result) > 0){
+                        $row = mysqli_fetch_assoc($result);
+                      }
+                    ?>
               <div class="d-flex align-items-center">
                 <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                   <img src="../images/icons/calendar_icon.png" alt="" width=40>
                 </div>
                 <div class="ps-3">
-                  <!-- <h6></?php 
-                      }
-                      $tbl_name="land_record"; // Table name 
-
-                      //Query
-                      $sql="SELECT COUNT(*) AS count FROM land_record;";
-                      $result=mysqli_query($conn,$sql);
-                      // mysqli_num_rows is counting table row
-                      if(mysqli_num_rows($result) > 0){
-                        $row = mysqli_fetch_assoc($result);
-                        $count = $row["count"];
-                        echo $count;
-                      }?></h6> -->
+                <h6><?php echo $row['count'];?> Records</h6>
+                      <span class="text-success small pt-1 fw-bold"><div class="block"></div></span>
 
                 </div>
               </div>
@@ -451,26 +456,15 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
             </div> -->
 
             <div class="card-body">
-              <h5 class="card-title">Success Recommendations</span></h5>
+              <h5 class="card-title">Pending Bookings</span></h5>
 
               <div class="d-flex align-items-center">
                 <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                   <img src="../images/icons/calendar_icon.png" alt="" width=40>
                 </div>
                 <div class="ps-3">
-                  <!-- <h6></?php 
-                      }
-                      $tbl_name="land_record"; // Table name 
-
-                      //Query
-                      $sql="SELECT COUNT(*) AS count FROM land_record;";
-                      $result=mysqli_query($conn,$sql);
-                      // mysqli_num_rows is counting table row
-                      if(mysqli_num_rows($result) > 0){
-                        $row = mysqli_fetch_assoc($result);
-                        $count = $row["count"];
-                        echo $count;
-                      }?></h6> -->
+                <h6><?php echo $row['count'];?> Records</h6>
+                      <span class="text-success small pt-1 fw-bold"><div class="block"></div></span>
 
                 </div>
               </div>

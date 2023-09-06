@@ -457,6 +457,7 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
                 });
             }
         } else {
+            newprofilephoto.value = profileImage.src;
             updateself.submit();
         }
     });
@@ -466,16 +467,15 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
           const titleId = this.getAttribute('data-id');
             const row = this.closest('tr');
             const id = row.cells[0].textContent;
-            const category = row.cells[1].textContent;
-            const title = row.cells[2].textContent;
-            const duration = row.cells[3].textContent;
-            const elevation = row.cells[4].textContent;
-            const package_includes = row.cells[5].textContent;
-            const summary = row.cells[6].textContent;
-            const details = row.cells[7].textContent;
+            const title = row.cells[1].textContent;
+            const duration = row.cells[2].textContent;
+            const elevation = row.cells[3].textContent;
+            const package_includes = row.cells[4].textContent;
+            const package_excludes = row.cells[5].textContent;
+            const details = row.cells[6].textContent;
             // Create a temporary div element to parse the HTML
             var tempDiv = document.createElement('div');
-            tempDiv.innerHTML = row.cells[8].innerHTML;
+            tempDiv.innerHTML = row.cells[7].innerHTML;
             // Find the <img> element within the parsed HTML
             var imgElement = tempDiv.querySelector('img');
 
@@ -503,20 +503,9 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
                           </div>
                           <input type="hidden" id="profilechanged2" value='0'>
                           <input type="hidden" name="newprofilephoto" id="newprofilephoto2" value="">
-                          <input type="hidden" name="location" id="location" value="UpdateItenarie">
+                          <input type="hidden" name="location" id="location" value="UpdateItenary">
                           <input type="hidden" name="id" id="id" value="${id}">
                           </div>
-                          <div class="row mb-3">
-                            <label for="category" class="col-sm-2 col-form-label">Choose Category</label>
-                            <div class="col-sm-10">
-                              <select name="category" class="form-select" id="category" required>
-                                <option value="Culture">Culture</option>
-                                <option value="Safari">Safari</option>
-                                <option value="Wellness">Wellness</option>
-                              </select>
-                            </div>
-                            <div class="invalid-feedback">Please, choose category!</div>
-                          </div> 
                           <div class="row mb-3">
                             <label for="title" class="col-sm-2 col-form-label">Title</label>
                             <div class="col-sm-10">
@@ -546,11 +535,11 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
                             <div class="invalid-feedback">Please, enter package_includes!</div>
                           </div>
                           <div class="row mb-3">
-                            <label for="summary" class="col-sm-2 col-form-label">Summary</label>
+                            <label for="package_excludes" class="col-sm-2 col-form-label">Package Excludes</label>
                             <div class="col-sm-10">
-                              <textarea name="summary" class="form-control" id="summary" required>${summary}</textarea>
+                              <textarea name="package_excludes" class="form-control" id="package_excludes" required>${package_excludes}</textarea>
                             </div>
-                            <div class="invalid-feedback">Please, enter summary!</div>
+                            <div class="invalid-feedback">Please, enter Package Excludes!</div>
                           </div>
                           <div class="row mb-3">
                             <label for="details" class="col-sm-2 col-form-label">Details</label>
@@ -561,9 +550,6 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
                           </div>
                           </form>
                 `;
-          var catField = document.querySelector('#updateItenarie select[name="category"]');
-          var catOption = catField.querySelector('option[value="' + category + '"]');
-          catOption.selected = true;
 
           const profilechanged2 = document.getElementById("profilechanged2");
           const profileImage2 = document.getElementById("profileImage2");
@@ -639,6 +625,7 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
                 });
             }
         } else {
+            newprofilephoto2.value = profileImage2.src;
             updateself2.submit();
         }
     });

@@ -251,7 +251,7 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
                           $details = $row['details'];
                           $photo = $row['photo'];
                           // Do something with the data, e.g., print or process
-                          echo "<tr><td><a href='#' data-bs-toggle='modal' data-bs-target='#verticalycentered2' data-id='$id' class='text-primary'>$id</a></td><td>$category</td><td>$title</td><td>$duration</td><td>$elevation</td><td>$package_includes</td><td>$summary</td><td>$details</td><td>$photo</td></tr>";
+                          echo "<tr><td><a href='#' data-bs-toggle='modal' data-bs-target='#verticalycentered2' data-id='$id' class='text-primary'>$id</a></td><td>$category</td><td>$title</td><td>$duration</td><td>$elevation</td><td>$package_includes</td><td>$summary</td><td>$details</td><td><img src='$photo' width='50px'/></td></tr>";
                       }
                       // Close the database connection
                       mysqli_close($conn);
@@ -470,6 +470,7 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
                 });
             }
         } else {
+            newprofilephoto.value = profileImage.src;
             updateself.submit();
         }
     });
@@ -653,6 +654,7 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
                 });
             }
         } else {
+            newprofilephoto2.value = profileImage2.src;
             updateself2.submit();
         }
     });

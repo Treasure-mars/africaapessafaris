@@ -18,13 +18,13 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>FERTILIZER RECOMMENDER SYSTEM</title>
+  <title>Africa Apes Safaris</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="../../assets/img/logo.png" rel="icon">
-  <link href="../../assets/img/logo.png" rel="apple-touch-icon">
+  <link href="../../../assets/img/logo.jpg" rel="icon">
+  <link href="../../../assets/img/logo.jpg" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -272,8 +272,7 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
                   <label class="col-sm-2 col-form-label">Roles</label>
                   <div class="col-sm-4 form-floating">
                     <select class="form-select" id="availableroles" multiple aria-label="multiple select example">
-                      <option value="Agronomist" selected>Agronomist</option>
-                      <option value="Admin">Admin</option>
+                      <option value="Admin" selected>Admin</option>
                     </select>
                     <label for="availableroles">Roles Available</label>
                   </div>
@@ -283,7 +282,7 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
                   </div>
                   <div class="col-sm-5 form-floating">
                     <select class="form-select" id="assignedroles" name="user_level" multiple aria-label="multiple select example" required>
-                      <option value="Farmer" selected>Farmer</option>
+                      <option value="Tour_guide" selected>Tour_guide</option>
                     </select>
                     <label for="assignedroles">Roles Assigned</label>
                   </div>

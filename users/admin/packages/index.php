@@ -273,7 +273,7 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
                         <div class="modal-body" id="modalBody2">
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-secondary" id="deleteBtn">Delete</button>
                           <button type="button" name="addExperience" id="submitBtn2" class="btn btn-primary">Save changes</button>
                         </div>
                       </div>
@@ -661,6 +661,38 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
         }
     });
 
+    document.getElementById("deleteBtn").addEventListener("click", function (event) {
+      event.preventDefault(); // Prevent the form from submitting immediately
+
+      // Get the values of id and action from your form or other sources
+      const idValue = id; // Replace with the actual id value
+      const actionValue = "packages"; // Replace with the actual action value
+
+      // Create a FormData object and append the values
+      const formData = new FormData();
+      formData.append("id", idValue);
+      formData.append("action", actionValue);
+
+      // Send the FormData to post.php using a POST request
+      fetch("../../post.php", {
+          method: "POST",
+          body: formData
+      })
+      .then(response => {
+          if (response.ok) {
+              // Handle success, e.g., display a success message
+              alert('Delete successful');
+              location.reload();
+          } else {
+              // Handle errors, e.g., display an error message
+              alert('Delete failed');
+          }
+      })
+      .catch(error => {
+          console.error("Error:", error);
+          alert('An error occurred');
+      });
+  });
         });
     });
     

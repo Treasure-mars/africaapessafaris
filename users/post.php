@@ -8,6 +8,8 @@
     $password = "";	        // Database password
     session_start();
 
+
+    $user_level = $_SESSION['user_level'];
 // Establish connection to MySQL database
 $conn = new mysqli($host, $username, $password, $dbname);
 
@@ -53,14 +55,29 @@ else { echo "Connected to mysql database. " . $_POST['location']; }
 		if ($conn->query($sql) === TRUE) {
 		    echo "Values inserted in MySQL database table.";
             if($_POST['location'] === 'AddExperience' || $_POST['location'] === 'UpdateExperience'){
-                header('location: admin/experiences');
-                exit;
+                if($user_level === 'Admin'){
+                    header('location: admin/experiences');
+                    exit;
+                }else {
+                    header('location: tour_guide/experiences');
+                    exit;
+                }                
             }else if ($_POST['location'] === 'AddItenary' || $_POST['location'] === 'UpdateItenary'){
-                header('location: admin/itenaries');
-                exit;
+                if($user_level === 'Admin'){
+                    header('location: admin/itenaries');
+                    exit;
+                }else {
+                    header('location: tour_guide/itenaries');
+                    exit;
+                }
             }else if ($_POST['location'] === 'AddPackage' || $_POST['location'] === 'UpdatePackage'){
-                header('location: admin/packages');
-                exit;
+                if($user_level === 'Admin'){
+                    header('location: admin/packages');
+                    exit;
+                }else {
+                    header('location: tour_guide/packages');
+                    exit;
+                }
             }
 		} else {
 		    echo "Error: " . $sql . "<br>" . $conn->error;
@@ -76,7 +93,7 @@ else { echo "Connected to mysql database. " . $_POST['location']; }
         if(isset($_POST['user_level'])){
             $user_level = $_POST['user_level'];
         }else{
-            $user_level = "Tour_Guide";
+            $user_level = "Tour_guide";
         }
         if(isset($_POST['enabled'])){
             $enabled = 0;
@@ -163,12 +180,22 @@ if(isset($_POST['updateself']))
         if ($conn->query($sql) === TRUE) {
             $successMessage = 'Profile is updated successfully!!!';
             $_SESSION['username'] = $newusername;
-            header("location: admin/profile/index.php?update=profile-edit&successMessage=$successMessage");
-            exit;
+            if($user_level === 'Admin'){
+                header("location: admin/profile/index.php?update=profile-edit&successMessage=$successMessage");
+                exit;
+            }else {
+                header("location: tour_guide/profile/index.php?update=profile-edit&successMessage=$successMessage");
+                exit;
+            }
         } else {
             $errorMessage = "Error: " . $sql . "<br>" . $conn->error;
-            header("location: admin/profile/index.php?update=profile-edit&successMessage=$errorMessage");
-            exit;
+            if($user_level === 'Admin'){
+                header("location: admin/profile/index.php?update=profile-edit&successMessage=$errorMessage");
+                exit;
+            }else {
+                header("location: tour_guide/profile/index.php?update=profile-edit&successMessage=$errorMessage");
+                exit;
+            }
         }
 }
 
@@ -191,8 +218,13 @@ if(isset($_POST['updatepassword']))
                         $sql = "UPDATE users SET password='".$hashedPassword."' WHERE username='".$username."'";
                         if ($conn->query($sql) === TRUE) {
                             $successMessage = 'Password is successfully updated!!!';
-                            header("location: admin/profile/index.php?update=profile-change-password&successMessage=$successMessage");
-                            exit;
+                            if($user_level === 'Admin'){
+                                header("location: admin/profile/index.php?update=profile-change-password&successMessage=$successMessage");
+                                exit;
+                            }else {
+                                header("location: tour_guide/profile/index.php?update=profile-change-password&successMessage=$successMessage");
+                                exit;
+                            }
                         }
                     }else{
                         $errorMessage = 'Password mismatch!';
@@ -200,8 +232,13 @@ if(isset($_POST['updatepassword']))
                 }else{
                     $errorMessage = "Wrong password!";
                 }
-                header("location: admin/profile/index.php?update=profile-change-password&errorMessage=$errorMessage");
-                exit;
+                if($user_level === 'Admin'){
+                    header("location: admin/profile/index.php?update=profile-change-password&errorMessage=$errorMessage");
+                    exit;
+                }else {
+                    header("location: tour_guide/profile/index.php?update=profile-change-password&errorMessage=$errorMessage");
+                    exit;
+                }
             }
         }
 }
@@ -254,6 +291,32 @@ if(isset($_POST['delete']))
         header('location: admin/modifyusers'); 
         exit;
     }
+}
+
+if(isset($_POST['action']) && isset($_POST['id']))
+{
+        $table = $_POST['action'];
+        $id = $_POST['id'];
+                       
+    $sql = "DELETE FROM $table WHERE id='".$id."'"; 
+ 
+    if ($conn->query($sql) === TRUE) {
+        $response = [
+            "success" => true,
+            "message" => "Record deleted successfully"
+        ];
+    } else {
+        $response = [
+            "success" => false,
+            "message" => "Error deleting record: " . $stmt->error
+        ];
+    }
+
+    // Set the content type to JSON
+    header("Content-Type: application/json");
+
+    // Send the JSON response
+    echo json_encode($response);
 }
 
 // Close MySQL connection

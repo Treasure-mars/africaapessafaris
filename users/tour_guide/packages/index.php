@@ -3,7 +3,7 @@
 // Start the session
 session_start();
 
-if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
+if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Tour_guide")) {
   $_SESSION['user'] = $_SESSION['username'];
 }else {
   $location = "../";
@@ -140,35 +140,17 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
             </a>
           </li>
           <li>
-            <a href="../packages/">
+            <a href="#" class="active">
               <i class="bi bi-circle"></i><span>Packages</span>
             </a>
           </li>
           <li>
-            <a href="#" class="active">
+            <a href="../itenaries">
               <i class="bi bi-circle"></i><span>Itenaries</span>
             </a>
           </li>
         </ul>
       </li><!-- End Components Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed " data-bs-target="#users-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Users</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="users-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="../createusers">
-              <i class="bi bi-circle"></i><span>Create New User</span>
-            </a>
-          </li>
-          <li>
-            <a href="../modifyusers">
-              <i class="bi bi-circle"></i><span>Modify User's Credentials</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Dashboard Nav -->
 
 
       <li class="nav-heading">Pages</li>
@@ -197,11 +179,11 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
   <main id="main" class="main main-content" style="background: rgba(0, 0, 0, .1);">
 
   <div class="pagetitle">
-      <h1 style="color: #467758;">Itenaries</h1>
+      <h1 style="color: #467758;">Packages</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item active">Itenaries</li>
+          <li class="breadcrumb-item active">Packages</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -212,18 +194,19 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Itenaries<span>| <button id="exportButton" data-bs-toggle='modal' data-bs-target='#verticalycentered' class="btn btn-primary">Add Itenary</button></span></h5>
+              <h5 class="card-title">Packages<span>| <button id="exportButton" data-bs-toggle='modal' data-bs-target='#verticalycentered' class="btn btn-primary">Add Package</button></span></h5>
 
-              <!-- Itenaries -->
+              <!-- Packages -->
               <table class="table table-borderless datatable">
                     <thead>
                       <tr>
                         <th scope="col">#</th>
+                        <th scope="col">Category</th>
                         <th scope="col">Title</th>
                         <th scope="col">Duration</th>
                         <th scope="col">Elevation</th>
                         <th scope="col">Package_includes</th>
-                        <th scope="col">Package_excludes</th>
+                        <th scope="col">Summary</th>
                         <th scope="col">Details</th>
                         <th scope="col">Photo</th>
                       </tr>
@@ -234,24 +217,25 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
                       include("../../connect.php");
 
                       //Query
-                      $sql="select * from itenaries;";
+                      $sql="select * from packages;";
                       $result=mysqli_query($conn,$sql);
                       // mysqli_num_rows is counting table row
                       if(mysqli_num_rows($result) > 0){
                         while ($row = mysqli_fetch_assoc($result)) {
                           // Access data from each row
                           $id = $row['id'];
-                          $package_excludes = $row['package_excludes'];
+                          $category = $row['category'];
                           $title = $row['title'];
                           $duration = $row['duration'];
                           $elevation = $row['elevation'];
                           $package_includes = $row['package_includes'];
-                          $package_details = $row['package_details'];
+                          $summary = $row['summary'];
+                          $details = $row['details'];
                           $profile_photo = $row['photo'];
                           $timestamp = time(); // Get the current timestamp
                           $photo = $profile_photo . "?t=" . $timestamp;
                           // Do something with the data, e.g., print or process
-                          echo "<tr><td><a href='#' data-bs-toggle='modal' data-bs-target='#verticalycentered2' data-id='$id' class='text-primary'>$id</a></td><td>$title</td><td>$duration</td><td>$elevation</td><td>$package_includes</td><td>$package_excludes</td><td>$package_details</td><td><img src='$photo' width='50px'/></td></tr>";
+                          echo "<tr><td><a href='#' data-bs-toggle='modal' data-bs-target='#verticalycentered2' data-id='$id' class='text-primary'>$id</a></td><td>$category</td><td>$title</td><td>$duration</td><td>$elevation</td><td>$package_includes</td><td>$summary</td><td>$details</td><td><img src='$photo' width='50px'/></td></tr>";
                       }
                       // Close the database connection
                       mysqli_close($conn);
@@ -259,8 +243,7 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
                     ?>
 
                     </tbody>
-                  </table><!-- End Itenaries -->
-
+                  </table><!-- End Packages -->
                   <!-- Vertically centered Modal-->
                   <div class="modal fade" id="verticalycentered2" tabindex="-1">
                     <div class="modal-dialog modal-fullscreen">
@@ -273,7 +256,7 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" id="deleteBtn">Delete</button>
-                          <button type="button" name="addItenarie" id="submitBtn2" class="btn btn-primary">Save changes</button>
+                          <button type="button" name="addExperience" id="submitBtn2" class="btn btn-primary">Save changes</button>
                         </div>
                       </div>
                     </div>
@@ -285,11 +268,11 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
                     <div class="modal-dialog modal-fullscreen">
                       <div class="modal-content">
                         <div class="modal-header">
-                          <h5 class="modal-title">Add Itenarie</h5>
+                          <h5 class="modal-title">Add Package</h5>
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body" id="modalBody">
-                          <form action="../../post.php" method="POST" id="addItenarie">
+                          <form action="../../post.php" method="POST" id="addPackage">
                           <div class="row mb-3">
                             <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Image</label>
                             <div class="col-md-8 col-lg-9">
@@ -301,8 +284,20 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
                           </div>
                           <input type="hidden" id="profilechanged" value='0'>
                           <input type="hidden" name="newprofilephoto" id="newprofilephoto" value="">
-                          <input type="hidden" name="location" id="location" value="AddItenary">
+                          <input type="hidden" name="location" id="location" value="AddPackage">
                           </div>
+                          <div class="row mb-3">
+                            <label for="category" class="col-sm-2 col-form-label">Choose Category</label>
+                            <div class="col-sm-10">
+                              <select name="category" class="form-select" id="category" required>
+                                <option value="Community Tours">Community Tours</option>
+                                <option value="Adventure Tours">Adventure Tours</option>
+                                <option value="Agrotourism Experience">Agrotourism Experience</option>
+                                <option value="Heritage Tours">Heritage Tours</option>
+                              </select>
+                            </div>
+                            <div class="invalid-feedback">Please, choose category!</div>
+                          </div> 
                           <div class="row mb-3">
                             <label for="title" class="col-sm-2 col-form-label">Title</label>
                             <div class="col-sm-10">
@@ -332,11 +327,11 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
                             <div class="invalid-feedback">Please, enter package_includes!</div>
                           </div>
                           <div class="row mb-3">
-                            <label for="package_excludes" class="col-sm-2 col-form-label">Package Excludes</label>
+                            <label for="summary" class="col-sm-2 col-form-label">Summary</label>
                             <div class="col-sm-10">
-                              <textarea name="package_excludes" class="form-control" id="package_excludes" required></textarea>
+                              <textarea name="summary" class="form-control" id="summary" required></textarea>
                             </div>
-                            <div class="invalid-feedback">Please, enter Package Excludes!</div>
+                            <div class="invalid-feedback">Please, enter summary!</div>
                           </div>
                           <div class="row mb-3">
                             <label for="details" class="col-sm-2 col-form-label">Details</label>
@@ -349,7 +344,7 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                          <button type="button" name="addItenarie" id="submitBtn" class="btn btn-primary">Save changes</button>
+                          <button type="button" name="addPackage" id="submitBtn" class="btn btn-primary">Save changes</button>
                         </div>
                       </div>
                     </div>
@@ -391,7 +386,7 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
       const imageFileInput = document.getElementById("imageFile");
       const profileImage = document.getElementById("profileImage");
       const newprofilephoto = document.getElementById("newprofilephoto");
-      const updateself = document.getElementById("addItenarie");
+      const updateself = document.getElementById("addPackage");
       const profilechanged = document.getElementById("profilechanged");
       const modalTitleElement = document.querySelector('#verticalycentered2 .modal-title');
       const modalBodyElement = document.getElementById('modalBody2');
@@ -430,7 +425,7 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
             if (file) {
                 const formData = new FormData();
                 formData.append("imageFile", file);
-                formData.append("location", "itenaries");
+                formData.append("location", "packages");
                 formData.append("action", "add");
                 console.log(formData);
                 // You can use AJAX to submit the form data to the server
@@ -469,15 +464,16 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
           const titleId = this.getAttribute('data-id');
             const row = this.closest('tr');
             const id = row.cells[0].textContent;
-            const title = row.cells[1].textContent;
-            const duration = row.cells[2].textContent;
-            const elevation = row.cells[3].textContent;
-            const package_includes = row.cells[4].textContent;
-            const package_excludes = row.cells[5].textContent;
-            const details = row.cells[6].textContent;
+            const category = row.cells[1].textContent;
+            const title = row.cells[2].textContent;
+            const duration = row.cells[3].textContent;
+            const elevation = row.cells[4].textContent;
+            const package_includes = row.cells[5].textContent;
+            const summary = row.cells[6].textContent;
+            const details = row.cells[7].textContent;
             // Create a temporary div element to parse the HTML
             var tempDiv = document.createElement('div');
-            tempDiv.innerHTML = row.cells[7].innerHTML;
+            tempDiv.innerHTML = row.cells[8].innerHTML;
             // Find the <img> element within the parsed HTML
             var imgElement = tempDiv.querySelector('img');
 
@@ -493,7 +489,7 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
 
             modalTitleElement.textContent = title;
             modalBodyElement.innerHTML = `
-            <form action="../../post.php" method="POST" id="updateItenarie">
+            <form action="../../post.php" method="POST" id="updatePackage">
                           <div class="row mb-3">
                             <label for="profileImage2" class="col-md-4 col-lg-3 col-form-label">Image</label>
                             <div class="col-md-8 col-lg-9">
@@ -505,9 +501,21 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
                           </div>
                           <input type="hidden" id="profilechanged2" value='0'>
                           <input type="hidden" name="newprofilephoto" id="newprofilephoto2" value="">
-                          <input type="hidden" name="location" id="location" value="UpdateItenary">
+                          <input type="hidden" name="location" id="location" value="UpdatePackage">
                           <input type="hidden" name="id" id="id" value="${id}">
                           </div>
+                          <div class="row mb-3">
+                            <label for="category" class="col-sm-2 col-form-label">Choose Category</label>
+                            <div class="col-sm-10">
+                              <select name="category" class="form-select" id="category" required>
+                                <option value="Community Tours">Community Tours</option>
+                                <option value="Adventure Tours">Adventure Tours</option>
+                                <option value="Agrotourism Experience">Agrotourism Experience</option>
+                                <option value="Heritage Tours">Heritage Tours</option>
+                              </select>
+                            </div>
+                            <div class="invalid-feedback">Please, choose category!</div>
+                          </div> 
                           <div class="row mb-3">
                             <label for="title" class="col-sm-2 col-form-label">Title</label>
                             <div class="col-sm-10">
@@ -537,11 +545,11 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
                             <div class="invalid-feedback">Please, enter package_includes!</div>
                           </div>
                           <div class="row mb-3">
-                            <label for="package_excludes" class="col-sm-2 col-form-label">Package Excludes</label>
+                            <label for="summary" class="col-sm-2 col-form-label">Summary</label>
                             <div class="col-sm-10">
-                              <textarea name="package_excludes" class="form-control" id="package_excludes" required>${package_excludes}</textarea>
+                              <textarea name="summary" class="form-control" id="summary" required>${summary}</textarea>
                             </div>
-                            <div class="invalid-feedback">Please, enter Package Excludes!</div>
+                            <div class="invalid-feedback">Please, enter summary!</div>
                           </div>
                           <div class="row mb-3">
                             <label for="details" class="col-sm-2 col-form-label">Details</label>
@@ -552,6 +560,9 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
                           </div>
                           </form>
                 `;
+          var catField = document.querySelector('#updatePackage select[name="category"]');
+          var catOption = catField.querySelector('option[value="' + category + '"]');
+          catOption.selected = true;
 
           const profilechanged2 = document.getElementById("profilechanged2");
           const profileImage2 = document.getElementById("profileImage2");
@@ -589,14 +600,14 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
       document.getElementById("submitBtn2").addEventListener("click", function (event) {
         event.preventDefault(); // Prevent the form from submitting immediately
         
-      const updateself2 = document.getElementById("updateItenarie");
+      const updateself2 = document.getElementById("updatePackage");
 
         if (profilechanged2.value === '1') {
             const file = uploadImage.files[0];
             if (file) {
                 const formData = new FormData();
                 formData.append("imageFile", file);
-                formData.append("location", "itenaries");
+                formData.append("location", "packages");
                 formData.append("action", "update");
                 formData.append("id", id);
                 // You can use AJAX to submit the form data to the server
@@ -632,12 +643,13 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
         }
     });
 
+
     document.getElementById("deleteBtn").addEventListener("click", function (event) {
       event.preventDefault(); // Prevent the form from submitting immediately
 
       // Get the values of id and action from your form or other sources
       const idValue = id; // Replace with the actual id value
-      const actionValue = "itenaries"; // Replace with the actual action value
+      const actionValue = "packages"; // Replace with the actual action value
 
       // Create a FormData object and append the values
       const formData = new FormData();
@@ -664,6 +676,7 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
           alert('An error occurred');
       });
   });
+
         });
     });
     

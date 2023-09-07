@@ -3,7 +3,7 @@
 // Start the session
 session_start();
 
-if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
+if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Tour_guide")) {
   $_SESSION['user'] = $_SESSION['username'];
 }else {
   $location = "../";
@@ -151,24 +151,6 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
           </li>
         </ul>
       </li><!-- End Components Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed " data-bs-target="#users-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Users</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="users-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="../createusers">
-              <i class="bi bi-circle"></i><span>Create New User</span>
-            </a>
-          </li>
-          <li>
-            <a href="../modifyusers">
-              <i class="bi bi-circle"></i><span>Modify User's Credentials</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Dashboard Nav -->
 
 
       <li class="nav-heading">Pages</li>
@@ -664,6 +646,7 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
           alert('An error occurred');
       });
   });
+
         });
     });
     

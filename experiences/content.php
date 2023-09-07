@@ -1,3 +1,52 @@
+<?php
+// Check if the "page" parameter is set in the URL
+if (isset($_GET['page'])) {
+    // Get the value of the "page" parameter
+    $page = $_GET['page'];
+  
+    $flag = false;
+
+    include('../users/connect.php');
+    
+    $sql = "select * from experiences order by category";
+    $experiences = mysqli_query($conn, $sql);
+  
+    $sql = "select * from packages order by category";
+    $packages = mysqli_query($conn, $sql);
+  
+    $sql = "select * from itenaries";
+    $itenaries = mysqli_query($conn, $sql);
+
+    // Based on the value of $page, include the corresponding content
+    switch ($page) {
+        case 'experiences':
+            // Include the experiences content file
+            // include('experiences_content.php');
+            $flag = true;
+            break;
+        case 'itenaries':
+            // Include the itenaries content file
+            // include('itenaries_content.php');
+            $flag = true;
+            break;
+        case 'packages':
+            // Include the itenaries content file
+            // include('itenaries_content.php');
+            $flag = true;
+            break;
+        // Add more cases for other pages
+        default:
+            // Handle cases where "page" is not recognized
+            $flag = false;
+            echo '<h1>Page Not Found</h1>';
+        }
+    } else {
+        // Handle cases where "page" is not set in the URL
+        $flag = false;
+        echo '<h1>No Page Specified</h1>';
+    }
+    if($flag){
+?>
 <!DOCTYPE html>
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
@@ -167,93 +216,100 @@
 			<a href="../"><img src="../assets/img/logo.jpg" width="50px" height="50px" class="img-fluid" style="margin-right: 10px;"/></a>
 			<a class="btn btn-sm fs-sm order-lg-3 d-none d-sm-inline-flex" style="background-color: #467758;color:white;" href="../design_own_package/" rel="noopener">Book now</a>
 			<nav id="navbar" class="navbar" style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
-                <ul>
-                  <li><a class="nav-link scrollto" href="../about_us/">ABOUT US</a></li>
-                  <li class="dropdown"><a href="../experiences/"><span>EXPERIENCES</span> <i class="bi bi-chevron-down"></i></a>
-                    <ul>
-                      <li class="dropdown"><a href="../experiences/Safari/"><span>SAFARI</span> <i class="bi bi-chevron-right"></i></a>
-                        <ul>
-                          <li><a href="../experiences/Safari/Gorilla trekking/">Gorilla trekking</a></li>
-                          <li><a href="../experiences/Safari/Chimpanzee trekking/">Chimpanzee trekking</a></li>
-                          <li><a href="../experiences/Safari/Game drives/">Game drives</a></li>
-                          <li><a href="../experiences/Safari/Night games drives/">Night games drives</a></li>
-                          <li><a href="../experiences/Safari/Boat safari/">Boat safari</a></li>
-                        </ul>
-                      </li>
-                      <li class="dropdown"><a href="../experiences/Wellness/"><span>WELLNESS</span> <i class="bi bi-chevron-right"></i></a>
-                        <ul>
-                          <li><a href="../experiences/Wellness/Guided walking safaris/">Guided walking safaris</a></li>
-                          <li><a href="../experiences/Wellness/Nature walks/">Nature walks</a></li>
-                          <li><a href="../experiences/Wellness/Birds watching/">Birds watching</a></li>
-                          <li><a href="../experiences/Wellness/Canopy walk way/">Canopy walk way</a></li>
-                        </ul>
-                      </li>
-                      <li class="dropdown"><a href="../experiences/Culture/"><span>CULTURE</span> <i class="bi bi-chevron-right"></i></a>
-                        <ul>
-                          <li><a href="../experiences/Culture/Local culture/">Local culture</a></li>
-                          <li><a href="../experiences/Culture/Conservation experience/">Conservation experience</a></li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="dropdown"><a href="../packages/"><span>TOUR PACKAGES</span> <i class="bi bi-chevron-down"></i></a>
-                    <ul>
-                      <li class="dropdown"><a href="../packages/Community tours/"><span>Community Tours</span> <i class="bi bi-chevron-right"></i></a>
-                        <ul>
-                          <li><a href="../packages/Community tours/kigali_city_walk/">Kigali city walk</a></li>
-                          <li><a href="../packages/Community tours/karisoke research center/">Karisoke research center</a></li>
-                          <li><a href="../packages/Community tours/diana fossy fund/">Diana fossy fund</a></li>
-                          <li><a href="../packages/Community tours/traditional culture/">Traditional culture</a></li>
-                          <li><a href="../packages/Community tours/poetry making/">Poetry making</a></li>
-                          <li><a href="../packages/Community tours/ibyi wacu village/">Ibyi wacu village</a></li>
-                        </ul>
-                      </li>
-                      <li class="dropdown"><a href="../packages/Adventure tours/"><span>Adventure Tours</span> <i class="bi bi-chevron-right"></i></a>
-                        <ul>
-                          <li><a href="../packages/Adventure tours/hiking/">Hiking</a></li>
-                          <li><a href="../packages/Adventure tours/biking/">Biking</a></li>
-                          <li><a href="../packages/Adventure tours/cycling/">Cycling</a></li>
-                        </ul>
-                      </li>
-                      <li class="dropdown"><a href="../packages/Agrotourism experience/"><span>Agrotourism Experience</span> <i class="bi bi-chevron-right"></i></a>
-                        <ul>
-                          <li><a href="../packages/Agrotourism experience/coffee tour experience/">Coffee Tour Experience</a></li>
-                          <li><a href="../packages/Agrotourism experience/tea tour experience/">Tea Tour Experience</a></li>
-                        </ul>
-                      </li>
-                      <li class="dropdown"><a href="../packages/heritage tours/"><span>Heritage Tours</span> <i class="bi bi-chevron-right"></i></a>
-                        <ul>
-                          <li><a href="../packages/heritage tours/ethnographic museum/">Ethnographic museum</a></li>
-                          <li><a href="../packages/heritage tours/kings palace museum/">Kings palace museum</a></li>
-                          <li><a href="../packages/heritage tours/environmental museum/">Environmental museum</a></li>
-                          <li><a href="../packages/heritage tours/rwanda arts museum/">Rwanda arts museum</a></li>
-                          <li><a href="../packages/heritage tours/richard kandt museum/">Richard kandt museum</a></li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="dropdown"><a href="."><span>SUGGESTED ITENARIES</span> <i class="bi bi-chevron-down"></i></a>
-                    <ul>
-                      <li><a href="Rwanda - 6 days Virunga mountain gorilla spectacular/">Rwanda - 6 days Virunga mountain gorilla spectacular</a></li>
-                      <li><a href="Rwanda - 7 days Rwanda's rain forests, apes and primates/">Rwanda - 7 days Rwanda's rain forests, apes and primates</a></li>
-                      <li><a href="Rwanda - 8 days Big games and mountain gorillas/">Rwanda - 8 days Big games and mountain gorillas</a></li>
-                      <li><a href="Uganda - 9 days Uganda classic - gorilla, chimpanzee and big game/">Uganda - 9 days Uganda classic - gorilla, chimpanzee and big game</a></li>
-                      <li><a href="Burundi - 3 days Burundi sightseeing tour/">Burundi - 3 days Burundi sightseeing tour</a></li>
-                      <li><a href="DRC - 7 days Giant gorillas and lava lakes in the eastern congo/">DRC - 7 days Giant gorillas and lava lakes in the eastern congo</a></li>
-                    </ul>
-                  </li>
-                  <li><a class="nav-link scrollto" href="#faq">FAQ</a></li>
-                </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
-              </nav><!-- .navbar -->
+        <ul>
+          <li><a class="nav-link scrollto" href="../about_us/">ABOUT US</a></li>
+          <li class="dropdown"><a href="."><span>EXPERIENCES</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+            <?php
+
+              $categories = array();
+
+              if (mysqli_num_rows($experiences) > 0) {
+                  while ($row = mysqli_fetch_assoc($experiences)) {
+                      $rowsExperiences[] = $row;
+                      $category = $row['category'];
+                      $title = $row['title'];
+
+                      // Add the title to the category array
+                      if (!isset($categories[$category])) {
+                          $categories[$category] = array();
+                      }
+                      $categories[$category][] = $title;
+                  }
+              }
+
+              // Generate the HTML
+              foreach ($categories as $category => $titles) {
+                  echo '<li class="dropdown"><a href="experiences/' . $category . '/"><span>' . strtoupper($category) . '</span> <i class="bi bi-chevron-right"></i></a>';
+                  echo '<ul>';
+                  foreach ($titles as $title) {
+                      echo '<li><a href="experiences/' . $category . '/' . $title . '/">' . $title . '</a></li>';
+                  }
+                  echo '</ul>';
+                  echo '</li>';
+              }
+              ?>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="../packages/"><span>TOUR PACKAGES</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+            <?php
+
+              $categories = array();
+
+              if (mysqli_num_rows($packages) > 0) {
+                  while ($row = mysqli_fetch_assoc($packages)) {
+                      $rowsPackages[] = $row;
+                      $category = $row['category'];
+                      $title = $row['title'];
+
+                      // Add the title to the category array
+                      if (!isset($categories[$category])) {
+                          $categories[$category] = array();
+                      }
+                      $categories[$category][] = $title;
+                  }
+              }
+
+              // Generate the HTML
+              foreach ($categories as $category => $titles) {
+                  echo '<li class="dropdown"><a href="packages/' . $category . '/"><span>' . strtoupper($category) . '</span> <i class="bi bi-chevron-right"></i></a>';
+                  echo '<ul>';
+                  foreach ($titles as $title) {
+                      echo '<li><a href="packages/' . $category . '/' . $title . '/">' . $title . '</a></li>';
+                  }
+                  echo '</ul>';
+                  echo '</li>';
+              }
+              ?>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="../itenaries/"><span>SUGGESTED ITENARIES</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+            <?php
+
+              if (mysqli_num_rows($itenaries) > 0) {
+                  while ($row = mysqli_fetch_assoc($itenaries)) {
+                      $rowsItenaries[] = $row;
+                      $title = $row['title'];
+                      echo '<li><a href="itenaries/' . $title . '/">' . $title . '</a></li>';
+                  }
+              }
+              ?>              
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="#faq">FAQ</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
 		
 		  </div>	
 		</header>
     <!--End Main Header -->
 	<!--Page Title-->
-		<section class="page-title" style="background-image:url('/assets/img/bg-itenaries.jpg')" style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+		<section class="page-title" style="background-image:url('../assets/img/bg-<?php echo $page?>.jpg')" style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
     	<div class="auto-container">
-        	<h2 style="color: white; text-shadow: none;">ITENARIES</h2>
+        	<h2 style="color: white; text-shadow: none;"><?php echo strtoupper($page); ?></h2>
       </div>
     </section>
     <!--End Page Title-->
@@ -264,7 +320,7 @@
     	<div class="auto-container first">
         	<ol class="bread-crumb text-center breadcrumb shadow-lg px-md-4 indigo lighten-6" style="background-color: black;">
             	<li class="breadcrumb-item font-weight-bold " ><a class="black-text text-uppercase  " href="../"><span class="mr-md-3 mr-2">HOME</span></a><i class="bi bi-chevron-double-right" aria-hidden="true"></i></li>
-              <li class="breadcrumb-item font-weight-bold"><label class="black-text text-uppercase active-2" href="#"><span class="mr-md-3 mr-2">ITENARIES</span></label></li>
+              <li class="breadcrumb-item font-weight-bold"><label class="black-text text-uppercase active-2" href="#"><span class="mr-md-3 mr-2"><?php echo strtoupper($page); ?></span></label></li>
             </ol>
             <!-- <nav aria-label="breadcrumb " class="second " >
               <ol class="breadcrumb indigo lighten-6 first shadow-lg px-md-4">
@@ -282,121 +338,164 @@
         	<div class="row clearfix">
             	
                 <div class="container pt-4 py-5 text-center contenedor">
-                    <div class="row">
-                      <div class="col-12">
-                        <h2 class="pb-2 border-bottom text-center" style="color: #467758;">UNIQUE ITENARIES</h2>
-                      </div>
-                    </div> 
-                    <div class="row row-cols-1 row-cols-md-3 align-items-md-center g-5 py-5">
-                      <div class="col">
-                        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
-                          <div class="d-flex flex-column h-100 pb-3 text-white text-shadow-1 container_foto">
-                            <img src="../assets/img/kcc.jpg" alt="" width="300px" height="300px">
-                            <article class="text-left lh-1 fw-bold" style="position: absolute;bottom:0px;">
-                              <h5>Rwanda - 6 days Virunga mountain gorilla spectacular<br>gorilla spectacular</h5>
-                              <hr style="transform: none;">
-                              <h6>No sleep, wake up</h6>
-                           </article>
-                           <div class="ver_mas text-center">
-                            <a href="Rwanda - 6 days Virunga mountain gorilla spectacular/">READ MORE >></a>
-                          </div>
-                          </div>
-                        </div>
-                      </div>
-                
-                      <div class="col">
-                        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
-                          <div class="d-flex flex-column h-100 pb-3 text-white text-shadow-1 container_foto">
-                            <img src="../assets/img/hiking.jpg" alt="" width="300px" height="300px">
-                            <article class="text-left lh-1 fw-bold" style="position: absolute;bottom:0px;">
-                              <h5>Rwanda - 7 days Rwanda's rain forests, <br>apes and primates</h5>
-                              <hr style="transform: none;">
-                              <h6>Hiking sticks, food, drinks and camping option</h6>
-                           </article>
-                           <div class="ver_mas text-center">
-                            <a href="">READ MORE >></a>
-                          </div>
-                          </div>
-                        </div>
-                      </div>
-                
-                      <div class="col">
-                        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
-                          <div class="d-flex flex-column h-100 pb-3 text-white text-shadow-1 container_foto">
-                            <img src="../assets/img/kingspalace.jpg" alt="" width="300px" height="300px">
-                            <article class="text-left lh-1 fw-bold" style="position: absolute;bottom:0px;">
-                              <h5>Rwanda - 8 days Big games and <br>mountain gorillas</h5>
-                              <hr style="transform: none;">
-                              <h6>Historic Sites, Points of Interest & Landmarks</h6>
-                           </article>
-                           <div class="ver_mas text-center">
-                            <a href="">READ MORE >></a>
-                          </div>
-                          </div>
-                        </div>
-                      </div>
-            
-                    </div>
+                      
+                      <?php
 
-                    <div class="row row-cols-1 row-cols-md-3 align-items-md-center g-5 py-5">
-                        <div class="col">
-                          <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
-                            <div class="d-flex flex-column h-100 pb-3 text-white text-shadow-1 container_foto">
-                              <img src="../assets/img/kcc.jpg" alt="" width="300px" height="300px">
-                              <article class="text-left lh-1 fw-bold" style="position: absolute;bottom:0px;">
-                                <h5>Uganda - 9 days Uganda classic - gorilla, <br>chimpanzee and big game</h5>
-                                <hr style="transform: none;">
-                                <h6>The Kigali Genocide Memorial, Campaign against Genocide Museum</h6>
-                             </article>
-                             <div class="ver_mas text-center">
-                              <a href="#">READ MORE >></a>
-                            </div>
+                        if($page === 'experiences'){
+                          $count=2;
+                      ?>
+                          <div class="row">
+                            <div class="col-12">
+                              <h2 class="pb-2 border-bottom text-center" style="color: #467758;">TOURISM PRODUCT WE OFFER</h2> 
                             </div>
                           </div>
-                        </div>
-                  
-                        <div class="col">
-                          <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
-                            <div class="d-flex flex-column h-100 pb-3 text-white text-shadow-1 container_foto">
-                              <img src="../assets/img/hiking.jpg" alt="" width="300px" height="300px">
-                              <article class="text-left lh-1 fw-bold" style="position: absolute;bottom:0px;">
-                                <h5>Burundi - 3 days Burundi <br>sightseeing tour</h5>
-                                <hr style="transform: none;">
-                                <h6>Hiking sticks, food, drinks and camping option</h6>
-                             </article>
-                             <div class="ver_mas text-center">
-                              <a href="">READ MORE >></a>
-                            </div>
+                      <?php
+                          foreach ($rowsExperiences as $row) {
+                              $count++;
+                                $category = $row['category'];
+                                $title = $row['title'];
+                                $duration = $row['duration'];
+                                $package_includes = $row['package_includes'];
+                                $elevation = $row['elevation'];
+                                $profile_photo = $row['photo'];
+                                $timestamp = time(); // Get the current timestamp
+                                $photo = $profile_photo . "?t=" . $timestamp;
+                                $trimmedString = str_replace("../../", "", $photo);
+                                if($count === 3){
+                                  echo "<div class='row row-cols-1 row-cols-md-3 align-items-md-center g-5 py-5'>";
+                                  $count=0;
+                                }
+                                echo "
+                                <div class='col'>
+                                  <div class='card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg'>
+                                    <div class='d-flex flex-column h-100 pb-3 text-white text-shadow-1 container_foto'>
+                                      <img src='$trimmedString' alt=' width='300px' height='300px'>
+                                      <article class='text-left lh-1 fw-bold' style='position: absolute;bottom:0px;'>
+                                        <h5>$title <br></h5>
+                                        <hr style='transform: none;'>
+                                        <h6>$package_includes</h6>
+                                    </article>
+                                    <div class='ver_mas text-center'>
+                                      <a href='packages/$category/$title/'>READ MORE >></a>
+                                    </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                
+                                ";
+                                if($count === 2){
+                                  echo "</div>";
+                                }
+                        }
+
+
+                        }else if ($page === 'packages'){
+                          $count=2;
+                        ?>
+                          <div class="row">
+                            <div class="col-12">
+                              <h2 class="pb-2 border-bottom text-center" style="color: #467758;">UNIQUE ADVENTURE TOUR PACKAGES</h2> 
                             </div>
                           </div>
-                        </div>
-                  
-                        <div class="col">
-                          <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
-                            <div class="d-flex flex-column h-100 pb-3 text-white text-shadow-1 container_foto">
-                              <img src="../assets/img/kingspalace.jpg" alt="" width="300px" height="300px">
-                              <article class="text-left lh-1 fw-bold" style="position: absolute;bottom:0px;">
-                                <h5>DRC - 7 days Giant gorillas and <br>lava lakes in the eastern congo</h5>
-                                <hr style="transform: none;">
-                                <h6>Historic Sites, Points of Interest & Landmarks</h6>
-                             </article>
-                             <div class="ver_mas text-center">
-                              <a href="">READ MORE >></a>
-                            </div>
+                        <?php
+                          foreach ($rowsPackages as $row) {
+                              $count++;
+                              $category = $row['category'];
+                              $title = $row['title'];
+                              $duration = $row['duration'];
+                              $package_includes = $row['package_includes'];
+                              $elevation = $row['elevation'];
+                              $profile_photo = $row['photo'];
+                              $timestamp = time(); // Get the current timestamp
+                              $photo = $profile_photo . "?t=" . $timestamp;
+                              $trimmedString = str_replace("../../", "", $photo);
+
+                                if($count === 3){
+                                  echo "<div class='row row-cols-1 row-cols-md-3 align-items-md-center g-5 py-5'>";
+                                  $count=0;
+                                }
+                                echo "
+                                  <div class='col'>
+                                    <div class='card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg'>
+                                      <div class='d-flex flex-column h-100 pb-3 text-white text-shadow-1 container_foto'>
+                                        <img src='$trimmedString' alt=' width='300px' height='300px'>
+                                        <article class='text-left lh-1 fw-bold' style='position: absolute;bottom:0px;'>
+                                          <h5>$title <br></h5>
+                                          <hr style='transform: none;'>
+                                          <h6>$package_includes</h6>
+                                      </article>
+                                      <div class='ver_mas text-center'>
+                                        <a href='packages/$category/$title/'>READ MORE >></a>
+                                      </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  
+                                  ";
+                                if($count === 2){
+                                  echo "</div>";
+                                }
+                        }
+                      }else {
+                        $count=2;
+                        ?>
+                          <div class="row">
+                            <div class="col-12">
+                              <h2 class="pb-2 border-bottom text-center" style="color: #467758;">UNIQUE ITENARIES</h2> 
                             </div>
                           </div>
-                        </div>
-              
-                      </div>              
-                      </div>
-                  </div>
+                        <?php
+                        foreach ($rowsItenaries as $row) {
+                            $count++;
+                            $title = $row['title'];
+                            $duration = $row['duration'];
+                            $elevation = $row['elevation'];
+                            $package_includes = $row['package_includes'];
+                            $profile_photo = $row['photo'];
+                            $timestamp = time(); // Get the current timestamp
+                            $photo = $profile_photo . "?t=" . $timestamp;
+                            $trimmedString = str_replace("../../", "", $photo);
+
+                              if($count === 3){
+                                echo "<div class='row row-cols-1 row-cols-md-3 align-items-md-center g-5 py-5'>";
+                                $count=0;
+                              }
+                              echo "
+                                <div class='col'>
+                                  <div class='card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg'>
+                                    <div class='d-flex flex-column h-100 pb-3 text-white text-shadow-1 container_foto'>
+                                      <img src='$trimmedString' alt=' width='300px' height='300px'>
+                                      <article class='text-left lh-1 fw-bold' style='position: absolute;bottom:0px;'>
+                                        <h5>$title <br></h5>
+                                        <hr style='transform: none;'>
+                                        <h6>$package_includes</h6>
+                                    </article>
+                                    <div class='ver_mas text-center'>
+                                      <a href='packages/$title/'>READ MORE >></a>
+                                    </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                
+                                ";
+                              if($count === 2){
+                                echo "</div>";
+                              }
+                      }
+
+
+                        }
+
+                        
+                        ?>
+
+                    </div>
+                
 
 			</div>
 		</div>
-
-
-    
-
+	</div>
+</div>
 <!-- ======= F.A.Q Section ======= -->
 <section id="faq" class="faq" style="padding: 10px;">
   <div class="container pt-4 py-5" style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
@@ -541,3 +640,8 @@
 
 
 </body></html>
+
+    <?php } 
+    
+    
+    ?>

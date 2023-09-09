@@ -151,11 +151,45 @@
           font-size: 20px !important;
       }
 
+      .sidebar .search-box .form-group input[type="number"],
+      .sidebar .search-box .form-group input[type="date"],
+      .sidebar .search-box .form-group textarea{
+        position:relative;
+        line-height:24px;
+        padding:10px 10px 10px 20px;
+        border:1px solid #cccccc;
+        color:#222222;
+        display:block;
+        font-size:14px;
+        width:100%;
+        transition:all 500ms ease;
+        -moz-transition:all 500ms ease;
+        -webkit-transition:all 500ms ease;
+        -ms-transition:all 500ms ease;
+        -o-transition:all 500ms ease;
+      }
+      .sidebar .search-box .form-group input[type="number"],
+      .sidebar .search-box .form-group input[type="date"]{
+        height: 35px;
+      }
   </style>
 </head>
 
-<body class="hidden-bar-wrapper">
+<body class="hidden-bar-wrapper" oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+<?php 
+  
+  include('../users/connect.php');
+  
+  $sql = "select * from experiences order by category";
+  $experiences = mysqli_query($conn, $sql);
 
+  $sql = "select * from packages order by category";
+  $packages = mysqli_query($conn, $sql);
+
+  $sql = "select * from itenaries";
+  $itenaries = mysqli_query($conn, $sql);
+
+  ?>
 <div class="page-wrapper">
  	
 	<header id="header" class="fixed-top">
@@ -166,79 +200,83 @@
 			<nav id="navbar" class="navbar" style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
         <ul>
           <li><a class="nav-link scrollto" href="../about_us/">ABOUT US</a></li>
-          <li class="dropdown"><a href="../experiences/"><span>EXPERIENCES</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li class="dropdown"><a href="../experiences/Safari/"><span>SAFARI</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="../experiences/Safari/Gorilla trekking/">Gorilla trekking</a></li>
-                  <li><a href="../experiences/Safari/Chimpanzee trekking/">Chimpanzee trekking</a></li>
-                  <li><a href="../experiences/Safari/Game drives/">Game drives</a></li>
-                  <li><a href="../experiences/Safari/Night games drives/">Night games drives</a></li>
-                  <li><a href="../experiences/Safari/Boat safari/">Boat safari</a></li>
-                </ul>
-              </li>
-              <li class="dropdown"><a href="../experiences/Wellness/"><span>WELLNESS</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="../experiences/Wellness/Guided walking safaris/">Guided walking safaris</a></li>
-                  <li><a href="../experiences/Wellness/Nature walks/">Nature walks</a></li>
-                  <li><a href="../experiences/Wellness/Birds watching/">Birds watching</a></li>
-                  <li><a href="../experiences/Wellness/Canopy walk way/">Canopy walk way</a></li>
-                </ul>
-              </li>
-              <li class="dropdown"><a href="../experiences/Culture/"><span>CULTURE</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="../experiences/Culture/Local culture/">Local culture</a></li>
-                  <li><a href="../experiences/Culture/Conservation experience/">Conservation experience</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li class="dropdown"><a href="../packages/"><span>TOUR PACKAGES</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li class="dropdown"><a href="../packages/Community tours/"><span>Community Tours</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="../packages/Community tours/kigali_city_walk/">Kigali city walk</a></li>
-                  <li><a href="../packages/Community tours/karisoke research center/">Karisoke research center</a></li>
-                  <li><a href="../packages/Community tours/diana fossy fund/">Diana fossy fund</a></li>
-                  <li><a href="../packages/Community tours/traditional culture/">Traditional culture</a></li>
-                  <li><a href="../packages/Community tours/poetry making/">Poetry making</a></li>
-                  <li><a href="../packages/Community tours/ibyi wacu village/">Ibyi wacu village</a></li>
-                </ul>
-              </li>
-              <li class="dropdown"><a href="../packages/Adventure tours/"><span>Adventure Tours</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="../packages/Adventure tours/hiking/">Hiking</a></li>
-                  <li><a href="../packages/Adventure tours/biking/">Biking</a></li>
-                  <li><a href="../packages/Adventure tours/cycling/">Cycling</a></li>
-                </ul>
-              </li>
-              <li class="dropdown"><a href="../packages/Agrotourism experience/"><span>Agrotourism Experience</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="../packages/Agrotourism experience/coffee tour experience/">Coffee Tour Experience</a></li>
-                  <li><a href="../packages/Agrotourism experience/tea tour experience/">Tea Tour Experience</a></li>
-                </ul>
-              </li>
-              <li class="dropdown"><a href="../packages/heritage tours/"><span>Heritage Tours</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="../packages/heritage tours/ethnographic museum/">Ethnographic museum</a></li>
-                  <li><a href="../packages/heritage tours/kings palace museum/">Kings palace museum</a></li>
-                  <li><a href="../packages/heritage tours/environmental museum/">Environmental museum</a></li>
-                  <li><a href="../packages/heritage tours/rwanda arts museum/">Rwanda arts museum</a></li>
-                  <li><a href="../packages/heritage tours/richard kandt museum/">Richard kandt museum</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li class="dropdown"><a href="../itenaries/"><span>SUGGESTED ITENARIES</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="../itenaries/Rwanda - 6 days Virunga mountain gorilla spectacular/">Rwanda - 6 days Virunga mountain gorilla spectacular</a></li>
-              <li><a href="../itenaries/Rwanda - 7 days Rwanda's rain forests, apes and primates/">Rwanda - 7 days Rwanda's rain forests, apes and primates</a></li>
-              <li><a href="../itenaries/Rwanda - 8 days Big games and mountain gorillas/">Rwanda - 8 days Big games and mountain gorillas</a></li>
-              <li><a href="../itenaries/Uganda - 9 days Uganda classic - gorilla, chimpanzee and big game/">Uganda - 9 days Uganda classic - gorilla, chimpanzee and big game</a></li>
-              <li><a href="../itenaries/Burundi - 3 days Burundi sightseeing tour/">Burundi - 3 days Burundi sightseeing tour</a></li>
-              <li><a href="../itenaries/DRC - 7 days Giant gorillas and lava lakes in the eastern congo/">DRC - 7 days Giant gorillas and lava lakes in the eastern congo</a></li>
-            </ul>
-          </li>
+          <li class="dropdown"><a class="nav-link scrollto" href="#" data-target="experiences"><span>EXPERIENCES</span> <i class="bi bi-chevron-down"></i></a>
+					<ul>
+					<?php
+
+					$categories = array();
+
+					if (mysqli_num_rows($experiences) > 0) {
+						while ($row = mysqli_fetch_assoc($experiences)) {
+							$category = $row['category'];
+							$title = $row['title'];
+
+							// Add the title to the category array
+							if (!isset($categories[$category])) {
+								$categories[$category] = array();
+							}
+							$categories[$category][] = $title;
+						}
+					}
+
+					// Generate the HTML
+					foreach ($categories as $category => $titles) {
+						echo '<li class="dropdown"><a href="#" data-target="experiences" data-category-target="' . $category . '"><span>' . strtoupper($category) . '</span> <i class="bi bi-chevron-right"></i></a>';
+						echo '<ul>';
+						foreach ($titles as $title) {
+							echo '<li><a href="#" data-target="experiences" data-category-target="' . $category . '" data-title-target="' . $title . '">' . $title . '</a></li>';
+						}
+						echo '</ul>';
+						echo '</li>';
+					}
+					?>
+					</ul>
+				</li>
+				<li class="dropdown"><a class="nav-link scrollto" href="#" data-target="packages"><span>TOUR PACKAGES</span> <i class="bi bi-chevron-down"></i></a>
+					<ul>
+					<?php
+
+					$categories = array();
+					if (mysqli_num_rows($packages) > 0) {
+						while ($row = mysqli_fetch_assoc($packages)) {
+              $rowsPackages[] = $row;
+							$category = $row['category'];
+							$title = $row['title'];
+
+							// Add the title to the category array
+							if (!isset($categories[$category])) {
+								$categories[$category] = array();
+							}
+							$categories[$category][] = $title;
+						}
+					}
+
+					// Generate the HTML
+					foreach ($categories as $category => $titles) {
+						echo '<li class="dropdown"><a href="#" data-target="packages" data-category-target="' . $category . '"><span>' . strtoupper($category) . '</span> <i class="bi bi-chevron-right"></i></a>';
+						echo '<ul>';
+						foreach ($titles as $title) {
+							echo '<li><a href="#" data-target="packages" data-category-target="' . $category . '" data-title-target="' . $title . '">' . $title . '</a></li>';
+						}
+						echo '</ul>';
+						echo '</li>';
+					}
+					?>
+					</ul>
+				</li>
+				<li class="dropdown"><a class="nav-link scrollto" href="#" data-target="itenaries"><span>SUGGESTED ITENARIES</span> <i class="bi bi-chevron-down"></i></a>
+					<ul>
+					<?php
+
+					if (mysqli_num_rows($itenaries) > 0) {
+						while ($row = mysqli_fetch_assoc($itenaries)) {
+							$title = $row['title'];
+							echo '<li><a href="#" data-target="itenaries" data-title-target="' . $title . '">' . $title . '</a></li>';
+						}
+					}
+					?>
+					</ul>
+				</li>
           <li><a class="nav-link scrollto" href="#faq">FAQ</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -291,53 +329,54 @@
 								</div>
 							</div>
 							<!-- Search Form -->
+              <form method="post" action="book.php" id="booking">
 							<div class="sidebar-widget search-box">
-								<form method="post" action="home.jsp?">
 																		 <!--Form Group-->
                                         <div class="form-group col-md-12 col-sm-6 col-xs-12">
-                                            <div class="field-label"> <sup>Package Name</sup></div>
-                                            <select name="tour_name" required="required">
-                                              <option value="">Choose Package</option>
-                                              <option value="Kigali City Walk">Kigali City Walk</option>
-                                              <option value="Karisoke Research Center">Karisoke Research Center</option>
-                                              <option value="Diana Fossy Fund">Diana Fossy Fund</option>
-                                              <option value="Traditional Culture">Traditional Culture</option>
+                                            <div class="field-label"> <sub>Package Name</sub></div>
+                                            <select name="package_name">
+                                              <option value="" disabled selected>Choose Package</option>
+                                              <?php 
+                                                foreach ($rowsPackages as $row) {
+                                                  echo '<option value="' . $row['title'] . '">' . $row['title'] . '</option>';
+                                                }
+                                              ?>
                                             </select>
                                         </div>
                                          <div class="form-group col-md-12 col-sm-6 col-xs-12">
-                                            <div class="field-label"> <sup><br></sup></div>
-                                            <input type="text" required="required" placeholder="Full Name" name="names">
+                                            <div class="field-label"> <sub>Full Name</sub></div>
+                                            <input type="text" placeholder="Full Name" name="full_names" required>
                                         </div>
                                         
                                         <!--Form Group-->
                                         <div class="form-group col-md-12 col-sm-6 col-xs-12">
-                                          <div class="field-label"> <sup><br></sup></div>
-                                            <input type="text" required="required" placeholder="Nationality" name="country">
+                                          <div class="field-label"> <sub>Nationality</sub></div>
+                                            <input type="text" placeholder="Nationality" name="nationality" required>
                                         </div>
                                         
                                         <!--Form Group-->
                                         <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                           <div class="field-label"> <sup><br></sup></div>
-                                            <input type="text" required="required" placeholder="Email" name="email">
+                                           <div class="field-label"> <sub>Email</sub></div>
+                                            <input type="text" placeholder="Email" name="email" required>
                                         </div>
                                         
                                          <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                           <div class="field-label"> <sup><br></sup></div>
-                                            <input type="text" required="required" placeholder="Number of Guest" name="guest">
+                                           <div class="field-label"> <sub>Number of Guest</sub></div>
+                                            <input type="number" placeholder="Number of Guest" oninput="validate();" min=1 name="number_of_guest" required>
                                         </div>
                                         
                                         <!--Form Group-->
                                         <div class="form-group col-md-12 col-sm-6 col-xs-12">
-                                          <div class="field-label"> <sup><br></sup></div>
-                                            <input type="text" required="required" placeholder="Check In" name="date">
+                                          <div class="field-label"> <sub>Check In</sub></div>
+                                            <input type="date" placeholder="Check In" min="<?= date('Y-m-d', strtotime('+1 day')) ?>" name="check_in" required>
                                         </div>
                                         
                                         <!--Form Group-->
                                         <div class="form-group col-md-12 col-sm-6 col-xs-12">
-                                            <div class="field-label"> <sup><br></sup></div>
-                                            <input type="text" style="height: 100px;" name="message" placeholder="Type Message">
+                                            <div class="field-label"> <sub>Message</sub></div>
+                                            <textarea name="message" rows="5" placeholder="Type Message"></textarea>
                                         </div>
-							</form></div>
+							</div>
 							<br>
 							<!-- End Search Form -->
 							<!--Brochure-->
@@ -352,8 +391,9 @@
 								</div>
 
 							</div>
-														
-						</div>						
+										
+            </form>					
+						</div>					
 					</aside>
 				</div>			
 			</div>
@@ -504,6 +544,144 @@
 <!-- Template Main JS File -->
 <script src="../assets/js/main.js"></script>
 <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script>
+
+  function validate(){
+    var inputValue = document.querySelector('input[name = "number_of_guest"]');
+    if(inputValue.value < 1) {
+      inputValue.value = null;
+    }
+  }
+
+  // Add an event listener to all links with a data-target attribute
+  document.querySelectorAll('a[data-target]').forEach(function(link) {
+  link.addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent the default link behavior
+    
+    // Get the target URL from the data-target attribute
+    const targetUrl = this.getAttribute('data-target');
+
+    // Create a hidden form
+    const form = document.createElement('form');
+    form.method = 'get';
+    form.action = '../tours/index.php'; // Your target URL
+
+    // Add an input field for the 'page' data
+    const pageInput = document.createElement('input');
+    pageInput.type = 'hidden';
+    pageInput.name = 'page';
+    pageInput.value = targetUrl; // The value you want to send
+    form.appendChild(pageInput);
+
+    if(this.hasAttribute('data-category-target')){
+      const category = this.getAttribute('data-category-target');
+      // Add an input field for the 'page' data
+      const categoryInput = document.createElement('input');
+      categoryInput.type = 'hidden';
+      categoryInput.name = 'category';
+      categoryInput.value = category; // The value you want to send
+      form.appendChild(categoryInput);
+    }
+    if(this.hasAttribute('data-title-target')){
+      form.action = '../tours/details/index.php'; // Your target URL
+      const title = this.getAttribute('data-title-target');
+      // Add an input field for the 'page' data
+      const titleInput = document.createElement('input');
+      titleInput.type = 'hidden';
+      titleInput.name = 'title';
+      titleInput.value = title; // The value you want to send
+      form.appendChild(titleInput);
+    }
+    
+
+    // Append the form to the document body
+    document.body.appendChild(form);
+
+    // Submit the form
+    form.submit();
+
+  });
+});
+
+document.getElementById("booking").addEventListener('submit', function(event){
+  event.preventDefault();
+
+  if(document.querySelector('select[name = "package_name"]').value === ''){
+    alert('choose package');
+  }else {
+    document.getElementById("booking").submit();
+  }
+
+});
+
+</script>
 
 
+<script language="JavaScript">
+  window.onload = function() {
+    document.addEventListener("contextmenu", function(e){
+      e.preventDefault();
+    }, false);
+    document.addEventListener("keydown", function(e) {
+    /*document.onkeydown = function(e) {
+       "I" key*/
+      if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+        disabledEvent(e);
+      }
+      /* "J" key */
+      if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+        disabledEvent(e);
+      }
+      /* "S" key + macOS */
+      if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
+        disabledEvent(e);
+      }
+      /* "U" key */
+      if (e.ctrlKey && e.keyCode == 85) {
+        disabledEvent(e);
+      }
+      /* "F12" key */
+      if (event.keyCode == 123) {
+        disabledEvent(e);
+      }
+    }, false);
+    function disabledEvent(e){
+      if (e.stopPropagation){
+        e.stopPropagation();
+      } else if (window.event){
+        window.event.cancelBubble = true;
+      }
+      e.preventDefault();
+      return false;
+    }
+  };
+  
+  // <!-- code to disable print screen -->
+   document.addEventListener("keyup", function (e) {
+    var keyCode = e.keyCode ? e.keyCode : e.which;
+            if (keyCode == 44) {
+                stopPrntScr();
+            }
+        });
+function stopPrntScr() {
+
+            var inpFld = document.createElement("input");
+            inpFld.setAttribute("value", ".");
+            inpFld.setAttribute("width", "0");
+            inpFld.style.height = "0px";
+            inpFld.style.width = "0px";
+            inpFld.style.border = "0px";
+            document.body.appendChild(inpFld);
+            inpFld.select();
+            document.execCommand("copy");
+            inpFld.remove(inpFld);
+        }
+       function AccessClipboardData() {
+            try {
+                window.clipboardData.setData('text', "Access   Restricted");
+            } catch (err) {
+            }
+        }
+        setInterval("AccessClipboardData()", 300);
+</script>
 </body></html>

@@ -1,44 +1,22 @@
 <?php
 // Check if the "page" parameter is set in the URL
-if (isset($_POST['page'])) {
+if (isset($_GET['page'])) {
     // Get the value of the "page" parameter
-    $page = $_POST['page'];
+    $page = $_GET['page'];
   
     $flag = false;
 
     include('../users/connect.php');
     
-    if(isset($_POST['category']) && isset($_POST['title'])){
-      $category = $_POST['category'];
-      $title = $_POST['title'];
-      $sql = "select * from experiences where category='$category' and title='$title'";
-    }else if(isset($_POST['category'])){
-      $category = $_POST['category'];
-      $sql = "select * from experiences where category='$category'";
-    }else{
-      $sql = "select * from experiences order by category";
-    }
+
+    $sql = "select * from experiences order by category";
     $experiences = mysqli_query($conn, $sql);
   
-    if(isset($_POST['category']) && isset($_POST['title'])){
-      $category = $_POST['category'];
-      $title = $_POST['title'];
-      $sql = "select * from packages where category='$category' and title='$title'";
-    }else if(isset($_POST['category'])){
-      $category = $_POST['category'];
-      $sql = "select * from packages where category='$category'";
-    }else{
-      $sql = "select * from packages order by category";
-    }
+    $sql = "select * from packages order by category";
     $packages = mysqli_query($conn, $sql);
   
 
-    if(isset($_POST['title'])){
-      $title = $_POST['title'];
-      $sql = "select * from itenaries where title='$title'";
-    }else{
-      $sql = "select * from itenaries";
-    }
+    $sql = "select * from itenaries";
     $itenaries = mysqli_query($conn, $sql);
 
     // Based on the value of $page, include the corresponding content
@@ -62,14 +40,25 @@ if (isset($_POST['page'])) {
         default:
             // Handle cases where "page" is not recognized
             $flag = false;
-            echo '<h1>Page Not Found</h1>';
+            include('error.php');
         }
     } else {
         // Handle cases where "page" is not set in the URL
         $flag = false;
-        echo '<h1>No Page Specified</h1>';
+        include('error.php');
     }
     if($flag){
+      if(isset($_GET['category']) && $page !== 'itenaries'){
+        $sql = "select * from $page where category='" . $_GET['category'] . "'";
+        $count = mysqli_query($conn, $sql);
+        if(mysqli_num_rows($count) == 0){
+          include('error.php');
+          exit;
+        }
+      }else if(isset($_GET['category']) && $page === 'itenaries'){
+        include('error.php');
+        exit;
+      }
 ?>
 <!DOCTYPE html>
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -102,14 +91,14 @@ if (isset($_POST['page'])) {
  <!-- Shareble To social media meat-->
 
     
-<meta property="og:title" content="Kigali City Walk">
-<meta property="og:url" content="africaapessafaris.com/itinerary-details.php">
+<meta property="og:title" content="Categories">
+<meta property="og:url" content="africaapessafaris.co.rw/tours/index.php">
 <meta property="og:image:type" content="image/jpg">
 <!--<meta property="og:image:width" content="504" />
 <meta property="og:image:height" content="691" />
 <meta property="og:description" content="" />
 -->
-<meta property="og:site_name" content="africaapessafaris.com">
+<meta property="og:site_name" content="africaapessafaris.co.rw">
 <meta property="og:type" content="website">
 <meta property="og:updated_time" content="1440432930">
 <!-- Responsive -->
@@ -230,7 +219,7 @@ if (isset($_POST['page'])) {
   </style>
 </head>
 
-<body class="hidden-bar-wrapper">
+<body class="hidden-bar-wrapper" oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
 
 <div class="page-wrapper">
  	
@@ -242,7 +231,7 @@ if (isset($_POST['page'])) {
 			<nav id="navbar" class="navbar" style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
         <ul>
           <li><a class="nav-link scrollto" href="../about_us/">ABOUT US</a></li>
-          <li class="dropdown"><a href="."><span>EXPERIENCES</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#" data-target="experiences"><span>EXPERIENCES</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
             <?php
 
@@ -264,10 +253,10 @@ if (isset($_POST['page'])) {
 
               // Generate the HTML
               foreach ($categories as $category => $titles) {
-                  echo '<li class="dropdown"><a href="experiences/' . $category . '/"><span>' . strtoupper($category) . '</span> <i class="bi bi-chevron-right"></i></a>';
-                  echo '<ul>';
+                echo '<li class="dropdown"><a href="#" data-target="experiences" data-category-target="' . $category . '"><span>' . strtoupper($category) . '</span> <i class="bi bi-chevron-right"></i></a>';
+                echo '<ul>';
                   foreach ($titles as $title) {
-                      echo '<li><a href="experiences/' . $category . '/' . $title . '/">' . $title . '</a></li>';
+                    echo '<li><a href="#" data-target="experiences" data-category-target="' . $category . '" data-title-target="' . $title . '">' . $title . '</a></li>';
                   }
                   echo '</ul>';
                   echo '</li>';
@@ -275,7 +264,7 @@ if (isset($_POST['page'])) {
               ?>
             </ul>
           </li>
-          <li class="dropdown"><a href="../packages/"><span>TOUR PACKAGES</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#" data-target="packages"><span>TOUR PACKAGES</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
             <?php
 
@@ -297,10 +286,10 @@ if (isset($_POST['page'])) {
 
               // Generate the HTML
               foreach ($categories as $category => $titles) {
-                  echo '<li class="dropdown"><a href="packages/' . $category . '/"><span>' . strtoupper($category) . '</span> <i class="bi bi-chevron-right"></i></a>';
-                  echo '<ul>';
+                echo '<li class="dropdown"><a href="#" data-target="packages" data-category-target="' . $category . '"><span>' . strtoupper($category) . '</span> <i class="bi bi-chevron-right"></i></a>';
+                echo '<ul>';
                   foreach ($titles as $title) {
-                      echo '<li><a href="packages/' . $category . '/' . $title . '/">' . $title . '</a></li>';
+                    echo '<li><a href="#" data-target="packages" data-category-target="' . $category . '" data-title-target="' . $title . '">' . $title . '</a></li>';
                   }
                   echo '</ul>';
                   echo '</li>';
@@ -308,7 +297,7 @@ if (isset($_POST['page'])) {
               ?>
             </ul>
           </li>
-          <li class="dropdown"><a href="../itenaries/"><span>SUGGESTED ITENARIES</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#" data-target="itenaries"><span>SUGGESTED ITENARIES</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
             <?php
 
@@ -316,8 +305,8 @@ if (isset($_POST['page'])) {
                   while ($row = mysqli_fetch_assoc($itenaries)) {
                       $rowsItenaries[] = $row;
                       $title = $row['title'];
-                      echo '<li><a href="itenaries/' . $title . '/">' . $title . '</a></li>';
-                  }
+                      echo '<li><a href="#" data-target="itenaries" data-title-target="' . $title . '">' . $title . '</a></li>';
+                    }
               }
               ?>              
             </ul>
@@ -333,7 +322,15 @@ if (isset($_POST['page'])) {
 	<!--Page Title-->
 		<section class="page-title" style="background-image:url('../assets/img/bg-<?php echo $page?>.jpg')" style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
     	<div class="auto-container">
-        	<h2 style="color: white; text-shadow: none;"><?php echo strtoupper($page); ?></h2>
+      <?php 
+
+        if(isset($_GET['category'])){
+        	echo '<h2 style="color: white; text-shadow: none;">' . strtoupper($_GET['category']) . '</h2>';
+        }else{
+        	echo '<h2 style="color: white; text-shadow: none;">' . strtoupper($page) . '</h2>';
+        }
+
+      ?>
       </div>
     </section>
     <!--End Page Title-->
@@ -343,8 +340,18 @@ if (isset($_POST['page'])) {
     <div class="breadcrumb-outer">
     	<div class="auto-container first">
         	<ol class="bread-crumb text-center breadcrumb shadow-lg px-md-4 indigo lighten-6" style="background-color: black;">
-            	<li class="breadcrumb-item font-weight-bold " ><a class="black-text text-uppercase  " href="../"><span class="mr-md-3 mr-2">HOME</span></a><i class="bi bi-chevron-double-right" aria-hidden="true"></i></li>
-              <li class="breadcrumb-item font-weight-bold"><label class="black-text text-uppercase active-2" href="#"><span class="mr-md-3 mr-2"><?php echo strtoupper($page); ?></span></label></li>
+            <li class="breadcrumb-item font-weight-bold " ><a class="black-text text-uppercase  " href="../"><span class="mr-md-3 mr-2">HOME</span></a><i class="bi bi-chevron-double-right" aria-hidden="true"></i></li>
+              <?php 
+
+                if(isset($_GET['category'])){
+                  echo '<li class="breadcrumb-item font-weight-bold"><a class="black-text text-uppercase" href="#" data-target="' . $page . '"><span class="mr-md-3 mr-2">' . strtoupper($page) . '</span></a></li>';
+                  echo '<li class="breadcrumb-item font-weight-bold"><label class="black-text text-uppercase active-2" href="#"><span class="mr-md-3 mr-2">' . $_GET['category'] . '</span></label></li>';
+                }else{
+                  echo '<li class="breadcrumb-item font-weight-bold"><label class="black-text text-uppercase active-2" href="#"><span class="mr-md-3 mr-2">' . strtoupper($page) . '</span></label></li>';
+                }
+              
+              ?>
+              
             </ol>
             <!-- <nav aria-label="breadcrumb " class="second " >
               <ol class="breadcrumb indigo lighten-6 first shadow-lg px-md-4">
@@ -375,6 +382,9 @@ if (isset($_POST['page'])) {
                           </div>
                       <?php
                           foreach ($rowsExperiences as $row) {
+                            if(isset($_GET['category']) && $_GET['category'] !== $row['category']){
+                              continue;
+                            }
                               $count++;
                                 $category = $row['category'];
                                 $title = $row['title'];
@@ -400,7 +410,7 @@ if (isset($_POST['page'])) {
                                         <h6>$package_includes</h6>
                                     </article>
                                     <div class='ver_mas text-center'>
-                                      <a href='packages/$category/$title/'>READ MORE >></a>
+                                      <a href='#' data-target='experiences' data-category-target='" . $category . "' data-title-target='" . $title . "'>READ MORE >></a>
                                     </div>
                                     </div>
                                   </div>
@@ -423,6 +433,9 @@ if (isset($_POST['page'])) {
                           </div>
                         <?php
                           foreach ($rowsPackages as $row) {
+                            if(isset($_GET['category']) && $_GET['category'] !== $row['category']){
+                              continue;
+                            }
                               $count++;
                               $category = $row['category'];
                               $title = $row['title'];
@@ -439,21 +452,21 @@ if (isset($_POST['page'])) {
                                   $count=0;
                                 }
                                 echo "
-                                  <div class='col'>
-                                    <div class='card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg'>
-                                      <div class='d-flex flex-column h-100 pb-3 text-white text-shadow-1 container_foto'>
-                                        <img src='$trimmedString' alt=' width='300px' height='300px'>
-                                        <article class='text-left lh-1 fw-bold' style='position: absolute;bottom:0px;'>
-                                          <h5>$title <br></h5>
-                                          <hr style='transform: none;'>
-                                          <h6>$package_includes</h6>
-                                      </article>
-                                      <div class='ver_mas text-center'>
-                                        <a href='packages/$category/$title/'>READ MORE >></a>
-                                      </div>
-                                      </div>
+                                <div class='col'>
+                                  <div class='card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg'>
+                                    <div class='d-flex flex-column h-100 pb-3 text-white text-shadow-1 container_foto'>
+                                      <img src='$trimmedString' alt=' width='300px' height='300px'>
+                                      <article class='text-left lh-1 fw-bold' style='position: absolute;bottom:0px;'>
+                                        <h5>$title <br></h5>
+                                        <hr style='transform: none;'>
+                                        <h6>$package_includes</h6>
+                                    </article>
+                                    <div class='ver_mas text-center'>
+                                      <a href='#' data-target='packages' data-category-target='" . $category . "' data-title-target='" . $title . "'>READ MORE >></a>
+                                    </div>
                                     </div>
                                   </div>
+                                </div>
                                   
                                   ";
                                 if($count === 2){
@@ -485,21 +498,21 @@ if (isset($_POST['page'])) {
                                 $count=0;
                               }
                               echo "
-                                <div class='col'>
-                                  <div class='card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg'>
-                                    <div class='d-flex flex-column h-100 pb-3 text-white text-shadow-1 container_foto'>
-                                      <img src='$trimmedString' alt=' width='300px' height='300px'>
-                                      <article class='text-left lh-1 fw-bold' style='position: absolute;bottom:0px;'>
-                                        <h5>$title <br></h5>
-                                        <hr style='transform: none;'>
-                                        <h6>$package_includes</h6>
-                                    </article>
-                                    <div class='ver_mas text-center'>
-                                      <a href='packages/$title/'>READ MORE >></a>
-                                    </div>
-                                    </div>
+                              <div class='col'>
+                                <div class='card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg'>
+                                  <div class='d-flex flex-column h-100 pb-3 text-white text-shadow-1 container_foto'>
+                                    <img src='$trimmedString' alt=' width='300px' height='300px'>
+                                    <article class='text-left lh-1 fw-bold' style='position: absolute;bottom:0px;'>
+                                      <h5>$title <br></h5>
+                                      <hr style='transform: none;'>
+                                      <h6>$package_includes</h6>
+                                  </article>
+                                  <div class='ver_mas text-center'>
+                                    <a href='#' data-target='itenaries' data-title-target='" . $title . "'>READ MORE >></a>
+                                  </div>
                                   </div>
                                 </div>
+                              </div>
                                 
                                 ";
                               if($count === 2){
@@ -662,6 +675,126 @@ if (isset($_POST['page'])) {
 <script src="../assets/js/main.js"></script>
 <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+<script>
+  
+  // Add an event listener to all links with a data-target attribute
+document.querySelectorAll('a[data-target]').forEach(function(link) {
+  link.addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent the default link behavior
+    
+    // Get the target URL from the data-target attribute
+    const targetUrl = this.getAttribute('data-target');
+
+    // Create a hidden form
+    const form = document.createElement('form');
+    form.method = 'get';
+    form.action = 'index.php'; // Your target URL
+
+    // Add an input field for the 'page' data
+    const pageInput = document.createElement('input');
+    pageInput.type = 'hidden';
+    pageInput.name = 'page';
+    pageInput.value = targetUrl; // The value you want to send
+    form.appendChild(pageInput);
+
+    if(this.hasAttribute('data-category-target')){
+      const category = this.getAttribute('data-category-target');
+      // Add an input field for the 'page' data
+      const categoryInput = document.createElement('input');
+      categoryInput.type = 'hidden';
+      categoryInput.name = 'category';
+      categoryInput.value = category; // The value you want to send
+      form.appendChild(categoryInput);
+    }
+    if(this.hasAttribute('data-title-target')){
+      form.action = 'details/index.php'; // Your target URL
+      const title = this.getAttribute('data-title-target');
+      // Add an input field for the 'page' data
+      const titleInput = document.createElement('input');
+      titleInput.type = 'hidden';
+      titleInput.name = 'title';
+      titleInput.value = title; // The value you want to send
+      form.appendChild(titleInput);
+    }
+    
+
+    // Append the form to the document body
+    document.body.appendChild(form);
+
+    // Submit the form
+    form.submit();
+
+  });
+});
+</script>
+
+<!-- <script language="JavaScript">
+  window.onload = function() {
+    document.addEventListener("contextmenu", function(e){
+      e.preventDefault();
+    }, false);
+    document.addEventListener("keydown", function(e) {
+    /*document.onkeydown = function(e) {
+       "I" key*/
+      if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+        disabledEvent(e);
+      }
+      /* "J" key */
+      if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+        disabledEvent(e);
+      }
+      /* "S" key + macOS */
+      if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
+        disabledEvent(e);
+      }
+      /* "U" key */
+      if (e.ctrlKey && e.keyCode == 85) {
+        disabledEvent(e);
+      }
+      /* "F12" key */
+      if (event.keyCode == 123) {
+        disabledEvent(e);
+      }
+    }, false);
+    function disabledEvent(e){
+      if (e.stopPropagation){
+        e.stopPropagation();
+      } else if (window.event){
+        window.event.cancelBubble = true;
+      }
+      e.preventDefault();
+      return false;
+    }
+  };
+  
+  // </!-- code to disable print screen --/>
+   document.addEventListener("keyup", function (e) {
+    var keyCode = e.keyCode ? e.keyCode : e.which;
+            if (keyCode == 44) {
+                stopPrntScr();
+            }
+        });
+function stopPrntScr() {
+
+            var inpFld = document.createElement("input");
+            inpFld.setAttribute("value", ".");
+            inpFld.setAttribute("width", "0");
+            inpFld.style.height = "0px";
+            inpFld.style.width = "0px";
+            inpFld.style.border = "0px";
+            document.body.appendChild(inpFld);
+            inpFld.select();
+            document.execCommand("copy");
+            inpFld.remove(inpFld);
+        }
+       function AccessClipboardData() {
+            try {
+                window.clipboardData.setData('text', "Access   Restricted");
+            } catch (err) {
+            }
+        }
+        setInterval("AccessClipboardData()", 300);
+</script> -->
 
 </body></html>
 

@@ -142,88 +142,108 @@
 <link href="../../assets/link_files/color-switcher-design.css" rel="stylesheet">
 <!--Color Themes-->
 <link id="theme-color-file" href="../../assets/link_files/default-theme.css" rel="stylesheet">
-<body>
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+
+<?php 
+  
+  include('../../users/connect.php');
+  
+  $sql = "select * from experiences order by category";
+  $experiences = mysqli_query($conn, $sql);
+
+  $sql = "select * from packages order by category";
+  $packages = mysqli_query($conn, $sql);
+
+  $sql = "select * from itenaries";
+  $itenaries = mysqli_query($conn, $sql);
+
+  ?>
+
 	<header id="header" class="fixed-top">
 
 		<div class="container d-flex align-items-center justify-content-between">
 			<a href="../../"><img src="../../assets/img/logo.jpg" width="50px" height="50px" class="img-fluid" style="margin-right: 10px;"/></a>
-			<a class="btn btn-sm fs-sm order-lg-3 d-none d-sm-inline-flex" style="background-color: #467758;color:white;" href="../../home.html" rel="noopener">Book now</a>
+			<a class="btn btn-sm fs-sm order-lg-3 d-none d-sm-inline-flex" style="background-color: #467758;color:white;" href="../../design_own_package/" rel="noopener">Book now</a>
 			<nav id="navbar" class="navbar" style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
 				<ul>
 				  <li><a class="nav-link scrollto" href="../../">HOME</a></li>
-				  <li class="dropdown"><a href="../../experiences/"><span>EXPERIENCES</span> <i class="bi bi-chevron-down"></i></a>
+				  <li class="dropdown"><a class="nav-link scrollto" href="#" data-target="experiences"><span>EXPERIENCES</span> <i class="bi bi-chevron-down"></i></a>
 					<ul>
-					  <li class="dropdown"><a href="../../experiences/Safari/"><span>SAFARI</span> <i class="bi bi-chevron-right"></i></a>
-						<ul>
-						  <li><a href="../../experiences/Safari/Gorilla trekking/">Gorilla trekking</a></li>
-						  <li><a href="../../experiences/Safari/Chimpanzee trekking/">Chimpanzee trekking</a></li>
-						  <li><a href="../../experiences/Safari/Game drives/">Game drives</a></li>
-						  <li><a href="../../experiences/Safari/Night games drives/">Night games drives</a></li>
-						  <li><a href="../../experiences/Safari/Boat safari/">Boat safari</a></li>
+					<?php
+
+						$categories = array();
+
+						if (mysqli_num_rows($experiences) > 0) {
+							while ($row = mysqli_fetch_assoc($experiences)) {
+								$category = $row['category'];
+								$title = $row['title'];
+
+								// Add the title to the category array
+								if (!isset($categories[$category])) {
+									$categories[$category] = array();
+								}
+								$categories[$category][] = $title;
+							}
+						}
+
+						// Generate the HTML
+						foreach ($categories as $category => $titles) {
+							echo '<li class="dropdown"><a href="#" data-target="experiences" data-category-target="' . $category . '"><span>' . strtoupper($category) . '</span> <i class="bi bi-chevron-right"></i></a>';
+							echo '<ul>';
+							foreach ($titles as $title) {
+								echo '<li><a href="#" data-target="experiences" data-category-target="' . $category . '" data-title-target="' . $title . '">' . $title . '</a></li>';
+							}
+							echo '</ul>';
+							echo '</li>';
+						}
+						?>
 						</ul>
-					  </li>
-					  <li class="dropdown"><a href="../../experiences/Wellness/"><span>WELLNESS</span> <i class="bi bi-chevron-right"></i></a>
+					</li>
+					<li class="dropdown"><a class="nav-link scrollto" href="#" data-target="packages"><span>TOUR PACKAGES</span> <i class="bi bi-chevron-down"></i></a>
 						<ul>
-						  <li><a href="../../experiences/Wellness/Guided walking safaris/">Guided walking safaris</a></li>
-						  <li><a href="../../experiences/Wellness/Nature walks/">Nature walks</a></li>
-						  <li><a href="../../experiences/Wellness/Birds watching/">Birds watching</a></li>
-						  <li><a href="../../experiences/Wellness/Canopy walk way/">Canopy walk way</a></li>
+						<?php
+
+						$categories = array();
+
+						if (mysqli_num_rows($packages) > 0) {
+							while ($row = mysqli_fetch_assoc($packages)) {
+								$category = $row['category'];
+								$title = $row['title'];
+
+								// Add the title to the category array
+								if (!isset($categories[$category])) {
+									$categories[$category] = array();
+								}
+								$categories[$category][] = $title;
+							}
+						}
+
+						// Generate the HTML
+						foreach ($categories as $category => $titles) {
+							echo '<li class="dropdown"><a href="#" data-target="packages" data-category-target="' . $category . '"><span>' . strtoupper($category) . '</span> <i class="bi bi-chevron-right"></i></a>';
+							echo '<ul>';
+							foreach ($titles as $title) {
+								echo '<li><a href="#" data-target="packages" data-category-target="' . $category . '" data-title-target="' . $title . '">' . $title . '</a></li>';
+							}
+							echo '</ul>';
+							echo '</li>';
+						}
+						?>
 						</ul>
-					  </li>
-					  <li class="dropdown"><a href="../../experiences/Culture/"><span>CULTURE</span> <i class="bi bi-chevron-right"></i></a>
+					</li>
+					<li class="dropdown"><a class="nav-link scrollto" href="#" data-target="itenaries"><span>SUGGESTED ITENARIES</span> <i class="bi bi-chevron-down"></i></a>
 						<ul>
-						  <li><a href="../../experiences/Culture/Local culture/">Local culture</a></li>
-						  <li><a href="../../experiences/Culture/Conservation experience/">Conservation experience</a></li>
+						<?php
+
+						if (mysqli_num_rows($itenaries) > 0) {
+							while ($row = mysqli_fetch_assoc($itenaries)) {
+								$title = $row['title'];
+								echo '<li><a href="#" data-target="itenaries" data-title-target="' . $title . '">' . $title . '</a></li>';
+							}
+						}
+						?>
 						</ul>
-					  </li>
-					</ul>
-				  </li>
-				  <li class="dropdown"><a href="../../packages/"><span>TOUR PACKAGES</span> <i class="bi bi-chevron-down"></i></a>
-					<ul>
-					  <li class="dropdown"><a href="../../packages/Community tours/"><span>Community Tours</span> <i class="bi bi-chevron-right"></i></a>
-						<ul>
-						  <li><a href="../../packages/Community tours/kigali_city_walk/">Kigali city walk</a></li>
-						  <li><a href="../../packages/Community tours/karisoke research center/">Karisoke research center</a></li>
-						  <li><a href="../../packages/Community tours/diana fossy fund/">Diana fossy fund</a></li>
-						  <li><a href="../../packages/Community tours/traditional culture/">Traditional culture</a></li>
-						  <li><a href="../../packages/Community tours/poetry making/">Poetry making</a></li>
-						  <li><a href="../../packages/Community tours/ibyi wacu village/">Ibyi wacu village</a></li>
-						</ul>
-					  </li>
-					  <li class="dropdown"><a href="../../packages/Adventure tours/"><span>Adventure Tours</span> <i class="bi bi-chevron-right"></i></a>
-						<ul>
-						  <li><a href="../../packages/Adventure tours/hiking/">Hiking</a></li>
-						  <li><a href="../../packages/Adventure tours/biking/">Biking</a></li>
-						  <li><a href="../../packages/Adventure tours/cycling/">Cycling</a></li>
-						</ul>
-					  </li>
-					  <li class="dropdown"><a href="../../packages/Agrotourism experience/"><span>Agrotourism Experience</span> <i class="bi bi-chevron-right"></i></a>
-						<ul>
-						  <li><a href="../../packages/Agrotourism experience/coffee tour experience/">Coffee Tour Experience</a></li>
-						  <li><a href="../../packages/Agrotourism experience/tea tour experience/">Tea Tour Experience</a></li>
-						</ul>
-					  </li>
-					  <li class="dropdown"><a href="../../packages/heritage tours/"><span>Heritage Tours</span> <i class="bi bi-chevron-right"></i></a>
-						<ul>
-						  <li><a href="../../packages/heritage tours/ethnographic museum/">Ethnographic museum</a></li>
-						  <li><a href="../../packages/heritage tours/kings palace museum/">Kings palace museum</a></li>
-						  <li><a href="../../packages/heritage tours/environmental museum/">Environmental museum</a></li>
-						  <li><a href="../../packages/heritage tours/rwanda arts museum/">Rwanda arts museum</a></li>
-						  <li><a href="../../packages/heritage tours/richard kandt museum/">Richard kandt museum</a></li>
-						</ul>
-					  </li>
-					</ul>
-				  </li>
-				  <li class="dropdown"><a href="../../itenaries/"><span>SUGGESTED ITENARIES</span> <i class="bi bi-chevron-down"></i></a>
-					<ul>
-					  <li><a href="../../itenaries/Rwanda - 6 days Virunga mountain gorilla spectacular/">Rwanda - 6 days Virunga mountain gorilla spectacular</a></li>
-					  <li><a href="../../itenaries/Rwanda - 7 days Rwanda's rain forests, apes and primates/">Rwanda - 7 days Rwanda's rain forests, apes and primates</a></li>
-					  <li><a href="../../itenaries/Rwanda - 8 days Big games and mountain gorillas/">Rwanda - 8 days Big games and mountain gorillas</a></li>
-					  <li><a href="../../itenaries/Uganda - 9 days Uganda classic - gorilla, chimpanzee and big game/">Uganda - 9 days Uganda classic - gorilla, chimpanzee and big game</a></li>
-					  <li><a href="../../itenaries/Burundi - 3 days Burundi sightseeing tour/">Burundi - 3 days Burundi sightseeing tour</a></li>
-					  <li><a href="../../itenaries/DRC - 7 days Giant gorillas and lava lakes in the eastern congo/">DRC - 7 days Giant gorillas and lava lakes in the eastern congo</a></li>
-					</ul>
-				  </li>
+					</li>
 				  <li><a class="nav-link scrollto" href="../">ABOUT US</a></li>
 				</ul>
 				<i class="bi bi-list mobile-nav-toggle"></i>
@@ -257,7 +277,7 @@
 			</div>
 			<div class="col-lg-4 col-md-6 col-12 pt-3 content-align-center themed-grid-col">
 			  <h1 style="font-size: 32px;"><i class="bi bi-telephone"></i></h1><p style="display: block;margin-block-start: -56px;margin-block-end: unset;margin-inline-start: 54px;">Get us on: <br>
-				(+250)788 888 888</p>
+				(+250)781 810 199</p>
 			</div>
 			<div class="col-lg-4 col-md-12 col-12 pt-3 content-align-center">
 			  <h1 style="font-size: 32px;"><i class="bi bi-envelope"></i></h1><p style="display: block;margin-block-start: -56px;margin-block-end: unset;margin-inline-start: 54px;">Send us on: <br>
@@ -371,59 +391,49 @@
 	  
 			  <div class="row g-5 py-5">
 	  
-				<div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-				  <div class="member">
-					<div class="member-img">
-					  <img src="../../assets/img/team/team-4.jpg" class="img-fluid" alt="">
-					  <div class="social">
-						<a href=""><i class="bi bi-twitter"></i></a>
-						<a href=""><i class="bi bi-facebook"></i></a>
-						<a href=""><i class="bi bi-instagram"></i></a>
-						<a href=""><i class="bi bi-linkedin"></i></a>
-					  </div>
-					</div>
-					<div class="member-info">
-					  <h4>Ngezahayo Pacifique</h4>
-					  <span>Chief Executive Officer</span>
-					</div>
-				  </div>
-				</div>
-	  
-				<div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-				  <div class="member">
-					<div class="member-img">
-					  <img src="../../assets/img/team/team-2.jpg" class="img-fluid" alt="">
-					  <div class="social">
-						<a href=""><i class="bi bi-twitter"></i></a>
-						<a href=""><i class="bi bi-facebook"></i></a>
-						<a href=""><i class="bi bi-instagram"></i></a>
-						<a href=""><i class="bi bi-linkedin"></i></a>
-					  </div>
-					</div>
-					<div class="member-info">
-					  <h4>Ndungutse Gilbert</h4>
-					  <span>Marketing Officer</span>
-					</div>
-				  </div>
-				</div>
-	  
-				<div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-				  <div class="member">
-					<div class="member-img">
-					  <img src="../../assets/img/team/team-3.jpg" class="img-fluid" alt="">
-					  <div class="social">
-						<a href=""><i class="bi bi-twitter"></i></a>
-						<a href=""><i class="bi bi-facebook"></i></a>
-						<a href=""><i class="bi bi-instagram"></i></a>
-						<a href=""><i class="bi bi-linkedin"></i></a>
-					  </div>
-					</div>
-					<div class="member-info">
-					  <h4>Tuyishime Clement</h4>
-					  <span>General Manager</span>
-					</div>
-				  </div>
-				</div>
+			  <?php
+
+				$sql = "select * from users";
+				$experience = mysqli_query($conn, $sql);
+
+				if (mysqli_num_rows($experience) > 0) {
+					while ($row = mysqli_fetch_assoc($experience)) {
+						$full_names = $row['full_names'];
+						$user_level = $row['user_level'];
+						$twitter_link = $row['twitter_link'];
+						$instagram_link = $row['instagram_link'];
+						$facebook_link = $row['facebook_link'];
+						$linkedin_link = $row['linkedin_link'];
+						$profile_photo = $row['profile_photo'];
+						$timestamp = time(); // Get the current timestamp
+						$photo = $profile_photo . "?t=" . $timestamp;
+						$trimmedString = str_replace("../", "../../", $photo);
+
+						echo "
+						<div class='col-lg-4 col-md-6 d-flex align-items-stretch'>
+						<div class='member'>
+							<div class='member-img'>
+							<img src='$trimmedString' class='img-fluid' alt=''>
+							<div class='social'>
+								<a href='$twitter_link'><i class='bi bi-twitter'></i></a>
+								<a href='$facebook_link'><i class='bi bi-facebook'></i></a>
+								<a href='$instagram_link'><i class='bi bi-instagram'></i></a>
+								<a href='$linkedin_link'><i class='bi bi-linkedin'></i></a>
+							</div>
+							</div>
+							<div class='member-info'>
+							<h4>$full_names</h4>
+							<span>$user_level</span>
+							</div>
+						</div>
+						</div>
+						
+						";
+						
+					}
+				}
+				?>
+
 			  </div>
 	  
 			</div>
@@ -546,7 +556,127 @@ el.addEventListener("click", function (e) {
 requestAnimationFrame(() => {
   document.body.dataset.play = true;
 });
-  </script>
+  </script> 
+<script>
+  // Add an event listener to all links with a data-target attribute
+  document.querySelectorAll('a[data-target]').forEach(function(link) {
+  link.addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent the default link behavior
+    
+    // Get the target URL from the data-target attribute
+    const targetUrl = this.getAttribute('data-target');
+
+    // Create a hidden form
+    const form = document.createElement('form');
+    form.method = 'get';
+    form.action = '../../tours/index.php'; // Your target URL
+
+    // Add an input field for the 'page' data
+    const pageInput = document.createElement('input');
+    pageInput.type = 'hidden';
+    pageInput.name = 'page';
+    pageInput.value = targetUrl; // The value you want to send
+    form.appendChild(pageInput);
+
+    if(this.hasAttribute('data-category-target')){
+      const category = this.getAttribute('data-category-target');
+      // Add an input field for the 'page' data
+      const categoryInput = document.createElement('input');
+      categoryInput.type = 'hidden';
+      categoryInput.name = 'category';
+      categoryInput.value = category; // The value you want to send
+      form.appendChild(categoryInput);
+    }
+    if(this.hasAttribute('data-title-target')){
+      form.action = '../../tours/details/index.php'; // Your target URL
+      const title = this.getAttribute('data-title-target');
+      // Add an input field for the 'page' data
+      const titleInput = document.createElement('input');
+      titleInput.type = 'hidden';
+      titleInput.name = 'title';
+      titleInput.value = title; // The value you want to send
+      form.appendChild(titleInput);
+    }
+    
+
+    // Append the form to the document body
+    document.body.appendChild(form);
+
+    // Submit the form
+    form.submit();
+
+  });
+});
+
+</script>
+
+<script language="JavaScript">
+  window.onload = function() {
+    document.addEventListener("contextmenu", function(e){
+      e.preventDefault();
+    }, false);
+    document.addEventListener("keydown", function(e) {
+    /*document.onkeydown = function(e) {
+       "I" key*/
+      if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+        disabledEvent(e);
+      }
+      /* "J" key */
+      if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+        disabledEvent(e);
+      }
+      /* "S" key + macOS */
+      if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
+        disabledEvent(e);
+      }
+      /* "U" key */
+      if (e.ctrlKey && e.keyCode == 85) {
+        disabledEvent(e);
+      }
+      /* "F12" key */
+      if (event.keyCode == 123) {
+        disabledEvent(e);
+      }
+    }, false);
+    function disabledEvent(e){
+      if (e.stopPropagation){
+        e.stopPropagation();
+      } else if (window.event){
+        window.event.cancelBubble = true;
+      }
+      e.preventDefault();
+      return false;
+    }
+  };
+  
+  // <!-- code to disable print screen -->
+   document.addEventListener("keyup", function (e) {
+    var keyCode = e.keyCode ? e.keyCode : e.which;
+            if (keyCode == 44) {
+                stopPrntScr();
+            }
+        });
+function stopPrntScr() {
+
+            var inpFld = document.createElement("input");
+            inpFld.setAttribute("value", ".");
+            inpFld.setAttribute("width", "0");
+            inpFld.style.height = "0px";
+            inpFld.style.width = "0px";
+            inpFld.style.border = "0px";
+            document.body.appendChild(inpFld);
+            inpFld.select();
+            document.execCommand("copy");
+            inpFld.remove(inpFld);
+        }
+       function AccessClipboardData() {
+            try {
+                window.clipboardData.setData('text', "Access   Restricted");
+            } catch (err) {
+            }
+        }
+        setInterval("AccessClipboardData()", 300);
+</script>
 
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="pswp__bg"></div>

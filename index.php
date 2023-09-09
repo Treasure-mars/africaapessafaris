@@ -296,7 +296,7 @@
   <!-- <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script> -->
 </head>
 
-<body>
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
   <?php 
   
   include('users/connect.php');
@@ -920,7 +920,6 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
  <script type="text/javascript">
-  window.addEventListener("hashchange", () => window.history.pushState({}, "", '/'), {});
 
 
   // Add an event listener to all links with a data-target attribute
@@ -933,7 +932,7 @@ document.querySelectorAll('a[data-target]').forEach(function(link) {
 
     // Create a hidden form
     const form = document.createElement('form');
-    form.method = 'post';
+    form.method = 'get';
     form.action = 'tours/index.php'; // Your target URL
 
     // Add an input field for the 'page' data
@@ -974,6 +973,74 @@ document.querySelectorAll('a[data-target]').forEach(function(link) {
 });
 
  </script>
+
+<script language="JavaScript">
+  window.onload = function() {
+    document.addEventListener("contextmenu", function(e){
+      e.preventDefault();
+    }, false);
+    document.addEventListener("keydown", function(e) {
+    /*document.onkeydown = function(e) {
+       "I" key*/
+      if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+        disabledEvent(e);
+      }
+      /* "J" key */
+      if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+        disabledEvent(e);
+      }
+      /* "S" key + macOS */
+      if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
+        disabledEvent(e);
+      }
+      /* "U" key */
+      if (e.ctrlKey && e.keyCode == 85) {
+        disabledEvent(e);
+      }
+      /* "F12" key */
+      if (event.keyCode == 123) {
+        disabledEvent(e);
+      }
+    }, false);
+    function disabledEvent(e){
+      if (e.stopPropagation){
+        e.stopPropagation();
+      } else if (window.event){
+        window.event.cancelBubble = true;
+      }
+      e.preventDefault();
+      return false;
+    }
+  };
+  
+  // <!-- code to disable print screen -->
+   document.addEventListener("keyup", function (e) {
+    var keyCode = e.keyCode ? e.keyCode : e.which;
+            if (keyCode == 44) {
+                stopPrntScr();
+            }
+        });
+function stopPrntScr() {
+
+            var inpFld = document.createElement("input");
+            inpFld.setAttribute("value", ".");
+            inpFld.setAttribute("width", "0");
+            inpFld.style.height = "0px";
+            inpFld.style.width = "0px";
+            inpFld.style.border = "0px";
+            document.body.appendChild(inpFld);
+            inpFld.select();
+            document.execCommand("copy");
+            inpFld.remove(inpFld);
+        }
+       function AccessClipboardData() {
+            try {
+                window.clipboardData.setData('text', "Access   Restricted");
+            } catch (err) {
+            }
+        }
+        setInterval("AccessClipboardData()", 300);
+</script>
 </body>
 
 </html>

@@ -1,44 +1,21 @@
 <?php
 // Check if the "page" parameter is set in the URL
-if (isset($_POST['page'])) {
+if (isset($_GET['page'])) {
     // Get the value of the "page" parameter
-    $page = $_POST['page'];
+    $page = $_GET['page'];
     $title = '';
     $flag = false;
 
-    include('../users/connect.php');
+    include('../../users/connect.php');
     
-    if(isset($_POST['category']) && isset($_POST['title'])){
-      $category = $_POST['category'];
-      $title = $_POST['title'];
-      $sql = "select * from experiences where category='$category' and title='$title'";
-    }else if(isset($_POST['category'])){
-      $category = $_POST['category'];
-      $sql = "select * from experiences where category='$category'";
-    }else{
-      $sql = "select * from experiences order by category";
-    }
+    $sql = "select * from experiences order by category";
     $experiences = mysqli_query($conn, $sql);
   
-    if(isset($_POST['category']) && isset($_POST['title'])){
-      $category = $_POST['category'];
-      $title = $_POST['title'];
-      $sql = "select * from packages where category='$category' and title='$title'";
-    }else if(isset($_POST['category'])){
-      $category = $_POST['category'];
-      $sql = "select * from packages where category='$category'";
-    }else{
-      $sql = "select * from packages order by category";
-    }
+    $sql = "select * from packages order by category";
     $packages = mysqli_query($conn, $sql);
   
 
-    if(isset($_POST['title'])){
-      $title = $_POST['title'];
-      $sql = "select * from itenaries where title='$title'";
-    }else{
-      $sql = "select * from itenaries";
-    }
+    $sql = "select * from itenaries";
     $itenaries = mysqli_query($conn, $sql);
 
     // Based on the value of $page, include the corresponding content
@@ -62,14 +39,32 @@ if (isset($_POST['page'])) {
         default:
             // Handle cases where "page" is not recognized
             $flag = false;
-            echo '<h1>Page Not Found</h1>';
+            include('error.php');
         }
     } else {
         // Handle cases where "page" is not set in the URL
         $flag = false;
-        echo '<h1>No Page Specified</h1>';
+        include('error.php');
     }
     if($flag){
+      if(isset($_GET['category']) && $page !== 'itenaries' && isset($_GET['title'])){
+        $sql = "select * from $page where category='" . $_GET['category'] . "' and title='" . $_GET['title'] . "'";
+        $count = mysqli_query($conn, $sql);
+        if(mysqli_num_rows($count) == 0){
+          include('error.php');
+          exit;
+        }
+      }else if((!isset($_GET['category']) && $page !== 'itenaries') || (!isset($_GET['title']) && $page === 'itenaries')){
+        include('error.php');
+        exit;
+      }else if(isset($_GET['title']) && $page === 'itenaries'){
+        $sql2 = "select * from itenaries where title='" . $_GET['title'] . "'";
+        $count2 = mysqli_query($conn, $sql2);
+        if(mysqli_num_rows($count2) == 0){
+          include('error.php');
+          exit;
+        }
+      }
 ?>
 <!DOCTYPE html>
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -83,18 +78,18 @@ if (isset($_POST['page'])) {
 	<meta name="author" content="TMars Studio">
   
 	<!-- Favicons -->
-	<link href="../assets/img/logo.jpg" rel="icon">
-	<link href="../assets/img/logo.jpg" rel="apple-touch-icon">
+	<link href="../../assets/img/logo.jpg" rel="icon">
+	<link href="../../assets/img/logo.jpg" rel="apple-touch-icon">
 
 <!-- Stylesheets -->
-<link href="../assets/link_files/bootstrap.css" rel="stylesheet">
-<link href="../assets/link_files/style.css" rel="stylesheet">
-<link href="../assets/link_files/slick.css" rel="stylesheet">
-<link href="../assets/link_files/responsive.css" rel="stylesheet">
+<link href="../../assets/link_files/bootstrap.css" rel="stylesheet">
+<link href="../../assets/link_files/style.css" rel="stylesheet">
+<link href="../../assets/link_files/slick.css" rel="stylesheet">
+<link href="../../assets/link_files/responsive.css" rel="stylesheet">
 <!--Color Switcher Mockup-->
-<link href="../assets/link_files/color-switcher-design.css" rel="stylesheet">
+<link href="../../assets/link_files/color-switcher-design.css" rel="stylesheet">
 <!--Color Themes-->
-<link id="theme-color-file" href="../assets/link_files/default-theme.css" rel="stylesheet">
+<link id="theme-color-file" href="../../assets/link_files/default-theme.css" rel="stylesheet">
 
 <!-- site metas -->
  <!-- Shareble To social media meat-->
@@ -123,15 +118,15 @@ if (isset($_POST['page'])) {
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
 <!-- Vendor CSS Files -->
-<link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-<link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-<link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-<link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-<link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+<link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+<link href="../../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+<link href="../../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+<link href="../../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+<link href="../../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
 <!-- Template Main CSS File -->
-<link href="../assets/css/style.css" rel="stylesheet">
+<link href="../../assets/css/style.css" rel="stylesheet">
 <style>
   div.container_foto img {
     height: 250px;
@@ -230,19 +225,19 @@ if (isset($_POST['page'])) {
 </style>
 </head>
 
-<body class="hidden-bar-wrapper">
+<body class="hidden-bar-wrapper" oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
 
 <div class="page-wrapper">
  	
 	<header id="header" class="fixed-top">
 
 		<div class="container d-flex align-items-center justify-content-between">
-			<a href="../"><img src="../assets/img/logo.jpg" width="50px" height="50px" class="img-fluid" style="margin-right: 10px;"/></a>
-			<a class="btn btn-sm fs-sm order-lg-3 d-none d-sm-inline-flex" style="background-color: #467758;color:white;" href="../design_own_package/" rel="noopener">Book now</a>
+			<a href="../../"><img src="../../assets/img/logo.jpg" width="50px" height="50px" class="img-fluid" style="margin-right: 10px;"/></a>
+			<a class="btn btn-sm fs-sm order-lg-3 d-none d-sm-inline-flex" style="background-color: #467758;color:white;" href="../../design_own_package/" rel="noopener">Book now</a>
 			<nav id="navbar" class="navbar" style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
         <ul>
-          <li><a class="nav-link scrollto" href="../about_us/">ABOUT US</a></li>
-          <li class="dropdown"><a href="."><span>EXPERIENCES</span> <i class="bi bi-chevron-down"></i></a>
+          <li><a class="nav-link scrollto" href="../../about_us/">ABOUT US</a></li>
+          <li class="dropdown"><a href="#" data-target="experiences"><span>EXPERIENCES</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
             <?php
 
@@ -264,10 +259,10 @@ if (isset($_POST['page'])) {
 
               // Generate the HTML
               foreach ($categories as $category => $titles) {
-                  echo '<li class="dropdown"><a href="experiences/' . $category . '/"><span>' . strtoupper($category) . '</span> <i class="bi bi-chevron-right"></i></a>';
+                  echo '<li class="dropdown"><a href="#" data-target="experiences" data-category-target="' . $category . '"><span>' . strtoupper($category) . '</span> <i class="bi bi-chevron-right"></i></a>';
                   echo '<ul>';
                   foreach ($titles as $title) {
-                      echo '<li><a href="experiences/' . $category . '/' . $title . '/">' . $title . '</a></li>';
+                    echo '<li><a href="#" data-target="experiences" data-category-target="' . $category . '" data-title-target="' . $title . '">' . $title . '</a></li>';
                   }
                   echo '</ul>';
                   echo '</li>';
@@ -275,7 +270,7 @@ if (isset($_POST['page'])) {
               ?>
             </ul>
           </li>
-          <li class="dropdown"><a href="../packages/"><span>TOUR PACKAGES</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#" data-target="packages"><span>TOUR PACKAGES</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
             <?php
 
@@ -297,10 +292,10 @@ if (isset($_POST['page'])) {
 
               // Generate the HTML
               foreach ($categories as $category => $titles) {
-                  echo '<li class="dropdown"><a href="packages/' . $category . '/"><span>' . strtoupper($category) . '</span> <i class="bi bi-chevron-right"></i></a>';
+                  echo '<li class="dropdown"><a href="#" data-target="packages" data-category-target="' . $category . '"><span>' . strtoupper($category) . '</span> <i class="bi bi-chevron-right"></i></a>';
                   echo '<ul>';
                   foreach ($titles as $title) {
-                      echo '<li><a href="packages/' . $category . '/' . $title . '/">' . $title . '</a></li>';
+                    echo '<li><a href="#" data-target="packages" data-category-target="' . $category . '" data-title-target="' . $title . '">' . $title . '</a></li>';
                   }
                   echo '</ul>';
                   echo '</li>';
@@ -308,7 +303,7 @@ if (isset($_POST['page'])) {
               ?>
             </ul>
           </li>
-          <li class="dropdown"><a href="../itenaries/"><span>SUGGESTED ITENARIES</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#" data-target="itenaries"><span>SUGGESTED ITENARIES</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
             <?php
 
@@ -316,7 +311,7 @@ if (isset($_POST['page'])) {
                   while ($row = mysqli_fetch_assoc($itenaries)) {
                       $rowsItenaries[] = $row;
                       $title = $row['title'];
-                      echo '<li><a href="itenaries/' . $title . '/">' . $title . '</a></li>';
+                      echo '<li><a href="#" data-target="itenaries" data-title-target="' . $title . '">' . $title . '</a></li>';
                   }
               }
               ?>              
@@ -330,10 +325,84 @@ if (isset($_POST['page'])) {
 		  </div>	
 		</header>
     <!--End Main Header -->
+    <?php 
+            // $category = '';
+            // $title = '';
+            // $duration = '';
+            // $package_includes = '';
+            // $elevation = '';
+            // $summary = '';
+            // $details = '';
+            // $trimmedString = '';
+            // $package_excludes = '';
+            
+            if($page === 'experiences'){
+              $title = $_GET['title'];
+              $sql = "select * from experiences where title='$title'";
+              $result = mysqli_query($conn, $sql);
+              if(mysqli_num_rows($result) > 0){
+                $row = mysqli_fetch_assoc($result);
+                $category = $row['category'];
+                $title = $row['title'];
+                $duration = $row['duration'];
+                $package_includes = $row['package_includes'];
+                $elevation = $row['elevation'];
+                $profile_photo = $row['photo'];
+                $summary = $row['summary'];
+                $details = $row['details'];
+                $timestamp = time(); // Get the current timestamp
+                $photo = $profile_photo . "?t=" . $timestamp;
+                $trimmedString = str_replace("../../", "", $photo);
+              }
+            }else if($page === 'packages'){
+              $title = $_GET['title'];
+              $sql = "select * from packages where title='$title'";
+              $result = mysqli_query($conn, $sql);
+              if(mysqli_num_rows($result) > 0){
+                $row = mysqli_fetch_assoc($result);
+                $category = $row['category'];
+                $title = $row['title'];
+                $duration = $row['duration'];
+                $package_includes = $row['package_includes'];
+                $elevation = $row['elevation'];
+                $profile_photo = $row['photo'];
+                $summary = $row['summary'];
+                $details = $row['details'];
+                $timestamp = time(); // Get the current timestamp
+                $photo = $profile_photo . "?t=" . $timestamp;
+                $trimmedString = str_replace("../../", "", $photo);
+              }
+            }else if($page === 'itenaries'){
+              $title = $_GET['title'];
+              $sql = "select * from itenaries where title='$title'";
+              $result = mysqli_query($conn, $sql);
+              if(mysqli_num_rows($result) > 0){
+                $row = mysqli_fetch_assoc($result);
+                $title = $row['title'];
+                $duration = $row['duration'];
+                $elevation = $row['elevation'];
+                $package_includes = $row['package_includes'];
+                $profile_photo = $row['photo'];
+                $package_details = $row['package_details'];
+                $package_excludes = $row['package_excludes'];
+                $timestamp = time(); // Get the current timestamp
+                $photo = $profile_photo . "?t=" . $timestamp;
+                $trimmedString = str_replace("../../", "", $photo);
+              }
+            }
+            ?>
 	<!--Page Title-->
-		<section class="page-title" style="background-image:url('../assets/img/bg-<?php echo $page?>.jpg')" style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+		<section class="page-title" style="background-image:url('../<?php echo $trimmedString?>')" style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
     	<div class="auto-container">
-        	<h2 style="color: white; text-shadow: none;"><?php echo strtoupper($page); ?></h2>
+      <?php 
+
+        if(isset($_GET['title'])){
+          echo '<h2 style="color: white; text-shadow: none;">' . strtoupper($_GET['title']) . '</h2>';
+        }else{
+          echo '<h2 style="color: white; text-shadow: none;">' . strtoupper($page) . '</h2>';
+        }
+
+        ?>
       </div>
     </section>
     <!--End Page Title-->
@@ -342,10 +411,18 @@ if (isset($_POST['page'])) {
     <!--Breadcrumb-->
     <div class="breadcrumb-outer">
     	<div class="auto-container first">
-        	<ol class="bread-crumb text-center breadcrumb shadow-lg px-md-4 indigo lighten-6" style="background-color: black;">
-            	<li class="breadcrumb-item font-weight-bold " ><a class="black-text text-uppercase  " href="../"><span class="mr-md-3 mr-2">HOME</span></a><i class="bi bi-chevron-double-right" aria-hidden="true"></i></li>
-                <li class="breadcrumb-item font-weight-bold"><a class="black-text text-uppercase" href="../"><span class="mr-md-3 mr-2"><?php echo strtoupper($page); ?></span></a><i class="bi bi-chevron-double-right" aria-hidden="true"></i></li>
-              <li class="breadcrumb-item font-weight-bold"><label class="black-text text-uppercase active-2" href="#"><span class="mr-md-3 mr-2"><?php echo strtoupper($title); ?></span></label></li>
+        <ol class="bread-crumb text-center breadcrumb shadow-lg px-md-4 indigo lighten-6" style="background-color: black;">
+          <li class="breadcrumb-item font-weight-bold " ><a class="black-text text-uppercase  " href="#" data-target="<?php echo $page; ?>"><span class="mr-md-3 mr-2"><?php echo strtoupper($page); ?></span></a><i class="bi bi-chevron-double-right" aria-hidden="true"></i></li>
+            <?php 
+
+              if(isset($_GET['title']) && isset($_GET['category'])){
+                echo '<li class="breadcrumb-item font-weight-bold"><a class="black-text text-uppercase" href="#" data-target="' . $page . '" data-category-target="' . $_GET['category'] . '"><span class="mr-md-3 mr-2">' . $_GET['category'] . '</span></a></li>';
+                echo '<li class="breadcrumb-item font-weight-bold"><label class="black-text text-uppercase active-2" href="#"><span class="mr-md-3 mr-2">' . $_GET['title'] . '</span></label></li>';
+              }else{
+                echo '<li class="breadcrumb-item font-weight-bold"><label class="black-text text-uppercase active-2" href="#"><span class="mr-md-3 mr-2">' . $_GET['title'] . '</span></label></li>';
+              }
+
+              ?>
             </ol>
             <!-- <nav aria-label="breadcrumb " class="second " >
               <ol class="breadcrumb indigo lighten-6 first shadow-lg px-md-4">
@@ -363,168 +440,18 @@ if (isset($_POST['page'])) {
         	<div class="row clearfix">
             	
 
-            <?php
-
-if($page === 'experiences'){
-  $count=2;
-?>
-  <div class="row">
-    <div class="col-12">
-      <h2 class="pb-2 border-bottom text-center" style="color: #467758;">TOURISM PRODUCT WE OFFER</h2> 
-    </div>
-  </div>
-<?php
-  foreach ($rowsExperiences as $row) {
-      $count++;
-        $category = $row['category'];
-        $title = $row['title'];
-        $duration = $row['duration'];
-        $package_includes = $row['package_includes'];
-        $elevation = $row['elevation'];
-        $profile_photo = $row['photo'];
-        $timestamp = time(); // Get the current timestamp
-        $photo = $profile_photo . "?t=" . $timestamp;
-        $trimmedString = str_replace("../../", "", $photo);
-        if($count === 3){
-          echo "<div class='row row-cols-1 row-cols-md-3 align-items-md-center g-5 py-5'>";
-          $count=0;
-        }
-        echo "
-        <div class='col'>
-          <div class='card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg'>
-            <div class='d-flex flex-column h-100 pb-3 text-white text-shadow-1 container_foto'>
-              <img src='$trimmedString' alt=' width='300px' height='300px'>
-              <article class='text-left lh-1 fw-bold' style='position: absolute;bottom:0px;'>
-                <h5>$title <br></h5>
-                <hr style='transform: none;'>
-                <h6>$package_includes</h6>
-            </article>
-            <div class='ver_mas text-center'>
-              <a href='packages/$category/$title/'>READ MORE >></a>
-            </div>
-            </div>
-          </div>
-        </div>
-        
-        ";
-        if($count === 2){
-          echo "</div>";
-        }
-}
-
-
-}else if ($page === 'packages'){
-  $count=2;
-?>
-  <div class="row">
-    <div class="col-12">
-      <h2 class="pb-2 border-bottom text-center" style="color: #467758;">UNIQUE ADVENTURE TOUR PACKAGES</h2> 
-    </div>
-  </div>
-<?php
-  foreach ($rowsPackages as $row) {
-      $count++;
-      $category = $row['category'];
-      $title = $row['title'];
-      $duration = $row['duration'];
-      $package_includes = $row['package_includes'];
-      $elevation = $row['elevation'];
-      $profile_photo = $row['photo'];
-      $timestamp = time(); // Get the current timestamp
-      $photo = $profile_photo . "?t=" . $timestamp;
-      $trimmedString = str_replace("../../", "", $photo);
-
-        if($count === 3){
-          echo "<div class='row row-cols-1 row-cols-md-3 align-items-md-center g-5 py-5'>";
-          $count=0;
-        }
-        echo "
-          <div class='col'>
-            <div class='card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg'>
-              <div class='d-flex flex-column h-100 pb-3 text-white text-shadow-1 container_foto'>
-                <img src='$trimmedString' alt=' width='300px' height='300px'>
-                <article class='text-left lh-1 fw-bold' style='position: absolute;bottom:0px;'>
-                  <h5>$title <br></h5>
-                  <hr style='transform: none;'>
-                  <h6>$package_includes</h6>
-              </article>
-              <div class='ver_mas text-center'>
-                <a href='packages/$category/$title/'>READ MORE >></a>
-              </div>
-              </div>
-            </div>
-          </div>
-          
-          ";
-        if($count === 2){
-          echo "</div>";
-        }
-}
-}else {
-$count=2;
-?>
-  <div class="row">
-    <div class="col-12">
-      <h2 class="pb-2 border-bottom text-center" style="color: #467758;">UNIQUE ITENARIES</h2> 
-    </div>
-  </div>
-<?php
-foreach ($rowsItenaries as $row) {
-    $count++;
-    $title = $row['title'];
-    $duration = $row['duration'];
-    $elevation = $row['elevation'];
-    $package_includes = $row['package_includes'];
-    $profile_photo = $row['photo'];
-    $timestamp = time(); // Get the current timestamp
-    $photo = $profile_photo . "?t=" . $timestamp;
-    $trimmedString = str_replace("../../", "", $photo);
-
-      if($count === 3){
-        echo "<div class='row row-cols-1 row-cols-md-3 align-items-md-center g-5 py-5'>";
-        $count=0;
-      }
-      echo "
-        <div class='col'>
-          <div class='card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg'>
-            <div class='d-flex flex-column h-100 pb-3 text-white text-shadow-1 container_foto'>
-              <img src='$trimmedString' alt=' width='300px' height='300px'>
-              <article class='text-left lh-1 fw-bold' style='position: absolute;bottom:0px;'>
-                <h5>$title <br></h5>
-                <hr style='transform: none;'>
-                <h6>$package_includes</h6>
-            </article>
-            <div class='ver_mas text-center'>
-              <a href='packages/$title/'>READ MORE >></a>
-            </div>
-            </div>
-          </div>
-        </div>
-        
-        ";
-      if($count === 2){
-        echo "</div>";
-      }
-}
-
-
-}
-
-
-?>
-
-
 
 <!--Content Side-->
 <div class="content-side col-lg-8 col-md-12 col-sm-12">
                 	<!--Blog Single-->
                 	<div class="blog-single">
 						<div class="inner-box">
+
 						<div class="lower-content">
 						        <ul class="post-meta">
-                                    <li style="margin-right:40px"><span class="icon fa fa-arrow-right"></span><b>DURATION:</b> 2 to 4 Hours</li><br>
-                                    <li style="margin-right:40px"><span class="icon fa fa-arrow-right"></span><b>ELEVATION:</b> NA</li><br>
-                                    <li style="margin-right:40px"><span class="icon fa fa-arrow-right"></span><b>PACKAGE INCLUDES:</b> Kigali city Tour, Kigali Genocide memorial, Richard  Kandt Museum and Mount Kigali.</li>
+                                    <li style="margin-right:40px"><span class="icon fa fa-arrow-right"></span><b>DURATION:</b> <?php echo $duration; ?></li><br>
+                                    <li style="margin-right:40px"><span class="icon fa fa-arrow-right"></span><b>ELEVATION:</b> <?php echo $elevation; ?></li><br>
+                                    <li style="margin-right:40px"><span class="icon fa fa-arrow-right"></span><b>PACKAGE INCLUDES:</b> <?php echo $package_includes; ?></li>
                                    
                                 </ul>
                                 <div class="text">
@@ -537,12 +464,20 @@ foreach ($rowsItenaries as $row) {
                                 <div class="text">
                                 	<p>
 									 </p><p class="MsoNormal"><span lang="en-US" style="font-size:14.0pt;">
-											Departure from the Hotel in the morning after breakfast, drive to Kigali Genocide memorial arrive at 8:00 am, this will introduce you to the country genocide history, after the memorial, you go for a city tour to learn more about the city and progress made then after you go for lunch. At 2 pm depart from the Hotel to Richard Kandt House Museum near former Gakinjiro to learn about Richard explorations and works in Rwanda. After visiting the museum, you drive to Mount Kigali to enjoy the panoramic view of the City.
+											<?php echo $summary ?? $package_details; ?>
 										</span>
 									</p>
 									<p class="MsoNormal">
-										<img src="../../../assets/img/liberation.jpg"	style="width: 100%;" data-filename="Picture2.png">
-										<span lang="en-US"  style="font-size:14.0pt;"><br></span></p><p class="MsoNormal"><span lang="en-US"  style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;font-size:14.0pt;"><br></span></p>									<p></p>
+										<img src="../<?php echo $trimmedString?>"	style="width: 100%;" data-filename="Picture2.png">
+										<span lang="en-US"  style="font-size:14.0pt;">
+                    <?php echo $details ?? ""; ?><br></span>
+                  </p>
+                    
+                    <p class="MsoNormal">
+                      <span lang="en-US"  style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;font-size:14.0pt;"><br>
+                    Package Exludes
+                    </span>
+                  </p>									<p><?php echo $package_excludes ?? ""; ?></p>
                                 </div>
                                 <!--post-share-options-->
       
@@ -570,7 +505,7 @@ foreach ($rowsItenaries as $row) {
 																		 <!--Form Group-->
                                         <div class="form-group col-md-12 col-sm-6 col-xs-12">
                                             <div class="field-label"> <sup>Package Name</sup></div>
-                                            <input type="text" value="Kigali City Walk" name="tour_name" placeholder="Tour Name" disabled>
+                                            <input type="text" value="<?php echo $title?>" name="tour_name" placeholder="Tour Name" disabled>
                                         </div>
                                          <div class="form-group col-md-12 col-sm-6 col-xs-12">
                                             <div class="field-label"> <sup><br></sup></div>
@@ -769,9 +704,129 @@ foreach ($rowsItenaries as $row) {
 <div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-arrow-up"></span></div>
 
 <!-- Template Main JS File -->
-<script src="../assets/js/main.js"></script>
-<script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+<script>
+  
+  // Add an event listener to all links with a data-target attribute
+document.querySelectorAll('a[data-target]').forEach(function(link) {
+  link.addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent the default link behavior
+    
+    // Get the target URL from the data-target attribute
+    const targetUrl = this.getAttribute('data-target');
+
+    // Create a hidden form
+    const form = document.createElement('form');
+    form.method = 'get';
+    form.action = '../index.php'; // Your target URL
+
+    // Add an input field for the 'page' data
+    const pageInput = document.createElement('input');
+    pageInput.type = 'hidden';
+    pageInput.name = 'page';
+    pageInput.value = targetUrl; // The value you want to send
+    form.appendChild(pageInput);
+
+    if(this.hasAttribute('data-category-target')){
+      const category = this.getAttribute('data-category-target');
+      // Add an input field for the 'page' data
+      const categoryInput = document.createElement('input');
+      categoryInput.type = 'hidden';
+      categoryInput.name = 'category';
+      categoryInput.value = category; // The value you want to send
+      form.appendChild(categoryInput);
+    }
+    if(this.hasAttribute('data-title-target')){
+      form.action = 'index.php'; // Your target URL
+      const title = this.getAttribute('data-title-target');
+      // Add an input field for the 'page' data
+      const titleInput = document.createElement('input');
+      titleInput.type = 'hidden';
+      titleInput.name = 'title';
+      titleInput.value = title; // The value you want to send
+      form.appendChild(titleInput);
+    }
+    
+
+    // Append the form to the document body
+    document.body.appendChild(form);
+
+    // Submit the form
+    form.submit();
+
+  });
+});
+</script>
+
+<script language="JavaScript">
+  window.onload = function() {
+    document.addEventListener("contextmenu", function(e){
+      e.preventDefault();
+    }, false);
+    document.addEventListener("keydown", function(e) {
+    /*document.onkeydown = function(e) {
+       "I" key*/
+      if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+        disabledEvent(e);
+      }
+      /* "J" key */
+      if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+        disabledEvent(e);
+      }
+      /* "S" key + macOS */
+      if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
+        disabledEvent(e);
+      }
+      /* "U" key */
+      if (e.ctrlKey && e.keyCode == 85) {
+        disabledEvent(e);
+      }
+      /* "F12" key */
+      if (event.keyCode == 123) {
+        disabledEvent(e);
+      }
+    }, false);
+    function disabledEvent(e){
+      if (e.stopPropagation){
+        e.stopPropagation();
+      } else if (window.event){
+        window.event.cancelBubble = true;
+      }
+      e.preventDefault();
+      return false;
+    }
+  };
+  
+  // <!-- code to disable print screen -->
+   document.addEventListener("keyup", function (e) {
+    var keyCode = e.keyCode ? e.keyCode : e.which;
+            if (keyCode == 44) {
+                stopPrntScr();
+            }
+        });
+function stopPrntScr() {
+
+            var inpFld = document.createElement("input");
+            inpFld.setAttribute("value", ".");
+            inpFld.setAttribute("width", "0");
+            inpFld.style.height = "0px";
+            inpFld.style.width = "0px";
+            inpFld.style.border = "0px";
+            document.body.appendChild(inpFld);
+            inpFld.select();
+            document.execCommand("copy");
+            inpFld.remove(inpFld);
+        }
+       function AccessClipboardData() {
+            try {
+                window.clipboardData.setData('text', "Access   Restricted");
+            } catch (err) {
+            }
+        }
+        setInterval("AccessClipboardData()", 300);
+</script>
 
 </body></html>
 

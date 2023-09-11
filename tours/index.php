@@ -255,10 +255,10 @@ if (isset($_GET['page'])) {
 
               // Generate the HTML
               foreach ($categories as $category => $titles) {
-                echo '<li class="dropdown"><a href="#" data-target="experiences" data-category-target="' . $category . '"><span>' . strtoupper($category) . '</span> <i class="bi bi-chevron-right"></i></a>';
+                echo '<li class="dropdown"><a href="#" data-target="experiences" data-category-target="' . htmlspecialchars($category, ENT_QUOTES, 'UTF-8') . '"><span>' . strtoupper($category) . '</span> <i class="bi bi-chevron-right"></i></a>';
                 echo '<ul>';
                   foreach ($titles as $title) {
-                    echo '<li><a href="#" data-target="experiences" data-category-target="' . $category . '" data-title-target="' . $title . '">' . $title . '</a></li>';
+                    echo '<li><a href="#" data-target="experiences" data-category-target="' . htmlspecialchars($category, ENT_QUOTES, 'UTF-8') . '" data-title-target="' . htmlspecialchars($title, ENT_QUOTES, 'UTF-8') . '">' . $title . '</a></li>';
                   }
                   echo '</ul>';
                   echo '</li>';
@@ -288,10 +288,10 @@ if (isset($_GET['page'])) {
 
               // Generate the HTML
               foreach ($categories as $category => $titles) {
-                echo '<li class="dropdown"><a href="#" data-target="packages" data-category-target="' . $category . '"><span>' . strtoupper($category) . '</span> <i class="bi bi-chevron-right"></i></a>';
+                echo '<li class="dropdown"><a href="#" data-target="packages" data-category-target="' . htmlspecialchars($category, ENT_QUOTES, 'UTF-8') . '"><span>' . strtoupper($category) . '</span> <i class="bi bi-chevron-right"></i></a>';
                 echo '<ul>';
                   foreach ($titles as $title) {
-                    echo '<li><a href="#" data-target="packages" data-category-target="' . $category . '" data-title-target="' . $title . '">' . $title . '</a></li>';
+                    echo '<li><a href="#" data-target="packages" data-category-target="' . htmlspecialchars($category, ENT_QUOTES, 'UTF-8') . '" data-title-target="' . htmlspecialchars($title, ENT_QUOTES, 'UTF-8') . '">' . $title . '</a></li>';
                   }
                   echo '</ul>';
                   echo '</li>';
@@ -307,7 +307,7 @@ if (isset($_GET['page'])) {
                   while ($row = mysqli_fetch_assoc($itenaries)) {
                       $rowsItenaries[] = $row;
                       $title = $row['title'];
-                      echo '<li><a href="#" data-target="itenaries" data-title-target="' . $title . '">' . $title . '</a></li>';
+                      echo '<li><a href="#" data-target="itenaries" data-title-target="' . htmlspecialchars($title, ENT_QUOTES, 'UTF-8') . '">' . $title . '</a></li>';
                     }
               }
               ?>              

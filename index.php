@@ -340,10 +340,10 @@
 
               // Generate the HTML
               foreach ($categories as $category => $titles) {
-                  echo '<li class="dropdown"><a href="#" data-target="experiences" data-category-target="' . $category . '"><span>' . strtoupper($category) . '</span> <i class="bi bi-chevron-right"></i></a>';
+                  echo '<li class="dropdown"><a href="#" data-target="experiences" data-category-target="' . htmlspecialchars($category, ENT_QUOTES, 'UTF-8') . '"><span>' . strtoupper($category) . '</span> <i class="bi bi-chevron-right"></i></a>';
                   echo '<ul>';
                   foreach ($titles as $title) {
-                      echo '<li><a href="#" data-target="experiences" data-category-target="' . $category . '" data-title-target="' . $title . '">' . $title . '</a></li>';
+                      echo '<li><a href="#" data-target="experiences" data-category-target="' . htmlspecialchars($category, ENT_QUOTES, 'UTF-8') . '" data-title-target="' . htmlspecialchars($title, ENT_QUOTES, 'UTF-8') . '">' . $title . '</a></li>';
                   }
                   echo '</ul>';
                   echo '</li>';
@@ -372,10 +372,10 @@
 
               // Generate the HTML
               foreach ($categories as $category => $titles) {
-                  echo '<li class="dropdown"><a href="#" data-target="packages" data-category-target="' . $category . '"><span>' . strtoupper($category) . '</span> <i class="bi bi-chevron-right"></i></a>';
+                  echo '<li class="dropdown"><a href="#" data-target="packages" data-category-target="' . htmlspecialchars($category, ENT_QUOTES, 'UTF-8') . '"><span>' . strtoupper($category) . '</span> <i class="bi bi-chevron-right"></i></a>';
                   echo '<ul>';
                   foreach ($titles as $title) {
-                      echo '<li><a href="#" data-target="packages" data-category-target="' . $category . '" data-title-target="' . $title . '">' . $title . '</a></li>';
+                      echo '<li><a href="#" data-target="packages" data-category-target="' . htmlspecialchars($category, ENT_QUOTES, 'UTF-8') . '" data-title-target="' . htmlspecialchars($title, ENT_QUOTES, 'UTF-8') . '">' . $title . '</a></li>';
                   }
                   echo '</ul>';
                   echo '</li>';
@@ -390,7 +390,7 @@
             if (mysqli_num_rows($itenaries) > 0) {
                 while ($row = mysqli_fetch_assoc($itenaries)) {
                     $title = $row['title'];
-                    echo '<li><a href="#" data-target="itenaries" data-title-target="' . $title . '">' . $title . '</a></li>';
+                    echo '<li><a href="#" data-target="itenaries" data-title-target="' . htmlspecialchars($title, ENT_QUOTES, 'UTF-8') . '">' . $title . '</a></li>';
                 }
             }
             ?>
@@ -539,7 +539,7 @@
                           <h6>$package_includes</h6>
                       </article>
                       <div class='ver_mas text-center'>
-                        <a href='#' data-target='experiences' data-category-target='" . $category . "' data-title-target='" . $title . "'>READ MORE >></a>
+                        <a href='#' data-target='experiences' data-category-target='" . htmlspecialchars($category, ENT_QUOTES, 'UTF-8') . "' data-title-target='" . htmlspecialchars($title, ENT_QUOTES, 'UTF-8') . "'>READ MORE >></a>
                       </div>
                       </div>
                     </div>
@@ -636,7 +636,7 @@
                           <h6>$package_includes</h6>
                       </article>
                       <div class='ver_mas text-center'>
-                        <a href='#' data-target='packages' data-category-target='" . $category . "' data-title-target='" . $title . "'>READ MORE >></a>
+                        <a href='#' data-target='packages' data-category-target='" . htmlspecialchars($category, ENT_QUOTES, 'UTF-8') . "' data-title-target='" . htmlspecialchars($title, ENT_QUOTES, 'UTF-8') . "'>READ MORE >></a>
                       </div>
                       </div>
                     </div>
@@ -696,7 +696,7 @@
                         <h6>$package_includes</h6>
                     </article>
                     <div class='ver_mas text-center'>
-                      <a href='#' data-target='itenaries' data-title-target='" . $title . "'>READ MORE >></a>
+                      <a href='#' data-target='itenaries' data-title-target='" . htmlspecialchars($title, ENT_QUOTES, 'UTF-8') . "'>READ MORE >></a>
                     </div>
                     </div>
                   </div>

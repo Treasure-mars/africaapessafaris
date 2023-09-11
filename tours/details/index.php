@@ -48,7 +48,11 @@ if (isset($_GET['page'])) {
     }
     if($flag){
       if(isset($_GET['category']) && $page !== 'itenaries' && isset($_GET['title'])){
-        $sql = "select * from $page where category='" . $_GET['category'] . "' and title='" . $_GET['title'] . "'";
+        $category = stripslashes($_GET['category']);
+        $category = mysqli_real_escape_string($conn,$category);
+        $title = stripslashes($_GET['title']);
+        $title = mysqli_real_escape_string($conn,$title);
+        $sql = "select * from $page where category='" . $category . "' and title='" . $title . "'";
         $count = mysqli_query($conn, $sql);
         if(mysqli_num_rows($count) == 0){
           include('error.php');
@@ -58,7 +62,9 @@ if (isset($_GET['page'])) {
         include('error.php');
         exit;
       }else if(isset($_GET['title']) && $page === 'itenaries'){
-        $sql2 = "select * from itenaries where title='" . $_GET['title'] . "'";
+        $title = stripslashes($_GET['title']);
+        $title = mysqli_real_escape_string($conn,$title);
+        $sql2 = "select * from itenaries where title='" . $title . "'";
         $count2 = mysqli_query($conn, $sql2);
         if(mysqli_num_rows($count2) == 0){
           include('error.php');
@@ -337,7 +343,8 @@ if (isset($_GET['page'])) {
             // $package_excludes = '';
             
             if($page === 'experiences'){
-              $title = $_GET['title'];
+              $title = stripslashes($_GET['title']);
+              $title = mysqli_real_escape_string($conn,$title);
               $sql = "select * from experiences where title='$title'";
               $result = mysqli_query($conn, $sql);
               if(mysqli_num_rows($result) > 0){
@@ -355,7 +362,8 @@ if (isset($_GET['page'])) {
                 $trimmedString = str_replace("../../", "", $photo);
               }
             }else if($page === 'packages'){
-              $title = $_GET['title'];
+              $title = stripslashes($_GET['title']);
+              $title = mysqli_real_escape_string($conn,$title);
               $sql = "select * from packages where title='$title'";
               $result = mysqli_query($conn, $sql);
               if(mysqli_num_rows($result) > 0){
@@ -373,7 +381,8 @@ if (isset($_GET['page'])) {
                 $trimmedString = str_replace("../../", "", $photo);
               }
             }else if($page === 'itenaries'){
-              $title = $_GET['title'];
+              $title = stripslashes($_GET['title']);
+              $title = mysqli_real_escape_string($conn,$title);
               $sql = "select * from itenaries where title='$title'";
               $result = mysqli_query($conn, $sql);
               if(mysqli_num_rows($result) > 0){

@@ -29,13 +29,29 @@ else { echo "Connected to mysql database. " . $_POST['location']; }
     {
         $id = $_POST['id'] ?? "";
 		$category = $_POST['category'] ?? "";
+        $category = stripslashes($category);
+        $category = mysqli_real_escape_string($conn,$category);
         $title = $_POST['title'] ?? "";
+        $title = stripslashes($title);
+        $title = mysqli_real_escape_string($conn,$title);
         $duration = $_POST['duration'] ?? "";
+        $duration = stripslashes($duration);
+        $duration = mysqli_real_escape_string($conn,$duration);
         $elevation = $_POST['elevation'] ?? "";
+        $elevation = stripslashes($elevation);
+        $elevation = mysqli_real_escape_string($conn,$elevation);
         $package_includes = $_POST['package_includes'] ?? "";
+        $package_includes = stripslashes($package_includes);
+        $package_includes = mysqli_real_escape_string($conn,$package_includes);
         $package_excludes = $_POST['package_excludes'] ?? "";
+        $package_excludes = stripslashes($package_excludes);
+        $package_excludes = mysqli_real_escape_string($conn,$package_excludes);
         $summary = $_POST['summary'] ?? "";
+        $summary = stripslashes($summary);
+        $summary = mysqli_real_escape_string($conn,$summary);
         $details = $_POST['details'] ?? "";
+        $details = stripslashes($details);
+        $details = mysqli_real_escape_string($conn,$details);
         $newprofilephoto = $_POST['newprofilephoto'] ?? "";
 
         if($_POST['location'] === 'AddExperience'){
@@ -87,7 +103,11 @@ else { echo "Connected to mysql database. " . $_POST['location']; }
     if(isset($_POST['save']))
     {
         $username = $_POST['username'];
+        $username = stripslashes($username);
+        $username = mysqli_real_escape_string($conn,$username);
         $password = $_POST['password'];
+        $password = stripslashes($password);
+        $password = mysqli_real_escape_string($conn,$password);
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT); // Hash the password
         $profile_photo = "../assets/img/profile/No-profile.jpg";
         if(isset($_POST['user_level'])){
@@ -127,7 +147,11 @@ else { echo "Connected to mysql database. " . $_POST['location']; }
 if(isset($_POST['update']))
 {
         $username = $_POST['username'];
+        $username = stripslashes($username);
+        $username = mysqli_real_escape_string($conn,$username);
         $password = $_POST['password'];
+        $password = stripslashes($password);
+        $password = mysqli_real_escape_string($conn,$password);
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT); // Hash the password
         if(isset($_POST['user_level'])){
             $user_level = $_POST['user_level'];
@@ -166,12 +190,26 @@ if(isset($_POST['update']))
 if(isset($_POST['updateself']))
 {
         $username = $_POST['username'];
+        $username = stripslashes($username);
+        $username = mysqli_real_escape_string($conn,$username);
         $newusername = $_POST['newusername'];
+        $newusername = stripslashes($newusername);
+        $newusername = mysqli_real_escape_string($conn,$newusername);
         $full_names = $_POST['full_names'] ?? "";
+        $full_names = stripslashes($full_names);
+        $full_names = mysqli_real_escape_string($conn,$full_names);
         $twitter_link = $_POST['twitter_link'] ?? "";
+        $twitter_link = stripslashes($twitter_link);
+        $twitter_link = mysqli_real_escape_string($conn,$twitter_link);
         $instagram_link = $_POST['instagram_link'] ?? "";
+        $instagram_link = stripslashes($instagram_link);
+        $instagram_link = mysqli_real_escape_string($conn,$instagram_link);
         $facebook_link = $_POST['facebook_link'] ?? "";
+        $facebook_link = stripslashes($facebook_link);
+        $facebook_link = mysqli_real_escape_string($conn,$facebook_link);
         $linkedin_link = $_POST['linkedin_link'] ?? "";
+        $linkedin_link = stripslashes($linkedin_link);
+        $linkedin_link = mysqli_real_escape_string($conn,$linkedin_link);
         $newprofilephoto = $_POST['newprofilephoto'] ?? "";
         $location = $_POST['location'];
                 
@@ -202,9 +240,17 @@ if(isset($_POST['updateself']))
 if(isset($_POST['updatepassword']))
 {
         $username = $_POST['username'];
+        $username = stripslashes($username);
+        $username = mysqli_real_escape_string($conn,$username);
         $currentpassword = $_POST['password'];
+        $currentpassword = stripslashes($currentpassword);
+        $currentpassword = mysqli_real_escape_string($conn,$currentpassword);
         $newpassword = $_POST['newpassword'];
+        $newpassword = stripslashes($newpassword);
+        $newpassword = mysqli_real_escape_string($conn,$newpassword);
         $renewpassword = $_POST['renewpassword'];
+        $renewpassword = stripslashes($renewpassword);
+        $renewpassword = mysqli_real_escape_string($conn,$renewpassword);
         $location = $_POST['location'];
                 
         $sql="SELECT password FROM users where username='{$username}';";
@@ -246,6 +292,8 @@ if(isset($_POST['updatepassword']))
 if(isset($_POST['disable']))
 {
         $username = $_POST['username'];
+        $username = stripslashes($username);
+        $username = mysqli_real_escape_string($conn,$username);
         $enabled = 0;
                
     $sql = "UPDATE users SET enabled=".$enabled." WHERE username='".$username."'"; 
@@ -263,6 +311,8 @@ if(isset($_POST['disable']))
 if(isset($_POST['enable']))
 {
         $username = $_POST['username'];
+        $username = stripslashes($username);
+        $username = mysqli_real_escape_string($conn,$username);
         $enabled = 1;
                  
     $sql = "UPDATE users SET enabled=".$enabled." WHERE username='".$username."'"; 
@@ -280,6 +330,8 @@ if(isset($_POST['enable']))
 if(isset($_POST['delete']))
 {
         $username = $_POST['username'];
+        $username = stripslashes($username);
+        $username = mysqli_real_escape_string($conn,$username);
                        
     $sql = "DELETE FROM users WHERE username='".$username."'"; 
  

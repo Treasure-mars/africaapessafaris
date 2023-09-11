@@ -49,7 +49,9 @@ if (isset($_GET['page'])) {
     }
     if($flag){
       if(isset($_GET['category']) && $page !== 'itenaries'){
-        $sql = "select * from $page where category='" . $_GET['category'] . "'";
+        $category = stripslashes($_GET['category']);
+        $category = mysqli_real_escape_string($conn,$category);
+        $sql = "select * from $page where category='" . $category . "'";
         $count = mysqli_query($conn, $sql);
         if(mysqli_num_rows($count) == 0){
           include('error.php');
@@ -410,7 +412,7 @@ if (isset($_GET['page'])) {
                                         <h6>$package_includes</h6>
                                     </article>
                                     <div class='ver_mas text-center'>
-                                      <a href='#' data-target='experiences' data-category-target='" . $category . "' data-title-target='" . $title . "'>READ MORE >></a>
+                                      <a href='#' data-target='experiences' data-category-target='" . htmlspecialchars($category, ENT_QUOTES, 'UTF-8') . "' data-title-target='" . htmlspecialchars($title, ENT_QUOTES, 'UTF-8') . "'>READ MORE >></a>
                                     </div>
                                     </div>
                                   </div>
@@ -462,7 +464,7 @@ if (isset($_GET['page'])) {
                                         <h6>$package_includes</h6>
                                     </article>
                                     <div class='ver_mas text-center'>
-                                      <a href='#' data-target='packages' data-category-target='" . $category . "' data-title-target='" . $title . "'>READ MORE >></a>
+                                      <a href='#' data-target='packages' data-category-target='" . htmlspecialchars($category, ENT_QUOTES, 'UTF-8') . "' data-title-target='" . htmlspecialchars($title, ENT_QUOTES, 'UTF-8') . "'>READ MORE >></a>
                                     </div>
                                     </div>
                                   </div>
@@ -508,7 +510,7 @@ if (isset($_GET['page'])) {
                                       <h6>$package_includes</h6>
                                   </article>
                                   <div class='ver_mas text-center'>
-                                    <a href='#' data-target='itenaries' data-title-target='" . $title . "'>READ MORE >></a>
+                                    <a href='#' data-target='itenaries' data-title-target='" . htmlspecialchars($title, ENT_QUOTES, 'UTF-8') . "'>READ MORE >></a>
                                   </div>
                                   </div>
                                 </div>

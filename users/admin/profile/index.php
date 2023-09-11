@@ -6,7 +6,7 @@ session_start();
 if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
   $_SESSION['user'] = $_SESSION['username'];
 }else {
-  $location = "../";
+  $location = "../../";
   header("location: $location");
 }
 
@@ -50,9 +50,10 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
     include("../../connect.php");
 
     $tbl_name="users"; // Table name 
-
+    $user = stripslashes($_SESSION['user']);
+    $user = mysqli_real_escape_string($conn,$user);
     //Query
-    $sql="SELECT id,full_names,profile_photo,username,user_level,twitter_link,instagram_link,linkedin_link,facebook_link FROM $tbl_name where username='{$_SESSION['user']}';";
+    $sql="SELECT id,full_names,profile_photo,username,user_level,twitter_link,instagram_link,linkedin_link,facebook_link FROM $tbl_name where username='{$user}';";
     $result=mysqli_query($conn,$sql);
     // mysqli_num_rows is counting table row
     if(mysqli_num_rows($result) > 0){

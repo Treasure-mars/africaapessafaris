@@ -6,10 +6,29 @@ session_start();
 if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
   $_SESSION['user'] = $_SESSION['username'];
 }else {
-  $location = "../";
+  $location = "../../";
   header("location: $location");
 }
 
+
+//include the database connection
+include("../../connect.php");
+
+$tbl_name="users"; // Table name 
+$user = stripslashes($_SESSION['user']);
+$user = mysqli_real_escape_string($conn,$user);
+//Query
+$sql="SELECT id,full_names,profile_photo,username,user_level,twitter_link,instagram_link,linkedin_link,facebook_link FROM $tbl_name where username='{$user}';";
+$result=mysqli_query($conn,$sql);
+// mysqli_num_rows is counting table row
+if(mysqli_num_rows($result) > 0){
+  if ($row = mysqli_fetch_assoc($result)) {
+    // Access data from each row
+    $profilePhotoURLWithOutTimestamp = $row['profile_photo'];
+
+
+    $timestamp = time(); // Get the current timestamp
+    $profile_photo = $profilePhotoURLWithOutTimestamp . "?t=" . $timestamp;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,7 +95,7 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="../../assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+            <img src="../../<?php echo $profile_photo ?>" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo $_SESSION['user']; ?></span>
           </a><!-- End Profile Iamge Icon -->
 
@@ -704,3 +723,8 @@ if( isset( $_SESSION['username'] ) && ($_SESSION['user_level'] == "Admin")) {
 </body>
 
 </html>
+
+<?php 
+                  }
+                  } 
+                ?>

@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+  
+	<title>Africa Apes Safaris</title>
+	<meta content="" name="description">
+	<meta content="" name="keywords">
+	<meta name="author" content="TMars Studio">
+  
+	<!-- Favicons -->
+	<link href="../../../assets/img/logo.jpg" rel="icon">
+	<link href="../../../assets/img/logo.jpg" rel="apple-touch-icon">
+
+<!-- Stylesheets -->
+<link href="../../../assets/link_files/bootstrap.css" rel="stylesheet">
+<link href="../../../assets/link_files/style.css" rel="stylesheet">
+<link href="../../../assets/link_files/slick.css" rel="stylesheet">
+<link href="../../../assets/link_files/responsive.css" rel="stylesheet">
+<!--Color Switcher Mockup-->
+<link href="../../../assets/link_files/color-switcher-design.css" rel="stylesheet">
+<!--Color Themes-->
+<link id="theme-color-file" href="../../../assets/link_files/default-theme.css" rel="stylesheet">
+
+<!-- site metas -->
+ <!-- Shareble To social media meat-->
+   	<!-- site metas -->
+ <!-- Shareble To social media meat-->
+
+    
+<meta property="og:title" content="Kigali City Walk">
+<meta property="og:url" content="africaapessafaris.com/itinerary-details.php">
+<meta property="og:image:type" content="image/jpg">
+<!--<meta property="og:image:width" content="504" />
+<meta property="og:image:height" content="691" />
+<meta property="og:description" content="" />
+-->
+<meta property="og:site_name" content="africaapessafaris.com">
+<meta property="og:type" content="website">
+<meta property="og:updated_time" content="1440432930">
+<!-- Responsive -->
+  <meta name="description" content="">
+  <meta name="keywords" content="Africa Apes Safaris, Experience, Tours, Chimpanzees &amp; Gorilla trekking, Africa Apes Safaris owners, are native East Africans and have intimate,offering Luxury gorilla trekking to budget gorilla trek, current knowledge of the East African countries that you will visit and every element and aspect of your itinerary, from lodges to airlines to tour guides.">
+  <meta name="author" content="Designed by Treasure Mars">
+  
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+<!-- Vendor CSS Files -->
+<link href="../../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="../../../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+<link href="../../../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+<link href="../../../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+<link href="../../../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+<!-- Template Main CSS File -->
+<link href="../../../assets/css/style.css" rel="stylesheet">
+<style>
+  .profile-card-4 img {
+        height: 250px;
+  }
+  .first a:hover {
+        color: #168b3f !important;
+    }
+
+    .second {
+      position: relative;
+      padding: 15px 85px;
+      margin-top: -22px;
+      top: -9px;
+      display: inline-block;
+      background-color: #4d6f1d;
+    }
+
+    .breadcrumb-outer .second:before {
+        position: absolute;
+        content: '';
+        top: 43%;
+        left: 57px;
+        width: 37px;
+        height: 15px;
+        margin-top: -8px;
+        border-radius: 0;
+        background-color: white;
+    }
+    .breadcrumb-outer .second:after {
+      position: absolute;
+      content: '';
+      top: 43%;
+      right: 60px;
+      width: 37px;
+      height: 15px;
+      margin-top: -8px;
+      border-radius: 0;
+      background-color: #ffffff;
+  }
+
+  .breadcrumb-item .active-2 {
+          color: #168b3f !important;
+      }
+
+      .breadcrumb-item .active-2 span:hover {
+        padding-bottom: 10px !important;
+        border-bottom: 3px solid black !important;
+      }
+
+    .active-2 {
+        color: #168b3f !important;
+    }
+
+    .first span:hover {
+        padding-bottom: 21px !important;
+        border-bottom: 3px solid #168b3f !important;
+
+    }
+
+    .breadcrumb>li+li:before {
+        content: "" !important;
+    }
+
+    .breadcrumb {
+        padding: 19px ;
+        font-size: 14px;
+        color: #aaa !important;
+        letter-spacing: 2px ;
+        border-radius: 5px !important;
+    }
+
+ 
+
+    .bi-chevron-double-right {
+        color: #aaa !important;
+    }
+
+
+
+    .first a {
+        text-decoration: none !important;
+        color: #aaa !important;
+    }
+
+    .first a:focus,
+    .first a:active {
+        outline: none !important;
+        box-shadow: none !important;
+    }
+
+
+    .bi-chevron-double-right {
+        font-size: 20px !important;
+    }
+
+</style>
+</head>
+
+<body class="hidden-bar-wrapper">
+
+<div class="page-wrapper">
+ 	
+	<header id="header" class="fixed-top">
+
+		<div class="container d-flex align-items-center justify-content-between">
+			<a href="../../../"><img src="../../../assets/img/logo.jpg" width="50px" height="50px" class="img-fluid" style="margin-right: 10px;"/></a>
+			<a class="btn btn-sm fs-sm order-lg-3 d-none d-sm-inline-flex" style="background-color: #467758;color:white;" href="../../../design_own_package/" rel="noopener">Book now</a>
+			<nav id="navbar" class="navbar" style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+        <ul>
+          <li><a class="nav-link scrollto" href="../../../about_us/">ABOUT US</a></li>
+          <li class="dropdown"><a href="../../"><span>EXPERIENCES</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li class="dropdown"><a href="../../Safari/"><span>SAFARI</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="../../Safari/Gorilla trekking/">Gorilla trekking</a></li>
+                  <li><a href="../../Safari/Chimpanzee trekking/">Chimpanzee trekking</a></li>
+                  <li><a href="../../Safari/Game drives/">Game drives</a></li>
+                  <li><a href="../../Safari/Night games drives/">Night games drives</a></li>
+                  <li><a href="../../Safari/Boat safari/">Boat safari</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"><a href="../../Wellness/"><span>WELLNESS</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="../../Wellness/Guided walking safaris/">Guided walking safaris</a></li>
+                  <li><a href="../../Wellness/Nature walks/">Nature walks</a></li>
+                  <li><a href="../../Wellness/Birds watching/">Birds watching</a></li>
+                  <li><a href="../../Wellness/Canopy walk way/">Canopy walk way</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"><a href="../"><span>CULTURE</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="../Local culture/">Local culture</a></li>
+                  <li><a href="../Conservation experience/">Conservation experience</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="../../../packages/"><span>TOUR PACKAGES</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li class="dropdown"><a href="../../../packages/Community tours/"><span>Community Tours</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="../../../packages/Community tours/kigali_city_walk/">Kigali city walk</a></li>
+                  <li><a href="../../../packages/Community tours/karisoke research center/">Karisoke research center</a></li>
+                  <li><a href="../../../packages/Community tours/diana fossy fund/">Diana fossy fund</a></li>
+                  <li><a href="../../../packages/Community tours/traditional culture/">Traditional culture</a></li>
+                  <li><a href="../../../packages/Community tours/poetry making/">Poetry making</a></li>
+                  <li><a href="../../../packages/Community tours/ibyi wacu village/">Ibyi wacu village</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"><a href="../../../packages/Adventure tours/"><span>Adventure Tours</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="../../../packages/Adventure tours/hiking/">Hiking</a></li>
+                  <li><a href="../../../packages/Adventure tours/biking/">Biking</a></li>
+                  <li><a href="../../../packages/Adventure tours/cycling/">Cycling</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"><a href="../../../packages/Agrotourism experience/"><span>Agrotourism Experience</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="../../../packages/Agrotourism experience/coffee tour experience/">Coffee Tour Experience</a></li>
+                  <li><a href="../../../packages/Agrotourism experience/tea tour experience/">Tea Tour Experience</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"><a href="../../../packages/heritage tours/"><span>Heritage Tours</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="../../../packages/heritage tours/ethnographic museum/">Ethnographic museum</a></li>
+                  <li><a href="../../../packages/heritage tours/kings palace museum/">Kings palace museum</a></li>
+                  <li><a href="../../../packages/heritage tours/environmental museum/">Environmental museum</a></li>
+                  <li><a href="../../../packages/heritage tours/rwanda arts museum/">Rwanda arts museum</a></li>
+                  <li><a href="../../../packages/heritage tours/richard kandt museum/">Richard kandt museum</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="../../../itenaries/"><span>SUGGESTED ITENARIES</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="../../../itenaries/Rwanda - 6 days Virunga mountain gorilla spectacular/">Rwanda - 6 days Virunga mountain gorilla spectacular</a></li>
+              <li><a href="../../../itenaries/Rwanda - 7 days Rwanda's rain forests, apes and primates/">Rwanda - 7 days Rwanda's rain forests, apes and primates</a></li>
+              <li><a href="../../../itenaries/Rwanda - 8 days Big games and mountain gorillas/">Rwanda - 8 days Big games and mountain gorillas</a></li>
+              <li><a href="../../../itenaries/Uganda - 9 days Uganda classic - gorilla, chimpanzee and big game/">Uganda - 9 days Uganda classic - gorilla, chimpanzee and big game</a></li>
+              <li><a href="../../../itenaries/Burundi - 3 days Burundi sightseeing tour/">Burundi - 3 days Burundi sightseeing tour</a></li>
+              <li><a href="../../../itenaries/DRC - 7 days Giant gorillas and lava lakes in the eastern congo/">DRC - 7 days Giant gorillas and lava lakes in the eastern congo</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="#faq">FAQ</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+		
+		  </div>	
+		</header>
+    <!--End Main Header -->
+	<!--Page Title-->
+		<section class="page-title" style="background-image:url('../../../assets/img/bg-nature-walk.jpg')" style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+    	<div class="auto-container">
+        	<h2 style="color: white; text-shadow: none;">Nature Walks</h2>
+      </div>
+    </section>
+    <!--End Page Title-->
+    
+    
+    <!--Breadcrumb-->
+    <div class="breadcrumb-outer">
+    	<div class="auto-container first">
+        	<ol class="bread-crumb text-center breadcrumb shadow-lg px-md-4 indigo lighten-6" style="background-color: black;">
+            	<li class="breadcrumb-item font-weight-bold " ><a class="black-text text-uppercase  " href="../../"><span class="mr-md-3 mr-2">EXPERIENCES</span></a><i class="bi bi-chevron-double-right" aria-hidden="true"></i></li>
+              <li class="breadcrumb-item font-weight-bold"><a class="black-text text-uppercase" href="../"><span class="mr-md-3 mr-2">WELLNESS</span></a><i class="bi bi-chevron-double-right" aria-hidden="true"></i></li>
+              <li class="breadcrumb-item font-weight-bold"><label class="black-text text-uppercase active-2" href="#"><span class="mr-md-3 mr-2">Nature Walks</span></label></li>
+            </ol>
+            <!-- <nav aria-label="breadcrumb " class="second " >
+              <ol class="breadcrumb indigo lighten-6 first shadow-lg px-md-4">
+                  <li class="breadcrumb-item font-weight-bold " ><a class="black-text text-uppercase  " href="#"><span class="mr-md-3 mr-2">Home</span></a><i class="bi bi-chevron-double-right" aria-hidden="true"></i></li>
+                  <li class="breadcrumb-item font-weight-bold"><a class="black-text text-uppercase active-2" href="#"><span class="mr-md-3 mr-2">Community Tours</span></a></li>
+              </ol>
+          </nav> -->
+        </div>
+    </div>
+    <!--End Page Title-->
+	
+	<!--Sidebar Page Container-->
+    <div class="sidebar-page-container">
+    	<div class="auto-container">
+        	<div class="row clearfix">
+            	
+                <!--Content Side-->
+                <div class="content-side col-lg-8 col-md-12 col-sm-12">
+                	<!--Blog Single-->
+                	<div class="blog-single">
+						<div class="inner-box">
+						<div class="lower-content">
+						        <ul class="post-meta">
+                                    <li style="margin-right:40px"><span class="icon fa fa-arrow-right"></span><b>DURATION:</b> 2 to 4 Hours</li><br>
+                                    <li style="margin-right:40px"><span class="icon fa fa-arrow-right"></span><b>ELEVATION:</b> NA</li><br>
+                                    <li style="margin-right:40px"><span class="icon fa fa-arrow-right"></span><b>PACKAGE INCLUDES:</b> Kigali city Tour, Kigali Genocide memorial, Richard  Kandt Museum and Mount Kigali.</li>
+                                   
+                                </ul>
+                                <div class="text">
+                                	
+                                </div>
+                                
+                            </div>
+                           
+                            <div class="lower-content">
+                                <div class="text">
+                                	<p>
+									 </p><p class="MsoNormal"><span lang="en-US" style="font-size:14.0pt;">
+											Departure from the Hotel in the morning after breakfast, drive to Kigali Genocide memorial arrive at 8:00 am, this will introduce you to the country genocide history, after the memorial, you go for a city tour to learn more about the city and progress made then after you go for lunch. At 2 pm depart from the Hotel to Richard Kandt House Museum near former Gakinjiro to learn about Richard explorations and works in Rwanda. After visiting the museum, you drive to Mount Kigali to enjoy the panoramic view of the City.
+										</span>
+									</p>
+									<p class="MsoNormal">
+										<img src="../../../assets/img/liberation.jpg"	style="width: 100%;" data-filename="Picture2.png">
+										<span lang="en-US"  style="font-size:14.0pt;"><br></span></p><p class="MsoNormal"><span lang="en-US"  style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;font-size:14.0pt;"><br></span></p>									<p></p>
+                                </div>
+                                <!--post-share-options-->
+      
+                            </div>
+                        </div>
+                    </div>
+                   
+				</div>
+							
+				<!--Sidebar Side-->
+                <div class="sidebar-side sticky-container col-lg-4 col-md-12 col-sm-12">
+                	<aside class="sidebar default-sidebar">
+						<div class="inner sticky-box">
+
+							<!--Blog Category Widget-->
+							<!--Donate Help Widget-->
+							<div class="sidebar-widget donate-help-widget" style="background-color: #467758;">
+								<div class="inner-box" style="background-color: #467758;">
+									<h3 class="theme-btn btn-style-three" style="text-align: center;">BOOK US NOW</h3>
+								</div>
+							</div>
+							<!-- Search Form -->
+							<div class="sidebar-widget search-box">
+								<form method="post" action="#">
+																		 <!--Form Group-->
+                                        <div class="form-group col-md-12 col-sm-6 col-xs-12">
+                                            <div class="field-label"> <sup>Package Name</sup></div>
+                                            <input type="text" value="Nature walks" name="tour_name" placeholder="Tour Name" disabled>
+                                        </div>
+                                         <div class="form-group col-md-12 col-sm-6 col-xs-12">
+                                            <div class="field-label"> <sup><br></sup></div>
+                                            <input type="text" required="required" placeholder="Full Name" name="names">
+                                        </div>
+                                        
+                                        <!--Form Group-->
+                                        <div class="form-group col-md-12 col-sm-6 col-xs-12">
+                                          <div class="field-label"> <sup><br></sup></div>
+                                            <input type="text" required="required" placeholder="Nationality" name="country">
+                                        </div>
+                                        
+                                        <!--Form Group-->
+                                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                           <div class="field-label"> <sup><br></sup></div>
+                                            <input type="text" required="required" placeholder="Email" name="email">
+                                        </div>
+                                        
+                                         <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                           <div class="field-label"> <sup><br></sup></div>
+                                            <input type="text" required="required" placeholder="Number of Guest" name="guest">
+                                        </div>
+                                        
+                                        <!--Form Group-->
+                                        <div class="form-group col-md-12 col-sm-6 col-xs-12">
+                                          <div class="field-label"> <sup><br></sup></div>
+                                            <input type="text" required="required" placeholder="Check In" name="date">
+                                        </div>
+                                        
+                                        <!--Form Group-->
+                                        <div class="form-group col-md-12 col-sm-6 col-xs-12">
+                                            <div class="field-label"> <sup><br></sup></div>
+                                            <input type="text" style="height: 100px;" name="message" placeholder="Type Message">
+                                        </div>
+							</form></div>
+							<br>
+							<!-- End Search Form -->
+							<!--Brochure-->
+							<div class="sidebar-widget-two brochure-widget">
+                
+                <div class="brochure-box" style="background-color: #467758;">
+									<div class="inner">
+										<h1><i class="bi bi-journal-check"></i></h1>
+										<p><input type="submit" name="submit" value="Book Now" style="background: transparent;display: block;margin-block-start: -50px;margin-block-end: unset;margin-inline-start: 54px;color: white;"></p>
+									</div>
+								
+								</div>
+
+							</div>
+														
+						</div>						
+					</aside>
+				</div>			
+			</div>
+		</div>
+	</div>
+
+<!-- ======= F.A.Q Section ======= -->
+<section id="faq" class="faq" style="padding: 10px;">
+  <div class="container pt-4 py-5" style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+    <h2 class="pb-2 border-bottom text-center" style="color: #467758;text-shadow: none;">FREQUENTLY ASKED QUESTION</h2> 
+
+    <ul class="faq-list g-5 py-5">
+
+      <li>
+        <div data-bs-toggle="collapse" class="collapsed question" href="#faq1">What currency is used in Rwanda? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+        <div id="faq1" class="collapse" data-bs-parent=".faq-list">
+          <p>
+            Rwandan Franc (RWF)
+          </p>
+        </div>
+      </li>
+
+      <li>
+        <div data-bs-toggle="collapse" href="#faq2" class="collapsed question">What time zone is Rwanda in? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+        <div id="faq2" class="collapse" data-bs-parent=".faq-list">
+          <p>
+            Rwanda shares the same time zone as the rest of Southern Africa, which is two hours ahead of Greenwich Mean Time (GMT) +2 hours, in the Central Africa Time Zone (CAT)
+          </p>
+        </div>
+      </li>
+
+      <li>
+        <div data-bs-toggle="collapse" href="#faq3" class="collapsed question">Can I use my credit cards in Rwanda? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+        <div id="faq3" class="collapse" data-bs-parent=".faq-list">
+          <p>
+            Yes, MasterCard and Visa are usually accepted throughout Rwanda, including Wilderness destinations. Unfortunately we are unable to accept American Express and Diners Club cards at our Wilderness properties.
+          </p>
+        </div>
+      </li>
+
+      <li>
+        <div data-bs-toggle="collapse" href="#faq4" class="collapsed question">What do I pack for a safari in Rwanda? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+        <div id="faq4" class="collapse" data-bs-parent=".faq-list">
+          <p>
+            There may be luggage weight or size restrictions on your journey – so please check the details with your Travel Designer. While Rwanda has no strict dress code, women travellers are advised to dress conservatively. Warm clothing is recommended for the cooler months, and light clothing for summer. Bright colours and white are not advisable on safari.
+          </p>
+        </div>
+      </li>
+
+      <li>
+        <div data-bs-toggle="collapse" href="#faq5" class="collapsed question">What to see in Rwanda? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+        <div id="faq5" class="collapse" data-bs-parent=".faq-list">
+          <p>
+            Rwanda is a land of staggering beauty with extraordinary biodiversity, iconic wildlife, volcanoes, montane rainforest and sweeping plains. Discover our areas by boat or 4x4 vehicle in Akagera National Park. Gorilla trekking is a must-do, as well as golden monkey trekking in Volcanoes National Park. Besides the rich wildlife, you can also explore Kigali, the bustling capital city, alive with tradition and culture. The country has many other exceptional national parks, natural forests and volcanic lakes, including Lake Kivu, one of Africa's Great Lakes. 
+          </p>
+        </div>
+      </li>
+
+      <li>
+        <div data-bs-toggle="collapse" href="#faq6" class="collapsed question">Why should I visit Rwanda? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+        <div id="faq6" class="collapse" data-bs-parent=".faq-list">
+          <p>
+            Rwanda is famous for its mountain gorillas, birdwatching, classic East African safari encounters, cultural experiences, hiking, and our award-winning luxury camps. All set in exclusive, breath-taking regions of Rwanda, ideal for discovering the country’s iconic wildlife.
+          </p>
+        </div>
+      </li>
+
+    </ul>
+
+  </div>
+</section><!-- End F.A.Q Section -->
+
+<div class="b-example-divider"></div>
+
+  <section class="services-section-two" style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+      <div class="container pt-4 py-5" style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+        <h2 class="pb-2 border-bottom text-center" style="color: #467758;text-shadow: none;">RELATED TOUR PACKAGES</h2> 
+
+
+        <div class="row row-cols-1 row-cols-md-3 align-items-md-center g-5 py-5">
+          <a href="../../Safari/Boat safari/">
+            <div class="col">
+              <div class="profile-card-4 text-center"><img src="../../../assets/img/bg-boat-safari.jpg" alt="Tour 1" class="card__picture-img" width="300px" height="300px">
+                  <div class="profile-content">
+                      <div class="profile-name" style="background-color: #467758;">Boat Safari
+                      </div>
+                      <div class="row" style="padding: 0;margin: 0;">
+                          <div class="col" style="padding: 0;margin: 0;">
+                              <div class="profile-overview">
+                                  <h6>4 nights</h6></div>
+                          </div>
+                          <div class="col" style="padding: 0;margin: 0;">
+                              <div class="profile-overview">
+                                  <h6>3 camps</h6></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </a>
+
+          <a href="../../Safari/Gorilla trekking/">
+            <div class="col">
+              <div class="profile-card-4 text-center"><img src="../../../assets/img/bg-gorilla-trekking.jpg" alt="Tour 2" class="card__picture-img" width="300px" height="300px">
+                  <div class="profile-content">
+                      <div class="profile-name" style="background-color: #467758;">Gorilla Trekking tour
+                      </div>
+                      <div class="row" style="padding: 0;margin: 0;">
+                          <div class="col" style="padding: 0;margin: 0;">
+                              <div class="profile-overview">
+                                  <h6>4 nights</h6></div>
+                          </div>
+                          <div class="col" style="padding: 0;margin: 0;">
+                              <div class="profile-overview">
+                                  <h6>3 camps</h6></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </a>
+
+          <a href="../../Culture/Local culture/">
+            <div class="col">
+              <div class="profile-card-4 text-center"><img src="../../../assets/img/bg-local-culture.jpg" alt="Tour 3" class="card__picture-img" width="300px" height="300px">
+                  <div class="profile-content">
+                      <div class="profile-name" style="background-color: #467758;">Local Culture Tour
+                      </div>
+                      <div class="row" style="padding: 0;margin: 0;">
+                          <div class="col" style="padding: 0;margin: 0;">
+                              <div class="profile-overview">
+                                  <h6>4 nights</h6></div>
+                          </div>
+                          <div class="col" style="padding: 0;margin: 0;">
+                              <div class="profile-overview">
+                                  <h6>3 camps</h6></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-3 align-items-md-center g-5 py-5">
+          <a href="../../Safari/Game drives/">
+            <div class="col">
+              <div class="profile-card-4 text-center"><img src="../../../assets/img/bg-game-drives.jpg" alt="Tour 1" class="card__picture-img" width="300px" height="300px">
+                  <div class="profile-content">
+                      <div class="profile-name" style="background-color: #467758;">Game Drives
+                      </div>
+                      <div class="row" style="padding: 0;margin: 0;">
+                          <div class="col" style="padding: 0;margin: 0;">
+                              <div class="profile-overview">
+                                  <h6>4 nights</h6></div>
+                          </div>
+                          <div class="col" style="padding: 0;margin: 0;">
+                              <div class="profile-overview">
+                                  <h6>3 camps</h6></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </a>
+
+          <a href="../../Safari/Chimpanzee trekking/">
+            <div class="col">
+              <div class="profile-card-4 text-center"><img src="../../../assets/img/bg-chimpanzee-trekking.jpg" alt="Tour 2" class="card__picture-img" width="300px" height="300px">
+                  <div class="profile-content">
+                      <div class="profile-name" style="background-color: #467758;">Chimpanzee Trekking tour
+                      </div>
+                      <div class="row" style="padding: 0;margin: 0;">
+                          <div class="col" style="padding: 0;margin: 0;">
+                              <div class="profile-overview">
+                                  <h6>4 nights</h6></div>
+                          </div>
+                          <div class="col" style="padding: 0;margin: 0;">
+                              <div class="profile-overview">
+                                  <h6>3 camps</h6></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </a>
+
+          <a href="../../Culture/Conservation experience/">
+            <div class="col">
+              <div class="profile-card-4 text-center"><img src="../../../assets/img/bg-conservetion-experience.jpg" alt="Tour 3" class="card__picture-img" width="300px" height="300px">
+                  <div class="profile-content">
+                      <div class="profile-name" style="background-color: #467758;">Conservation Experience
+                      </div>
+                      <div class="row" style="padding: 0;margin: 0;">
+                          <div class="col" style="padding: 0;margin: 0;">
+                              <div class="profile-overview">
+                                  <h6>4 nights</h6></div>
+                          </div>
+                          <div class="col" style="padding: 0;margin: 0;">
+                              <div class="profile-overview">
+                                  <h6>3 camps</h6></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </a>  
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-3 align-items-md-center g-5 py-5">
+          <a href="../../Safari/Night games drives/">
+            <div class="col">
+              <div class="profile-card-4 text-center"><img src="../../../assets/img/bg-night-game-drives.jpg" alt="Tour 1" class="card__picture-img" width="300px" height="300px">
+                  <div class="profile-content">
+                      <div class="profile-name" style="background-color: #467758;">Night Game Drives
+                      </div>
+                      <div class="row" style="padding: 0;margin: 0;">
+                          <div class="col" style="padding: 0;margin: 0;">
+                              <div class="profile-overview">
+                                  <h6>4 nights</h6></div>
+                          </div>
+                          <div class="col" style="padding: 0;margin: 0;">
+                              <div class="profile-overview">
+                                  <h6>3 camps</h6></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </a>
+
+          <a href="../Canopy walk way/">
+            <div class="col">
+              <div class="profile-card-4 text-center"><img src="../../../assets/img/bg-canopy-walk.jpg" alt="Tour 2" class="card__picture-img" width="300px" height="300px">
+                  <div class="profile-content">
+                      <div class="profile-name" style="background-color: #467758;">Canopy Walk Way
+                      </div>
+                      <div class="row" style="padding: 0;margin: 0;">
+                          <div class="col" style="padding: 0;margin: 0;">
+                              <div class="profile-overview">
+                                  <h6>4 nights</h6></div>
+                          </div>
+                          <div class="col" style="padding: 0;margin: 0;">
+                              <div class="profile-overview">
+                                  <h6>3 camps</h6></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </a>
+
+          <a href="../Guided walking safaris/">
+            <div class="col">
+              <div class="profile-card-4 text-center"><img src="../../../assets/img/bg-guided-walking-safari.jpg" alt="Tour 3" class="card__picture-img" width="300px" height="300px">
+                  <div class="profile-content">
+                      <div class="profile-name" style="background-color: #467758;">Guided Walking Safaris
+                      </div>
+                      <div class="row" style="padding: 0;margin: 0;">
+                          <div class="col" style="padding: 0;margin: 0;">
+                              <div class="profile-overview">
+                                  <h6>4 nights</h6></div>
+                          </div>
+                          <div class="col" style="padding: 0;margin: 0;">
+                              <div class="profile-overview">
+                                  <h6>3 camps</h6></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-3 align-items-md-center g-5 py-5">
+          <a href="../Birds watching/">
+            <div class="col">
+              <div class="profile-card-4 text-center"><img src="../../../assets/img/bg-birds-watching.jpg" alt="Tour 1" class="card__picture-img" width="300px" height="300px">
+                  <div class="profile-content">
+                      <div class="profile-name" style="background-color: #467758;">Birds Watching
+                      </div>
+                      <div class="row" style="padding: 0;margin: 0;">
+                          <div class="col" style="padding: 0;margin: 0;">
+                              <div class="profile-overview">
+                                  <h6>4 nights</h6></div>
+                          </div>
+                          <div class="col" style="padding: 0;margin: 0;">
+                              <div class="profile-overview">
+                                  <h6>3 camps</h6></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </a>
+
+          <div class="col">
+          </div>
+
+          <div class="col">
+          </div>
+        </div>
+
+		</div>
+	</section>   
+		<!--Ended Four Item Carousel-->
+
+    <div class="bottom-parallax">
+		<!-- ======= Footer ======= -->
+		<footer id="footer" style="background-color: #1b1919; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+
+			<div class="footer-top">
+			  <div class="container">
+          <div class="row">
+  
+            <div class="col-lg-4 col-md-12 col-sm-12 footer-contact">
+              <h3>Africa Apes Safaris</h3>
+              <p>
+                Africa Apes Safaris is a tourism company based in Rwanda (The country of thousand hills). It operates in the whole country but it has head office in Rusizi District located in the Western Province/Rwanda.
+              </p>
+            </div>
+  
+            <div class="col-lg-4 col-md-6 col-sm-6 footer-links">
+              <h4>Useful Links</h4>
+              <ul>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Contact us</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Journay</a></li>
+              </ul>
+            </div>
+  
+            <div class="col-lg-4 col-md-6 col-sm-6 footer-links">
+              <h4>Need Help?</h4>
+              <p>
+                Working hours <br>
+                <strong>24/7</strong> <br>
+                Contact Reservations  <br>
+                <strong>(+250) 781 810 199</strong>   <br> 
+                Email for Us   <br>
+                <strong>africaapessafaris@gmail.com</strong> <br>
+              </p>
+            </div>
+  
+          </div>
+        </div>
+			</div>
+		
+			<div class="container d-md-flex py-4">
+		
+			  <div class="me-md-auto text-center text-md-start">
+				<div class="copyright">
+				  &copy; Copyright <strong><span>Africa Apes Safaris</span></strong>. All Rights Reserved
+				</div>
+				<div class="credits">
+				  Designed by <a href="#">TreasureMars</a>
+				</div>
+			  </div>
+			  <div class="social-links text-center text-md-right pt-3 pt-md-0">
+				<a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+				<a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+				<a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+				<a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+				<a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+			  </div>
+			</div>
+		  </footer><!-- End Footer -->
+		
+		  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+		
+	</div>
+	
+</div>
+<!--End pagewrapper-->
+
+<!--Scroll to top-->
+<div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-arrow-up"></span></div>
+
+<!-- Template Main JS File -->
+<script src="../../../assets/js/main.js"></script>
+<script src="../../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+</body></html>

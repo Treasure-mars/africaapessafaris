@@ -270,7 +270,7 @@
 		</header>
     <!--End Main Header -->
 	<!--Page Title-->
-		<section class="page-title" style="background-image:url('../assets/img/kcc.jpg')" style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+		<section class="page-title" style="background-image:url('../assets/img/bg-design.jpg')" style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
     	<div class="auto-container">
         	<h2 style="color: white; text-shadow: none;">DESIGN YOUR OWN PACKAGE</h2>
       </div>

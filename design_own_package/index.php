@@ -28,22 +28,6 @@
    	<!-- site metas -->
  <!-- Shareble To social media meat-->
 
-    
-<meta property="og:title" content="Kigali City Walk">
-<meta property="og:url" content="africaapessafaris.com/itinerary-details.php">
-<meta property="og:image:type" content="image/jpg">
-<!--<meta property="og:image:width" content="504" />
-<meta property="og:image:height" content="691" />
-<meta property="og:description" content="" />
--->
-<meta property="og:site_name" content="africaapessafaris.com">
-<meta property="og:type" content="website">
-<meta property="og:updated_time" content="1440432930">
-<!-- Responsive -->
-  <meta name="description" content="">
-  <meta name="keywords" content="Africa Apes Safaris, Experience, Tours, Chimpanzees &amp; Gorilla trekking, Africa Apes Safaris owners, are native East Africans and have intimate,offering Luxury gorilla trekking to budget gorilla trek, current knowledge of the East African countries that you will visit and every element and aspect of your itinerary, from lodges to airlines to tour guides.">
-  <meta name="author" content="Designed by Treasure Mars">
-  
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
   <!-- Google Fonts -->

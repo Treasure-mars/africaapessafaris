@@ -10,6 +10,10 @@
   <meta content="" name="keywords">
   <meta name="author" content="TMars Studio">
 
+  <!-- Responsive -->
+  <meta name="description" content="">
+  <meta name="keywords" content="Africa Apes Safaris, Experience, Tours, Chimpanzees &amp; Gorilla trekking, Africa Apes Safaris owners, are native East Africans and have intimate,offering Luxury gorilla trekking to budget gorilla trek, current knowledge of the East African countries that you will visit and every element and aspect of your itinerary, from lodges to airlines to tour guides.">
+  
   <!-- Favicons -->
   <link href="assets/img/logo.jpg" rel="icon">
   <link href="assets/img/logo.jpg" rel="apple-touch-icon">
